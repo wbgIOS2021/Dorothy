@@ -1,0 +1,1293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		200A671826E731DC00136341 /* ShowReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200A671526E731DC00136341 /* ShowReviewTableViewController.swift */; };
+		200A671926E731DC00136341 /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200A671626E731DC00136341 /* RatingTableViewCell.swift */; };
+		200A671A26E731DC00136341 /* AddRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200A671726E731DC00136341 /* AddRatingViewController.swift */; };
+		200A672C26E763A500136341 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200A672B26E763A500136341 /* SearchViewController.swift */; };
+		2014DA8D26E876C600E54886 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014DA8C26E876C600E54886 /* CategoriesTableViewController.swift */; };
+		2014DA9326E8780B00E54886 /* AllCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2014DA9126E8780B00E54886 /* AllCategoryTableViewCell.xib */; };
+		2014DA9426E8780B00E54886 /* AllCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014DA9226E8780B00E54886 /* AllCategoryTableViewCell.swift */; };
+		2014DA9B26E8805700E54886 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014DA9926E8805700E54886 /* ProductListViewController.swift */; };
+		2014DAA526E881BC00E54886 /* SmallCategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2014DAA326E881BB00E54886 /* SmallCategoriesCollectionViewCell.xib */; };
+		2014DAA626E881BC00E54886 /* SmallCategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014DAA426E881BC00E54886 /* SmallCategoriesCollectionViewCell.swift */; };
+		201ADDD726E3309A009B63B7 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201ADDD626E3309A009B63B7 /* ContactUsViewController.swift */; };
+		201ADE0926E35988009B63B7 /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201ADE0826E35988009B63B7 /* AddAddressViewController.swift */; };
+		201ADE0F26E37B69009B63B7 /* PageDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201ADE0E26E37B69009B63B7 /* PageDescriptionViewController.swift */; };
+		201ADE1926E383EB009B63B7 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201ADE1626E383EB009B63B7 /* RegistrationViewController.swift */; };
+		201ADE3126E39329009B63B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201ADE3026E39329009B63B7 /* LoginViewController.swift */; };
+		201AF19226E5FEF000FAB7E4 /* VerifyOtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */; };
+		201AF19826E619EB00FAB7E4 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF19726E619EB00FAB7E4 /* CheckoutViewController.swift */; };
+		20568E4A26E1F87B0027C272 /* MyProfileMenuListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E4726E1F87A0027C272 /* MyProfileMenuListTableViewCell.swift */; };
+		20568E4C26E1F87B0027C272 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E4926E1F87A0027C272 /* MyProfileViewController.swift */; };
+		20568E5D26E204250027C272 /* MyOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E5526E204250027C272 /* MyOrderTableViewController.swift */; };
+		20568E5F26E204250027C272 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E5726E204250027C272 /* OrdersTableViewCell.swift */; };
+		20568E6026E204250027C272 /* OrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20568E5826E204250027C272 /* OrdersTableViewCell.xib */; };
+		20568E6E26E204A20027C272 /* OwnTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E6D26E204A20027C272 /* OwnTableView.swift */; };
+		20568E7426E205050027C272 /* MyOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E7226E205050027C272 /* MyOrderTableViewCell.swift */; };
+		20568E7526E205050027C272 /* MyOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20568E7326E205050027C272 /* MyOrderTableViewCell.xib */; };
+		20568E7E26E2088B0027C272 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E7D26E2088B0027C272 /* OrderSummaryViewController.swift */; };
+		2080116926E0A63800FFAB9C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080116826E0A63800FFAB9C /* HomeViewController.swift */; };
+		2080117326E0A6A000FFAB9C /* HomeCategoryListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2080116D26E0A69E00FFAB9C /* HomeCategoryListCollectionViewCell.xib */; };
+		2080117426E0A6A000FFAB9C /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080116E26E0A69E00FFAB9C /* ProductTableViewCell.swift */; };
+		2080117526E0A6A000FFAB9C /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2080116F26E0A69F00FFAB9C /* ProductTableViewCell.xib */; };
+		2080117626E0A6A000FFAB9C /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2080117026E0A69F00FFAB9C /* ProductCollectionViewCell.xib */; };
+		2080117726E0A6A000FFAB9C /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080117126E0A6A000FFAB9C /* ProductCollectionViewCell.swift */; };
+		2080117826E0A6A000FFAB9C /* HomeCategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2080117226E0A6A000FFAB9C /* HomeCategoryListCollectionViewCell.swift */; };
+		2080118026E0A78000FFAB9C /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2080117E26E0A78000FFAB9C /* iCarousel.m */; };
+		2080119826E0AFE100FFAB9C /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080118526E0AFE000FFAB9C /* Poppins-ExtraLight.ttf */; };
+		2080119926E0AFE100FFAB9C /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080118626E0AFE100FFAB9C /* Poppins-ThinItalic.ttf */; };
+		2080119A26E0AFE100FFAB9C /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080118726E0AFE100FFAB9C /* Poppins-ExtraLightItalic.ttf */; };
+		2080119B26E0AFE100FFAB9C /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080118826E0AFE100FFAB9C /* Poppins-BoldItalic.ttf */; };
+		2080119C26E0AFE100FFAB9C /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080118926E0AFE100FFAB9C /* Poppins-Light.ttf */; };
+		2080119D26E0AFE100FFAB9C /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080118A26E0AFE100FFAB9C /* Poppins-Medium.ttf */; };
+		2080119E26E0AFE100FFAB9C /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080118B26E0AFE100FFAB9C /* Poppins-SemiBoldItalic.ttf */; };
+		2080119F26E0AFE100FFAB9C /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080118C26E0AFE100FFAB9C /* Poppins-ExtraBoldItalic.ttf */; };
+		208011A026E0AFE100FFAB9C /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080118D26E0AFE100FFAB9C /* Poppins-ExtraBold.ttf */; };
+		208011A126E0AFE100FFAB9C /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080118E26E0AFE100FFAB9C /* Poppins-BlackItalic.ttf */; };
+		208011A226E0AFE100FFAB9C /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2080118F26E0AFE100FFAB9C /* OFL.txt */; };
+		208011A326E0AFE100FFAB9C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080119026E0AFE100FFAB9C /* Poppins-Regular.ttf */; };
+		208011A426E0AFE100FFAB9C /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080119126E0AFE100FFAB9C /* Poppins-LightItalic.ttf */; };
+		208011A526E0AFE100FFAB9C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080119226E0AFE100FFAB9C /* Poppins-Bold.ttf */; };
+		208011A626E0AFE100FFAB9C /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080119326E0AFE100FFAB9C /* Poppins-Black.ttf */; };
+		208011A726E0AFE100FFAB9C /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080119426E0AFE100FFAB9C /* Poppins-Thin.ttf */; };
+		208011A826E0AFE100FFAB9C /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080119526E0AFE100FFAB9C /* Poppins-SemiBold.ttf */; };
+		208011A926E0AFE100FFAB9C /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080119626E0AFE100FFAB9C /* Poppins-Italic.ttf */; };
+		208011AA26E0AFE100FFAB9C /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2080119726E0AFE100FFAB9C /* Poppins-MediumItalic.ttf */; };
+		208011B126E0B0AE00FFAB9C /* SideMneuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208011AF26E0B0AE00FFAB9C /* SideMneuTableViewCell.swift */; };
+		208011B226E0B0AE00FFAB9C /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208011B026E0B0AE00FFAB9C /* SideMenuViewController.swift */; };
+		208011BA26E0CABF00FFAB9C /* MyAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208011B726E0CABF00FFAB9C /* MyAddressTableViewCell.swift */; };
+		208011BB26E0CABF00FFAB9C /* MyAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208011B826E0CABF00FFAB9C /* MyAddressTableViewCell.xib */; };
+		208011BC26E0CABF00FFAB9C /* MyAddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208011B926E0CABF00FFAB9C /* MyAddressTableViewController.swift */; };
+		208011C426E0FBC800FFAB9C /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208011C126E0FBC800FFAB9C /* CartViewController.swift */; };
+		208011C526E0FBC800FFAB9C /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208011C226E0FBC800FFAB9C /* CartTableViewCell.xib */; };
+		208011C626E0FBC800FFAB9C /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208011C326E0FBC800FFAB9C /* CartTableViewCell.swift */; };
+		20864B8126DD04D4008BC813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864B8026DD04D4008BC813 /* AppDelegate.swift */; };
+		20864B8326DD04D4008BC813 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864B8226DD04D4008BC813 /* SceneDelegate.swift */; };
+		20864B8526DD04D4008BC813 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864B8426DD04D4008BC813 /* BaseViewController.swift */; };
+		20864B8826DD04D4008BC813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20864B8626DD04D4008BC813 /* Main.storyboard */; };
+		20864B8B26DD04D4008BC813 /* Dorothy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 20864B8926DD04D4008BC813 /* Dorothy.xcdatamodeld */; };
+		20864B8D26DD04D7008BC813 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20864B8C26DD04D7008BC813 /* Assets.xcassets */; };
+		20864B9026DD04D7008BC813 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20864B8E26DD04D7008BC813 /* LaunchScreen.storyboard */; };
+		20864B9B26DD04D8008BC813 /* DorothyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864B9A26DD04D8008BC813 /* DorothyTests.swift */; };
+		20864BA626DD04D8008BC813 /* DorothyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BA526DD04D8008BC813 /* DorothyUITests.swift */; };
+		20864BD026DD0708008BC813 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BCF26DD0708008BC813 /* Services.swift */; };
+		20864BDB26DD0728008BC813 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BD526DD0728008BC813 /* constant.swift */; };
+		20864BDD26DD0728008BC813 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BD726DD0728008BC813 /* UserDefault.swift */; };
+		20864BDE26DD0728008BC813 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BD826DD0728008BC813 /* Reachability.swift */; };
+		20864BDF26DD0728008BC813 /* IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BD926DD0728008BC813 /* IBDesignable.swift */; };
+		20864BE026DD0728008BC813 /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BDA26DD0728008BC813 /* AlertMessages.swift */; };
+		20DBC5E326E2361B004CAD0B /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DBC5E226E2361B004CAD0B /* EditProfileViewController.swift */; };
+		20EA505126E725B6006D1969 /* WishlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA505026E725B6006D1969 /* WishlistTableViewController.swift */; };
+		20EA505726E72C8C006D1969 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA505626E72C8C006D1969 /* ProductDetailsViewController.swift */; };
+		20EA505D26E72CAB006D1969 /* RatingReviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20EA505B26E72CAA006D1969 /* RatingReviewCollectionViewCell.xib */; };
+		20EA505E26E72CAB006D1969 /* RatingReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA505C26E72CAB006D1969 /* RatingReviewCollectionViewCell.swift */; };
+		20FD8B8F00DBE9562129F08D /* Pods_Dorothy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FA92D3757D7F7CBE575EC6 /* Pods_Dorothy.framework */; };
+		310F2154F093F4EA6CCB3BDD /* Pods_DorothyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EC942F42D5D09EEB4EE886 /* Pods_DorothyTests.framework */; };
+		D4494BD5D7C39E85D0274969 /* Pods_Dorothy_DorothyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743394A2EE05AA51B5F4E9FB /* Pods_Dorothy_DorothyUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20864B9726DD04D8008BC813 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20864B7526DD04D3008BC813 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20864B7C26DD04D4008BC813;
+			remoteInfo = Dorothy;
+		};
+		20864BA226DD04D8008BC813 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20864B7526DD04D3008BC813 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20864B7C26DD04D4008BC813;
+			remoteInfo = Dorothy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0471D69C05957DB0F5C3C402 /* Pods-DorothyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DorothyTests.release.xcconfig"; path = "Target Support Files/Pods-DorothyTests/Pods-DorothyTests.release.xcconfig"; sourceTree = "<group>"; };
+		0EECD568380167470A448304 /* Pods-Dorothy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dorothy.debug.xcconfig"; path = "Target Support Files/Pods-Dorothy/Pods-Dorothy.debug.xcconfig"; sourceTree = "<group>"; };
+		200A671526E731DC00136341 /* ShowReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowReviewTableViewController.swift; sourceTree = "<group>"; };
+		200A671626E731DC00136341 /* RatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
+		200A671726E731DC00136341 /* AddRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRatingViewController.swift; sourceTree = "<group>"; };
+		200A672B26E763A500136341 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2014DA8C26E876C600E54886 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
+		2014DA9126E8780B00E54886 /* AllCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCategoryTableViewCell.xib; sourceTree = "<group>"; };
+		2014DA9226E8780B00E54886 /* AllCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		2014DA9926E8805700E54886 /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		2014DAA326E881BB00E54886 /* SmallCategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallCategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
+		2014DAA426E881BC00E54886 /* SmallCategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallCategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		201ADDD626E3309A009B63B7 /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		201ADE0826E35988009B63B7 /* AddAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
+		201ADE0E26E37B69009B63B7 /* PageDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageDescriptionViewController.swift; sourceTree = "<group>"; };
+		201ADE1626E383EB009B63B7 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		201ADE3026E39329009B63B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOtpViewController.swift; sourceTree = "<group>"; };
+		201AF19726E619EB00FAB7E4 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		20568E4726E1F87A0027C272 /* MyProfileMenuListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileMenuListTableViewCell.swift; sourceTree = "<group>"; };
+		20568E4926E1F87A0027C272 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		20568E5526E204250027C272 /* MyOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrderTableViewController.swift; sourceTree = "<group>"; };
+		20568E5726E204250027C272 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
+		20568E5826E204250027C272 /* OrdersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrdersTableViewCell.xib; sourceTree = "<group>"; };
+		20568E6D26E204A20027C272 /* OwnTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnTableView.swift; sourceTree = "<group>"; };
+		20568E7226E205050027C272 /* MyOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrderTableViewCell.swift; sourceTree = "<group>"; };
+		20568E7326E205050027C272 /* MyOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderTableViewCell.xib; sourceTree = "<group>"; };
+		20568E7D26E2088B0027C272 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
+		2080116826E0A63800FFAB9C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2080116D26E0A69E00FFAB9C /* HomeCategoryListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCategoryListCollectionViewCell.xib; sourceTree = "<group>"; };
+		2080116E26E0A69E00FFAB9C /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		2080116F26E0A69F00FFAB9C /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
+		2080117026E0A69F00FFAB9C /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		2080117126E0A6A000FFAB9C /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		2080117226E0A6A000FFAB9C /* HomeCategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
+		2080117D26E0A77F00FFAB9C /* Dorothy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dorothy-Bridging-Header.h"; sourceTree = "<group>"; };
+		2080117E26E0A78000FFAB9C /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		2080117F26E0A78000FFAB9C /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		2080118526E0AFE000FFAB9C /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		2080118626E0AFE100FFAB9C /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
+		2080118726E0AFE100FFAB9C /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		2080118826E0AFE100FFAB9C /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
+		2080118926E0AFE100FFAB9C /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		2080118A26E0AFE100FFAB9C /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		2080118B26E0AFE100FFAB9C /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		2080118C26E0AFE100FFAB9C /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		2080118D26E0AFE100FFAB9C /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		2080118E26E0AFE100FFAB9C /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
+		2080118F26E0AFE100FFAB9C /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		2080119026E0AFE100FFAB9C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		2080119126E0AFE100FFAB9C /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		2080119226E0AFE100FFAB9C /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		2080119326E0AFE100FFAB9C /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
+		2080119426E0AFE100FFAB9C /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		2080119526E0AFE100FFAB9C /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		2080119626E0AFE100FFAB9C /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		2080119726E0AFE100FFAB9C /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		208011AF26E0B0AE00FFAB9C /* SideMneuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMneuTableViewCell.swift; sourceTree = "<group>"; };
+		208011B026E0B0AE00FFAB9C /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		208011B726E0CABF00FFAB9C /* MyAddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAddressTableViewCell.swift; sourceTree = "<group>"; };
+		208011B826E0CABF00FFAB9C /* MyAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAddressTableViewCell.xib; sourceTree = "<group>"; };
+		208011B926E0CABF00FFAB9C /* MyAddressTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAddressTableViewController.swift; sourceTree = "<group>"; };
+		208011C126E0FBC800FFAB9C /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		208011C226E0FBC800FFAB9C /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
+		208011C326E0FBC800FFAB9C /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		20864B7D26DD04D4008BC813 /* Dorothy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dorothy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20864B8026DD04D4008BC813 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		20864B8226DD04D4008BC813 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		20864B8426DD04D4008BC813 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		20864B8726DD04D4008BC813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		20864B8A26DD04D4008BC813 /* Dorothy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dorothy.xcdatamodel; sourceTree = "<group>"; };
+		20864B8C26DD04D7008BC813 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		20864B8F26DD04D7008BC813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		20864B9126DD04D7008BC813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20864B9626DD04D8008BC813 /* DorothyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DorothyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		20864B9A26DD04D8008BC813 /* DorothyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DorothyTests.swift; sourceTree = "<group>"; };
+		20864B9C26DD04D8008BC813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20864BA126DD04D8008BC813 /* DorothyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DorothyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		20864BA526DD04D8008BC813 /* DorothyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DorothyUITests.swift; sourceTree = "<group>"; };
+		20864BA726DD04D8008BC813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20864BCF26DD0708008BC813 /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		20864BD526DD0728008BC813 /* constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
+		20864BD726DD0728008BC813 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		20864BD826DD0728008BC813 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		20864BD926DD0728008BC813 /* IBDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignable.swift; sourceTree = "<group>"; };
+		20864BDA26DD0728008BC813 /* AlertMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
+		20DBC5E226E2361B004CAD0B /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		20EA505026E725B6006D1969 /* WishlistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistTableViewController.swift; sourceTree = "<group>"; };
+		20EA505626E72C8C006D1969 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		20EA505B26E72CAA006D1969 /* RatingReviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingReviewCollectionViewCell.xib; sourceTree = "<group>"; };
+		20EA505C26E72CAB006D1969 /* RatingReviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		30FA92D3757D7F7CBE575EC6 /* Pods_Dorothy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dorothy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		514FE25E830E2A22815FCE82 /* Pods-DorothyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DorothyTests.debug.xcconfig"; path = "Target Support Files/Pods-DorothyTests/Pods-DorothyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		57D7D7A0E603C94DF51CCBE6 /* Pods-Dorothy-DorothyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dorothy-DorothyUITests.release.xcconfig"; path = "Target Support Files/Pods-Dorothy-DorothyUITests/Pods-Dorothy-DorothyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		743394A2EE05AA51B5F4E9FB /* Pods_Dorothy_DorothyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dorothy_DorothyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82EC942F42D5D09EEB4EE886 /* Pods_DorothyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DorothyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C46132F77EDB0F492458D45 /* Pods-Dorothy-DorothyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dorothy-DorothyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Dorothy-DorothyUITests/Pods-Dorothy-DorothyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B7BE9623FB19CCF27C33ACC2 /* Pods-Dorothy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dorothy.release.xcconfig"; path = "Target Support Files/Pods-Dorothy/Pods-Dorothy.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		20864B7A26DD04D4008BC813 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20FD8B8F00DBE9562129F08D /* Pods_Dorothy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20864B9326DD04D8008BC813 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				310F2154F093F4EA6CCB3BDD /* Pods_DorothyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20864B9E26DD04D8008BC813 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4494BD5D7C39E85D0274969 /* Pods_Dorothy_DorothyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		200A671426E731DC00136341 /* Add Rating */ = {
+			isa = PBXGroup;
+			children = (
+				200A671526E731DC00136341 /* ShowReviewTableViewController.swift */,
+				200A671626E731DC00136341 /* RatingTableViewCell.swift */,
+				200A671726E731DC00136341 /* AddRatingViewController.swift */,
+			);
+			path = "Add Rating";
+			sourceTree = "<group>";
+		};
+		200A672A26E763A500136341 /* Search Page */ = {
+			isa = PBXGroup;
+			children = (
+				200A672B26E763A500136341 /* SearchViewController.swift */,
+			);
+			path = "Search Page";
+			sourceTree = "<group>";
+		};
+		2014DA8B26E876C600E54886 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2014DA9226E8780B00E54886 /* AllCategoryTableViewCell.swift */,
+				2014DA9126E8780B00E54886 /* AllCategoryTableViewCell.xib */,
+				2014DA8C26E876C600E54886 /* CategoriesTableViewController.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		2014DA9826E8805700E54886 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				2014DAA426E881BC00E54886 /* SmallCategoriesCollectionViewCell.swift */,
+				2014DAA326E881BB00E54886 /* SmallCategoriesCollectionViewCell.xib */,
+				2014DA9926E8805700E54886 /* ProductListViewController.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		201ADDD526E3309A009B63B7 /* Contact Us */ = {
+			isa = PBXGroup;
+			children = (
+				201ADDD626E3309A009B63B7 /* ContactUsViewController.swift */,
+			);
+			path = "Contact Us";
+			sourceTree = "<group>";
+		};
+		201ADE0D26E37B69009B63B7 /* Page Descriptions */ = {
+			isa = PBXGroup;
+			children = (
+				201ADE0E26E37B69009B63B7 /* PageDescriptionViewController.swift */,
+			);
+			path = "Page Descriptions";
+			sourceTree = "<group>";
+		};
+		201ADE1326E383EB009B63B7 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				201ADE1626E383EB009B63B7 /* RegistrationViewController.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		201ADE2F26E39329009B63B7 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */,
+				201ADE3026E39329009B63B7 /* LoginViewController.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		201AF19626E619EB00FAB7E4 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				201AF19726E619EB00FAB7E4 /* CheckoutViewController.swift */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		20568E4626E1F87A0027C272 /* My Profile */ = {
+			isa = PBXGroup;
+			children = (
+				20568E4726E1F87A0027C272 /* MyProfileMenuListTableViewCell.swift */,
+				20DBC5E226E2361B004CAD0B /* EditProfileViewController.swift */,
+				20568E4926E1F87A0027C272 /* MyProfileViewController.swift */,
+			);
+			path = "My Profile";
+			sourceTree = "<group>";
+		};
+		20568E5326E204250027C272 /* My Order */ = {
+			isa = PBXGroup;
+			children = (
+				20568E7226E205050027C272 /* MyOrderTableViewCell.swift */,
+				20568E7326E205050027C272 /* MyOrderTableViewCell.xib */,
+				20568E5526E204250027C272 /* MyOrderTableViewController.swift */,
+				20568E5726E204250027C272 /* OrdersTableViewCell.swift */,
+				20568E5826E204250027C272 /* OrdersTableViewCell.xib */,
+			);
+			path = "My Order";
+			sourceTree = "<group>";
+		};
+		20568E7C26E2088B0027C272 /* Order Summary */ = {
+			isa = PBXGroup;
+			children = (
+				20568E7D26E2088B0027C272 /* OrderSummaryViewController.swift */,
+			);
+			path = "Order Summary";
+			sourceTree = "<group>";
+		};
+		2080116626E0A5FA00FFAB9C /* Common Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2080117126E0A6A000FFAB9C /* ProductCollectionViewCell.swift */,
+				2080117026E0A69F00FFAB9C /* ProductCollectionViewCell.xib */,
+				2080116E26E0A69E00FFAB9C /* ProductTableViewCell.swift */,
+				2080116F26E0A69F00FFAB9C /* ProductTableViewCell.xib */,
+			);
+			path = "Common Cell";
+			sourceTree = "<group>";
+		};
+		2080116726E0A60700FFAB9C /* Home Page */ = {
+			isa = PBXGroup;
+			children = (
+				2080117226E0A6A000FFAB9C /* HomeCategoryListCollectionViewCell.swift */,
+				2080116D26E0A69E00FFAB9C /* HomeCategoryListCollectionViewCell.xib */,
+				2080116826E0A63800FFAB9C /* HomeViewController.swift */,
+			);
+			path = "Home Page";
+			sourceTree = "<group>";
+		};
+		2080117C26E0A76900FFAB9C /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				2080117F26E0A78000FFAB9C /* iCarousel.h */,
+				2080117E26E0A78000FFAB9C /* iCarousel.m */,
+				2080117D26E0A77F00FFAB9C /* Dorothy-Bridging-Header.h */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		2080118426E0AFE000FFAB9C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2080118526E0AFE000FFAB9C /* Poppins-ExtraLight.ttf */,
+				2080118626E0AFE100FFAB9C /* Poppins-ThinItalic.ttf */,
+				2080118726E0AFE100FFAB9C /* Poppins-ExtraLightItalic.ttf */,
+				2080118826E0AFE100FFAB9C /* Poppins-BoldItalic.ttf */,
+				2080118926E0AFE100FFAB9C /* Poppins-Light.ttf */,
+				2080118A26E0AFE100FFAB9C /* Poppins-Medium.ttf */,
+				2080118B26E0AFE100FFAB9C /* Poppins-SemiBoldItalic.ttf */,
+				2080118C26E0AFE100FFAB9C /* Poppins-ExtraBoldItalic.ttf */,
+				2080118D26E0AFE100FFAB9C /* Poppins-ExtraBold.ttf */,
+				2080118E26E0AFE100FFAB9C /* Poppins-BlackItalic.ttf */,
+				2080118F26E0AFE100FFAB9C /* OFL.txt */,
+				2080119026E0AFE100FFAB9C /* Poppins-Regular.ttf */,
+				2080119126E0AFE100FFAB9C /* Poppins-LightItalic.ttf */,
+				2080119226E0AFE100FFAB9C /* Poppins-Bold.ttf */,
+				2080119326E0AFE100FFAB9C /* Poppins-Black.ttf */,
+				2080119426E0AFE100FFAB9C /* Poppins-Thin.ttf */,
+				2080119526E0AFE100FFAB9C /* Poppins-SemiBold.ttf */,
+				2080119626E0AFE100FFAB9C /* Poppins-Italic.ttf */,
+				2080119726E0AFE100FFAB9C /* Poppins-MediumItalic.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		208011AE26E0B0AE00FFAB9C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				208011AF26E0B0AE00FFAB9C /* SideMneuTableViewCell.swift */,
+				208011B026E0B0AE00FFAB9C /* SideMenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		208011B626E0CAAA00FFAB9C /* My Address */ = {
+			isa = PBXGroup;
+			children = (
+				201ADE0826E35988009B63B7 /* AddAddressViewController.swift */,
+				208011B726E0CABF00FFAB9C /* MyAddressTableViewCell.swift */,
+				208011B826E0CABF00FFAB9C /* MyAddressTableViewCell.xib */,
+				208011B926E0CABF00FFAB9C /* MyAddressTableViewController.swift */,
+			);
+			path = "My Address";
+			sourceTree = "<group>";
+		};
+		208011C026E0FBC800FFAB9C /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				208011C126E0FBC800FFAB9C /* CartViewController.swift */,
+				208011C226E0FBC800FFAB9C /* CartTableViewCell.xib */,
+				208011C326E0FBC800FFAB9C /* CartTableViewCell.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		20864B7426DD04D3008BC813 = {
+			isa = PBXGroup;
+			children = (
+				20864B7F26DD04D4008BC813 /* Dorothy */,
+				20864B9926DD04D8008BC813 /* DorothyTests */,
+				20864BA426DD04D8008BC813 /* DorothyUITests */,
+				20864B7E26DD04D4008BC813 /* Products */,
+				A5954BF55712D0BD90D8F09C /* Pods */,
+				6EE0A5D91EBFE380BBBA84D1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		20864B7E26DD04D4008BC813 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20864B7D26DD04D4008BC813 /* Dorothy.app */,
+				20864B9626DD04D8008BC813 /* DorothyTests.xctest */,
+				20864BA126DD04D8008BC813 /* DorothyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20864B7F26DD04D4008BC813 /* Dorothy */ = {
+			isa = PBXGroup;
+			children = (
+				2080118426E0AFE000FFAB9C /* Font */,
+				2080117C26E0A76900FFAB9C /* Supporting files */,
+				20864BD426DD0728008BC813 /* Constant */,
+				20864BCE26DD0708008BC813 /* Service Call */,
+				20864BBD26DD0697008BC813 /* Core Data */,
+				20864BBB26DD0663008BC813 /* View */,
+				20864BBA26DD0658008BC813 /* Controller */,
+				20864BB926DD0646008BC813 /* Deligate */,
+				20864B8C26DD04D7008BC813 /* Assets.xcassets */,
+				20864B9126DD04D7008BC813 /* Info.plist */,
+			);
+			path = Dorothy;
+			sourceTree = "<group>";
+		};
+		20864B9926DD04D8008BC813 /* DorothyTests */ = {
+			isa = PBXGroup;
+			children = (
+				20864B9A26DD04D8008BC813 /* DorothyTests.swift */,
+				20864B9C26DD04D8008BC813 /* Info.plist */,
+			);
+			path = DorothyTests;
+			sourceTree = "<group>";
+		};
+		20864BA426DD04D8008BC813 /* DorothyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				20864BA526DD04D8008BC813 /* DorothyUITests.swift */,
+				20864BA726DD04D8008BC813 /* Info.plist */,
+			);
+			path = DorothyUITests;
+			sourceTree = "<group>";
+		};
+		20864BB926DD0646008BC813 /* Deligate */ = {
+			isa = PBXGroup;
+			children = (
+				20864B8026DD04D4008BC813 /* AppDelegate.swift */,
+				20864B8226DD04D4008BC813 /* SceneDelegate.swift */,
+			);
+			path = Deligate;
+			sourceTree = "<group>";
+		};
+		20864BBA26DD0658008BC813 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2014DA9826E8805700E54886 /* ProductList */,
+				2014DA8B26E876C600E54886 /* Categories */,
+				200A672A26E763A500136341 /* Search Page */,
+				200A671426E731DC00136341 /* Add Rating */,
+				20EA505526E72C8C006D1969 /* Product Details */,
+				20EA504F26E725B6006D1969 /* Wishlist */,
+				201AF19626E619EB00FAB7E4 /* Checkout */,
+				201ADE2F26E39329009B63B7 /* login */,
+				201ADE1326E383EB009B63B7 /* Registration */,
+				201ADE0D26E37B69009B63B7 /* Page Descriptions */,
+				201ADDD526E3309A009B63B7 /* Contact Us */,
+				20568E7C26E2088B0027C272 /* Order Summary */,
+				20568E5326E204250027C272 /* My Order */,
+				20568E4626E1F87A0027C272 /* My Profile */,
+				208011C026E0FBC800FFAB9C /* Cart */,
+				208011B626E0CAAA00FFAB9C /* My Address */,
+				208011AE26E0B0AE00FFAB9C /* Menu */,
+				2080116726E0A60700FFAB9C /* Home Page */,
+				2080116626E0A5FA00FFAB9C /* Common Cell */,
+				20864BBC26DD0681008BC813 /* Base View Controller */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		20864BBB26DD0663008BC813 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20864B8626DD04D4008BC813 /* Main.storyboard */,
+				20864B8E26DD04D7008BC813 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20864BBC26DD0681008BC813 /* Base View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				20864B8426DD04D4008BC813 /* BaseViewController.swift */,
+			);
+			path = "Base View Controller";
+			sourceTree = "<group>";
+		};
+		20864BBD26DD0697008BC813 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				20864B8926DD04D4008BC813 /* Dorothy.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		20864BCE26DD0708008BC813 /* Service Call */ = {
+			isa = PBXGroup;
+			children = (
+				20864BCF26DD0708008BC813 /* Services.swift */,
+			);
+			path = "Service Call";
+			sourceTree = "<group>";
+		};
+		20864BD426DD0728008BC813 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				20864BD526DD0728008BC813 /* constant.swift */,
+				20864BD726DD0728008BC813 /* UserDefault.swift */,
+				20568E6D26E204A20027C272 /* OwnTableView.swift */,
+				20864BD826DD0728008BC813 /* Reachability.swift */,
+				20864BD926DD0728008BC813 /* IBDesignable.swift */,
+				20864BDA26DD0728008BC813 /* AlertMessages.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		20EA504F26E725B6006D1969 /* Wishlist */ = {
+			isa = PBXGroup;
+			children = (
+				20EA505026E725B6006D1969 /* WishlistTableViewController.swift */,
+			);
+			path = Wishlist;
+			sourceTree = "<group>";
+		};
+		20EA505526E72C8C006D1969 /* Product Details */ = {
+			isa = PBXGroup;
+			children = (
+				20EA505C26E72CAB006D1969 /* RatingReviewCollectionViewCell.swift */,
+				20EA505B26E72CAA006D1969 /* RatingReviewCollectionViewCell.xib */,
+				20EA505626E72C8C006D1969 /* ProductDetailsViewController.swift */,
+			);
+			path = "Product Details";
+			sourceTree = "<group>";
+		};
+		6EE0A5D91EBFE380BBBA84D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30FA92D3757D7F7CBE575EC6 /* Pods_Dorothy.framework */,
+				743394A2EE05AA51B5F4E9FB /* Pods_Dorothy_DorothyUITests.framework */,
+				82EC942F42D5D09EEB4EE886 /* Pods_DorothyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5954BF55712D0BD90D8F09C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0EECD568380167470A448304 /* Pods-Dorothy.debug.xcconfig */,
+				B7BE9623FB19CCF27C33ACC2 /* Pods-Dorothy.release.xcconfig */,
+				9C46132F77EDB0F492458D45 /* Pods-Dorothy-DorothyUITests.debug.xcconfig */,
+				57D7D7A0E603C94DF51CCBE6 /* Pods-Dorothy-DorothyUITests.release.xcconfig */,
+				514FE25E830E2A22815FCE82 /* Pods-DorothyTests.debug.xcconfig */,
+				0471D69C05957DB0F5C3C402 /* Pods-DorothyTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		20864B7C26DD04D4008BC813 /* Dorothy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20864BAA26DD04D8008BC813 /* Build configuration list for PBXNativeTarget "Dorothy" */;
+			buildPhases = (
+				263132F060BD9C841C8B24D3 /* [CP] Check Pods Manifest.lock */,
+				20864B7926DD04D4008BC813 /* Sources */,
+				20864B7A26DD04D4008BC813 /* Frameworks */,
+				20864B7B26DD04D4008BC813 /* Resources */,
+				E630C077D029C2880AF8989A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Dorothy;
+			productName = Dorothy;
+			productReference = 20864B7D26DD04D4008BC813 /* Dorothy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		20864B9526DD04D8008BC813 /* DorothyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20864BAD26DD04D8008BC813 /* Build configuration list for PBXNativeTarget "DorothyTests" */;
+			buildPhases = (
+				C49A54E1C51DD28D2E7145A7 /* [CP] Check Pods Manifest.lock */,
+				20864B9226DD04D8008BC813 /* Sources */,
+				20864B9326DD04D8008BC813 /* Frameworks */,
+				20864B9426DD04D8008BC813 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20864B9826DD04D8008BC813 /* PBXTargetDependency */,
+			);
+			name = DorothyTests;
+			productName = DorothyTests;
+			productReference = 20864B9626DD04D8008BC813 /* DorothyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		20864BA026DD04D8008BC813 /* DorothyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20864BB026DD04D8008BC813 /* Build configuration list for PBXNativeTarget "DorothyUITests" */;
+			buildPhases = (
+				2479ADA1807EA227DDDE8B82 /* [CP] Check Pods Manifest.lock */,
+				20864B9D26DD04D8008BC813 /* Sources */,
+				20864B9E26DD04D8008BC813 /* Frameworks */,
+				20864B9F26DD04D8008BC813 /* Resources */,
+				59F3283DE6DB7F5A4659D2A9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20864BA326DD04D8008BC813 /* PBXTargetDependency */,
+			);
+			name = DorothyUITests;
+			productName = DorothyUITests;
+			productReference = 20864BA126DD04D8008BC813 /* DorothyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20864B7526DD04D3008BC813 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					20864B7C26DD04D4008BC813 = {
+						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
+					};
+					20864B9526DD04D8008BC813 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 20864B7C26DD04D4008BC813;
+					};
+					20864BA026DD04D8008BC813 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 20864B7C26DD04D4008BC813;
+					};
+				};
+			};
+			buildConfigurationList = 20864B7826DD04D3008BC813 /* Build configuration list for PBXProject "Dorothy" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 20864B7426DD04D3008BC813;
+			productRefGroup = 20864B7E26DD04D4008BC813 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				20864B7C26DD04D4008BC813 /* Dorothy */,
+				20864B9526DD04D8008BC813 /* DorothyTests */,
+				20864BA026DD04D8008BC813 /* DorothyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		20864B7B26DD04D4008BC813 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				208011C526E0FBC800FFAB9C /* CartTableViewCell.xib in Resources */,
+				208011A226E0AFE100FFAB9C /* OFL.txt in Resources */,
+				20864B9026DD04D7008BC813 /* LaunchScreen.storyboard in Resources */,
+				2014DA9326E8780B00E54886 /* AllCategoryTableViewCell.xib in Resources */,
+				208011A026E0AFE100FFAB9C /* Poppins-ExtraBold.ttf in Resources */,
+				208011A626E0AFE100FFAB9C /* Poppins-Black.ttf in Resources */,
+				208011A326E0AFE100FFAB9C /* Poppins-Regular.ttf in Resources */,
+				2080119926E0AFE100FFAB9C /* Poppins-ThinItalic.ttf in Resources */,
+				208011A426E0AFE100FFAB9C /* Poppins-LightItalic.ttf in Resources */,
+				2080117326E0A6A000FFAB9C /* HomeCategoryListCollectionViewCell.xib in Resources */,
+				208011A526E0AFE100FFAB9C /* Poppins-Bold.ttf in Resources */,
+				208011AA26E0AFE100FFAB9C /* Poppins-MediumItalic.ttf in Resources */,
+				208011A726E0AFE100FFAB9C /* Poppins-Thin.ttf in Resources */,
+				2080119E26E0AFE100FFAB9C /* Poppins-SemiBoldItalic.ttf in Resources */,
+				20568E7526E205050027C272 /* MyOrderTableViewCell.xib in Resources */,
+				2080119A26E0AFE100FFAB9C /* Poppins-ExtraLightItalic.ttf in Resources */,
+				2080117626E0A6A000FFAB9C /* ProductCollectionViewCell.xib in Resources */,
+				2080117526E0A6A000FFAB9C /* ProductTableViewCell.xib in Resources */,
+				20864B8D26DD04D7008BC813 /* Assets.xcassets in Resources */,
+				20568E6026E204250027C272 /* OrdersTableViewCell.xib in Resources */,
+				208011BB26E0CABF00FFAB9C /* MyAddressTableViewCell.xib in Resources */,
+				20864B8826DD04D4008BC813 /* Main.storyboard in Resources */,
+				2080119826E0AFE100FFAB9C /* Poppins-ExtraLight.ttf in Resources */,
+				2080119F26E0AFE100FFAB9C /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				208011A926E0AFE100FFAB9C /* Poppins-Italic.ttf in Resources */,
+				208011A126E0AFE100FFAB9C /* Poppins-BlackItalic.ttf in Resources */,
+				2080119D26E0AFE100FFAB9C /* Poppins-Medium.ttf in Resources */,
+				2080119C26E0AFE100FFAB9C /* Poppins-Light.ttf in Resources */,
+				2014DAA526E881BC00E54886 /* SmallCategoriesCollectionViewCell.xib in Resources */,
+				20EA505D26E72CAB006D1969 /* RatingReviewCollectionViewCell.xib in Resources */,
+				208011A826E0AFE100FFAB9C /* Poppins-SemiBold.ttf in Resources */,
+				2080119B26E0AFE100FFAB9C /* Poppins-BoldItalic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20864B9426DD04D8008BC813 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20864B9F26DD04D8008BC813 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2479ADA1807EA227DDDE8B82 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dorothy-DorothyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		263132F060BD9C841C8B24D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dorothy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59F3283DE6DB7F5A4659D2A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dorothy-DorothyUITests/Pods-Dorothy-DorothyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dorothy-DorothyUITests/Pods-Dorothy-DorothyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dorothy-DorothyUITests/Pods-Dorothy-DorothyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C49A54E1C51DD28D2E7145A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DorothyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E630C077D029C2880AF8989A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dorothy/Pods-Dorothy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dorothy/Pods-Dorothy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dorothy/Pods-Dorothy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20864B7926DD04D4008BC813 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				201AF19226E5FEF000FAB7E4 /* VerifyOtpViewController.swift in Sources */,
+				20DBC5E326E2361B004CAD0B /* EditProfileViewController.swift in Sources */,
+				20568E5D26E204250027C272 /* MyOrderTableViewController.swift in Sources */,
+				20568E6E26E204A20027C272 /* OwnTableView.swift in Sources */,
+				20568E7426E205050027C272 /* MyOrderTableViewCell.swift in Sources */,
+				20EA505726E72C8C006D1969 /* ProductDetailsViewController.swift in Sources */,
+				201ADE1926E383EB009B63B7 /* RegistrationViewController.swift in Sources */,
+				20568E4A26E1F87B0027C272 /* MyProfileMenuListTableViewCell.swift in Sources */,
+				20568E7E26E2088B0027C272 /* OrderSummaryViewController.swift in Sources */,
+				20568E5F26E204250027C272 /* OrdersTableViewCell.swift in Sources */,
+				208011C626E0FBC800FFAB9C /* CartTableViewCell.swift in Sources */,
+				200A671926E731DC00136341 /* RatingTableViewCell.swift in Sources */,
+				2014DAA626E881BC00E54886 /* SmallCategoriesCollectionViewCell.swift in Sources */,
+				20864BE026DD0728008BC813 /* AlertMessages.swift in Sources */,
+				20864BDD26DD0728008BC813 /* UserDefault.swift in Sources */,
+				20864BD026DD0708008BC813 /* Services.swift in Sources */,
+				200A672C26E763A500136341 /* SearchViewController.swift in Sources */,
+				208011B126E0B0AE00FFAB9C /* SideMneuTableViewCell.swift in Sources */,
+				20568E4C26E1F87B0027C272 /* MyProfileViewController.swift in Sources */,
+				20864BDB26DD0728008BC813 /* constant.swift in Sources */,
+				201AF19826E619EB00FAB7E4 /* CheckoutViewController.swift in Sources */,
+				201ADE0F26E37B69009B63B7 /* PageDescriptionViewController.swift in Sources */,
+				208011BC26E0CABF00FFAB9C /* MyAddressTableViewController.swift in Sources */,
+				20864B8526DD04D4008BC813 /* BaseViewController.swift in Sources */,
+				2080117426E0A6A000FFAB9C /* ProductTableViewCell.swift in Sources */,
+				2014DA9B26E8805700E54886 /* ProductListViewController.swift in Sources */,
+				201ADDD726E3309A009B63B7 /* ContactUsViewController.swift in Sources */,
+				2080118026E0A78000FFAB9C /* iCarousel.m in Sources */,
+				200A671A26E731DC00136341 /* AddRatingViewController.swift in Sources */,
+				2014DA8D26E876C600E54886 /* CategoriesTableViewController.swift in Sources */,
+				2080117726E0A6A000FFAB9C /* ProductCollectionViewCell.swift in Sources */,
+				20864B8B26DD04D4008BC813 /* Dorothy.xcdatamodeld in Sources */,
+				20EA505E26E72CAB006D1969 /* RatingReviewCollectionViewCell.swift in Sources */,
+				208011BA26E0CABF00FFAB9C /* MyAddressTableViewCell.swift in Sources */,
+				208011C426E0FBC800FFAB9C /* CartViewController.swift in Sources */,
+				208011B226E0B0AE00FFAB9C /* SideMenuViewController.swift in Sources */,
+				20864BDE26DD0728008BC813 /* Reachability.swift in Sources */,
+				2014DA9426E8780B00E54886 /* AllCategoryTableViewCell.swift in Sources */,
+				2080116926E0A63800FFAB9C /* HomeViewController.swift in Sources */,
+				200A671826E731DC00136341 /* ShowReviewTableViewController.swift in Sources */,
+				20864B8126DD04D4008BC813 /* AppDelegate.swift in Sources */,
+				2080117826E0A6A000FFAB9C /* HomeCategoryListCollectionViewCell.swift in Sources */,
+				20EA505126E725B6006D1969 /* WishlistTableViewController.swift in Sources */,
+				201ADE3126E39329009B63B7 /* LoginViewController.swift in Sources */,
+				20864BDF26DD0728008BC813 /* IBDesignable.swift in Sources */,
+				201ADE0926E35988009B63B7 /* AddAddressViewController.swift in Sources */,
+				20864B8326DD04D4008BC813 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20864B9226DD04D8008BC813 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20864B9B26DD04D8008BC813 /* DorothyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20864B9D26DD04D8008BC813 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20864BA626DD04D8008BC813 /* DorothyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		20864B9826DD04D8008BC813 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20864B7C26DD04D4008BC813 /* Dorothy */;
+			targetProxy = 20864B9726DD04D8008BC813 /* PBXContainerItemProxy */;
+		};
+		20864BA326DD04D8008BC813 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20864B7C26DD04D4008BC813 /* Dorothy */;
+			targetProxy = 20864BA226DD04D8008BC813 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		20864B8626DD04D4008BC813 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20864B8726DD04D4008BC813 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		20864B8E26DD04D7008BC813 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				20864B8F26DD04D7008BC813 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		20864BA826DD04D8008BC813 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		20864BA926DD04D8008BC813 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		20864BAB26DD04D8008BC813 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EECD568380167470A448304 /* Pods-Dorothy.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79G7F2QQ57;
+				INFOPLIST_FILE = Dorothy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dorothy.com.Dorothy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dorothy/Supporting files/Dorothy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		20864BAC26DD04D8008BC813 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7BE9623FB19CCF27C33ACC2 /* Pods-Dorothy.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79G7F2QQ57;
+				INFOPLIST_FILE = Dorothy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dorothy.com.Dorothy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dorothy/Supporting files/Dorothy-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		20864BAE26DD04D8008BC813 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 514FE25E830E2A22815FCE82 /* Pods-DorothyTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79G7F2QQ57;
+				INFOPLIST_FILE = DorothyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dorothy.com.DorothyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dorothy.app/Dorothy";
+			};
+			name = Debug;
+		};
+		20864BAF26DD04D8008BC813 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0471D69C05957DB0F5C3C402 /* Pods-DorothyTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79G7F2QQ57;
+				INFOPLIST_FILE = DorothyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dorothy.com.DorothyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dorothy.app/Dorothy";
+			};
+			name = Release;
+		};
+		20864BB126DD04D8008BC813 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C46132F77EDB0F492458D45 /* Pods-Dorothy-DorothyUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79G7F2QQ57;
+				INFOPLIST_FILE = DorothyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dorothy.com.DorothyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Dorothy;
+			};
+			name = Debug;
+		};
+		20864BB226DD04D8008BC813 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57D7D7A0E603C94DF51CCBE6 /* Pods-Dorothy-DorothyUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79G7F2QQ57;
+				INFOPLIST_FILE = DorothyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dorothy.com.DorothyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Dorothy;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		20864B7826DD04D3008BC813 /* Build configuration list for PBXProject "Dorothy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20864BA826DD04D8008BC813 /* Debug */,
+				20864BA926DD04D8008BC813 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20864BAA26DD04D8008BC813 /* Build configuration list for PBXNativeTarget "Dorothy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20864BAB26DD04D8008BC813 /* Debug */,
+				20864BAC26DD04D8008BC813 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20864BAD26DD04D8008BC813 /* Build configuration list for PBXNativeTarget "DorothyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20864BAE26DD04D8008BC813 /* Debug */,
+				20864BAF26DD04D8008BC813 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20864BB026DD04D8008BC813 /* Build configuration list for PBXNativeTarget "DorothyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20864BB126DD04D8008BC813 /* Debug */,
+				20864BB226DD04D8008BC813 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		20864B8926DD04D4008BC813 /* Dorothy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				20864B8A26DD04D4008BC813 /* Dorothy.xcdatamodel */,
+			);
+			currentVersion = 20864B8A26DD04D4008BC813 /* Dorothy.xcdatamodel */;
+			path = Dorothy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 20864B7526DD04D3008BC813 /* Project object */;
+}

@@ -1,0 +1,6 @@
+framework module Pods_DorothyTests {
+  umbrella header "Pods-DorothyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

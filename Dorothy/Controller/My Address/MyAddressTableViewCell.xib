@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MyAddressTableViewCell" rowHeight="142" id="KGk-i7-Jjw" customClass="MyAddressTableViewCell" customModule="Dorothy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="403" height="142"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="403" height="142"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jn9-fh-WDJ" customClass="ViewDesign" customModule="Dorothy" customModuleProvider="target">
+                        <rect key="frame" x="15" y="10" width="333" height="122"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biswajit Hazari" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cN6-49-i0u">
+                                <rect key="frame" x="20" y="10" width="118.5" height="21"/>
+                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQv-Yy-xW8">
+                                <rect key="frame" x="153.5" y="10" width="48" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0PH-rs-Mxd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" name="themeColor2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Full Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAW-xy-CV3">
+                                <rect key="frame" x="20" y="41" width="293" height="15"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" name="fontColor2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" text="Bihar - 800001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbq-lM-Qe9">
+                                <rect key="frame" x="20" y="66" width="293" height="21"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" name="fontColor2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8789998079" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIB-Qo-rfY">
+                                <rect key="frame" x="20" y="97" width="293" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="aU3-rH-qgt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" name="fontColor2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cN6-49-i0u" firstAttribute="leading" secondItem="Jn9-fh-WDJ" secondAttribute="leading" constant="20" id="20b-8m-qNl"/>
+                            <constraint firstAttribute="bottom" secondItem="MIB-Qo-rfY" secondAttribute="bottom" constant="10" id="3S1-W7-ffx"/>
+                            <constraint firstItem="cN6-49-i0u" firstAttribute="top" secondItem="Jn9-fh-WDJ" secondAttribute="top" constant="10" id="9TN-El-H1C"/>
+                            <constraint firstItem="wQv-Yy-xW8" firstAttribute="centerY" secondItem="cN6-49-i0u" secondAttribute="centerY" id="FtL-M3-7Sc"/>
+                            <constraint firstAttribute="trailing" secondItem="YAW-xy-CV3" secondAttribute="trailing" constant="20" id="GG3-zL-efB"/>
+                            <constraint firstItem="YAW-xy-CV3" firstAttribute="top" secondItem="cN6-49-i0u" secondAttribute="bottom" constant="10" id="GKQ-OO-CUU"/>
+                            <constraint firstItem="YAW-xy-CV3" firstAttribute="top" secondItem="wQv-Yy-xW8" secondAttribute="bottom" constant="10" id="Iaq-M8-C6D"/>
+                            <constraint firstItem="YAW-xy-CV3" firstAttribute="leading" secondItem="cN6-49-i0u" secondAttribute="leading" id="Ogc-P0-UNV"/>
+                            <constraint firstItem="wQv-Yy-xW8" firstAttribute="leading" secondItem="cN6-49-i0u" secondAttribute="trailing" constant="15" id="Vyd-qf-ebg"/>
+                            <constraint firstItem="MIB-Qo-rfY" firstAttribute="top" secondItem="Dbq-lM-Qe9" secondAttribute="bottom" constant="10" id="YPZ-kC-7cu"/>
+                            <constraint firstItem="Dbq-lM-Qe9" firstAttribute="trailing" secondItem="YAW-xy-CV3" secondAttribute="trailing" id="fJJ-Be-YmR"/>
+                            <constraint firstItem="Dbq-lM-Qe9" firstAttribute="leading" secondItem="YAW-xy-CV3" secondAttribute="leading" id="krw-fy-4lB"/>
+                            <constraint firstItem="MIB-Qo-rfY" firstAttribute="leading" secondItem="Dbq-lM-Qe9" secondAttribute="leading" id="ktQ-9Z-yIH"/>
+                            <constraint firstItem="Dbq-lM-Qe9" firstAttribute="top" secondItem="YAW-xy-CV3" secondAttribute="bottom" constant="10" id="u9j-kc-o9b"/>
+                            <constraint firstItem="MIB-Qo-rfY" firstAttribute="trailing" secondItem="Dbq-lM-Qe9" secondAttribute="trailing" id="xgO-AN-gsf"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shodow">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fT9-1Z-ikE">
+                        <rect key="frame" x="358" y="31" width="30" height="80"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZm-1H-tiX">
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                <color key="backgroundColor" name="themeColor3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qI4-BX-4sb"/>
+                                    <constraint firstAttribute="width" constant="30" id="vFe-vH-aI1"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" image="pencil"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHN-iS-5hE">
+                                <rect key="frame" x="0.0" y="50" width="30" height="30"/>
+                                <color key="backgroundColor" name="themeColor2"/>
+                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="delete_icon"/>
+                            </button>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="Jn9-fh-WDJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="4jO-2c-fgd"/>
+                    <constraint firstItem="fT9-1Z-ikE" firstAttribute="centerY" secondItem="Jn9-fh-WDJ" secondAttribute="centerY" id="Jx0-Re-AYs"/>
+                    <constraint firstAttribute="bottom" secondItem="Jn9-fh-WDJ" secondAttribute="bottom" constant="10" id="eIf-Tp-Qr7"/>
+                    <constraint firstItem="Jn9-fh-WDJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="jev-am-OIe"/>
+                    <constraint firstItem="fT9-1Z-ikE" firstAttribute="leading" secondItem="Jn9-fh-WDJ" secondAttribute="trailing" constant="10" id="nyG-Gg-iXs"/>
+                    <constraint firstAttribute="trailing" secondItem="fT9-1Z-ikE" secondAttribute="trailing" constant="15" id="yTY-tV-r7z"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="addressView" destination="Jn9-fh-WDJ" id="u9f-Ci-gMV"/>
+                <outlet property="deleteAddressbtn" destination="rHN-iS-5hE" id="ctg-AW-Hbq"/>
+                <outlet property="editAddressBtn" destination="PZm-1H-tiX" id="mCG-in-gy2"/>
+                <outlet property="fullAddressLabel" destination="YAW-xy-CV3" id="1zB-gN-mJ0"/>
+                <outlet property="isDefaultLabel" destination="wQv-Yy-xW8" id="u6e-x5-DBF"/>
+                <outlet property="mobileLabel" destination="MIB-Qo-rfY" id="jnN-9g-KhL"/>
+                <outlet property="statePincodeLabel" destination="Dbq-lM-Qe9" id="HiI-Xk-0Gc"/>
+                <outlet property="userNameLabel" destination="cN6-49-i0u" id="7rc-K2-3eU"/>
+            </connections>
+            <point key="canvasLocation" x="197.82608695652175" y="117.1875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="delete_icon" width="20" height="23"/>
+        <image name="pencil" width="20" height="20"/>
+        <namedColor name="fontColor2">
+            <color red="0.19607843137254902" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeColor2">
+            <color red="0.96470588235294119" green="0.015686274509803921" blue="0.015686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeColor3">
+            <color red="0.99215686274509807" green="0.78823529411764703" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
