@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         sideMenu()
         iCarouselView.type = .linear
         iCarouselView.isPagingEnabled = true
-        homeBadgeBtn(qty:"4")
+        homeBadgeBtn(qty:"0")
         homeScrollView.delegate = self
         //scrollViewDidScroll(scrollView: homeScrollView)
         for _ in 0..<8{
@@ -142,6 +142,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     func homeBadgeBtn(qty:String)
     {
         // badge label
+        if qty != "0"
+        {
           let label = UILabel(frame: CGRect(x: 10, y: -10, width: 15, height: 15))
           label.layer.borderColor = UIColor.clear.cgColor
           label.layer.borderWidth = 2
@@ -152,8 +154,8 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
           label.textColor = .white
           label.backgroundColor = .red
           label.text = qty
-
           cartBtn.addSubview(label)
+        }
     }
 
     // Registering cell data

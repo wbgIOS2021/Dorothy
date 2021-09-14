@@ -21,6 +21,12 @@ enum RequestedUrlType: String {
     case user_register = "register"
     case sendOTP = "send_otp"
     case verifyOTP = "otp_verify"
+    
+    case cartCount = "cart_total_quantity"
+    
+    case view_profile = "myAccount"
+    case edit_profile = "editAccount"
+    case update_profile = "profile_image"
 }
 
 class ServiceCall: NSObject
@@ -104,7 +110,16 @@ func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:Request
             urlString = ServiceCall.kServerURL + "/home/login";
         case RequestedUrlType.verifyOTP.rawValue:
             urlString = ServiceCall.kServerURL + "/home/otp_verify";
-
+        
+        case RequestedUrlType.cartCount.rawValue:
+            urlString = ServiceCall.kServerURL + "/cart/cart_total_quantity";
+            
+        case RequestedUrlType.view_profile.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/myAccount";
+        case RequestedUrlType.edit_profile.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/editAccount";
+        case RequestedUrlType.update_profile.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/profile_image";
 
         default:
             print("Default value")

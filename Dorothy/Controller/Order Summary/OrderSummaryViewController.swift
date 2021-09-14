@@ -36,7 +36,6 @@ class OrderSummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cellregister()
-        cartBadgeIcon(qty:"5")
         totalSavingView.layer.borderWidth = 1
         totalSavingView.layer.borderColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         bottomReturnView.layer.cornerRadius = 30
@@ -49,10 +48,9 @@ class OrderSummaryViewController: UIViewController {
         productsTableView.register(UINib(nibName: "OrdersTableViewCell", bundle: nil), forCellReuseIdentifier: "OrdersTableViewCell")
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.cartCount()
         navigationController?.navigationBar.isHidden = false
         self.productsTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.productsTableView.removeObserver(self, forKeyPath: "contentSize")

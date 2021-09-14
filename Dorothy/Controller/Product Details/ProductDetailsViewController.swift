@@ -12,7 +12,7 @@ protocol ProductDetailsDelegate {
     func review(product_id:String)
 }
 
-class ProductDetailsViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class ProductDetailsViewController: UIViewController, UIPopoverPresentationControllerDelegate, UIScrollViewDelegate {
     
     
     
@@ -53,7 +53,7 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     //  CosmosView
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var cartBtn: UIBarButtonItem!
-    
+    @IBOutlet weak var productDetailsScrollView: UIScrollView!
     
     var productId:String = "50"
     var qty = 1
@@ -74,11 +74,17 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
         beTheFirstReview.isHidden = true
         ratingView.isUserInteractionEnabled = false
         leftArrowBtn.isEnabled = false
-        cartBadgeIcon(qty:"5")
+        productDetailsScrollView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
+        self.cartCount()
     }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < 0 {
+                  scrollView.contentOffset.y = 0
+              }
+      }
     
     func addSomeShadow()
     {
@@ -189,17 +195,19 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     
     @IBAction func rightArrowBtn(_ sender: Any) {
         
-        if i == imagelist.count-1{
+        if i == imagelist.count{
             rightArrowBtn.isEnabled = false
+            i=i-1;
         }else{
             rightArrowBtn.isEnabled = true
-            if (i < (imagelist.count-1))
+            if (i < (imagelist.count))
             {
-                i=i+1;
-                productImage.image = UIImage(named: imagelist[i])
                 
+                productImage.image = UIImage(named: imagelist[i])
+                i=i+1;
                 leftArrowBtn.isEnabled = true
             }
+            
         }
         
  

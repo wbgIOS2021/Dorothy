@@ -15,12 +15,11 @@ class WishlistTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cellRegister()
-        cartBadgeIcon(qty:"5")
 
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-       
+        self.cartCount()
     }
     func cellRegister()
     {

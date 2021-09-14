@@ -24,14 +24,35 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var cartBtn: UIBarButtonItem!
     @IBOutlet weak var backView:UIView!
     @IBOutlet weak var profileScrollView: UIScrollView!
-
+    
+    var user_id = getStringValueFromLocal(key: "user_id") ?? "0"
+    var user_list_Dic: [String:Any] = [:]
     var image = UIImage(named:"no-image")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        additionalSetup()
+        
+        firstNameTF.text! = user_list_Dic["firstName"] as! String
+        lastNameTF.text! = user_list_Dic["lastName"] as! String
+        mobileNumberLabel.text! = user_list_Dic["telephone"] as! String
+        emailIDLabel.text! = user_list_Dic["email"] as! String
+        
+        profileImage.sd_setImage(with: URL(string: user_list_Dic["profileImage"] as! String), placeholderImage: UIImage(named: "default_user"))
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        self.cartCount()
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
+            scrollView.contentOffset.y = scrollView.contentSize.height - scrollView.bounds.height
+        }
+    }
+    
+    func additionalSetup()
+    {
         setGradientBackground(view: backView)
-//        setGradientBackground1()
-        firstNameTF.text! = "Biswajit"
-        lastNameTF.text! = "Hazari"
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
         changeProfilePicBtn.layer.cornerRadius = changeProfilePicBtn.frame.size.width / 2
@@ -39,17 +60,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         saveBtn.layer.cornerRadius = 25
         curveView.layer.cornerRadius = 100
         curveView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        cartBadgeIcon(qty:"5")
-        profileScrollView.delegate = self
         
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = false
-    }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
-            scrollView.contentOffset.y = scrollView.contentSize.height - scrollView.bounds.height
-        }
+        profileScrollView.delegate = self
     }
 }
 
@@ -57,7 +69,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 extension EditProfileViewController
 {
     @IBAction func submitBtn(_ sender: Any) {
-       
+        updateAccountAPi()
     }
     @IBAction func profileChangeBtn(_ sender: Any) {
         checkCameraAccess()
@@ -66,9 +78,7 @@ extension EditProfileViewController
     @IBAction func mobileUpdateBtn(_ sender: Any) {
     
     }
-//    @IBAction func cartBtn(_ sender: Any) {
-//        cartBtn()
-//    }
+
     @IBAction func backBtn(_ sender: Any) {
         backBtn()
     }
@@ -161,8 +171,16 @@ extension EditProfileViewController
               let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
               //image = img
                 profileImage.image = img
-        self.dismiss(animated: true, completion: nil)
-    }
+                
+                //update Profile APi
+                let parameters:EIDictonary = ["customer_id": user_id]
+                let headers: [String:String] = [
+                    "Content-Type": "application/json;charset=UTF-8"
+                ]
+                uploadPhoto("http://13.127.27.45/dorothy/index.php?route=appapi/customer/profile_image", image: profileImage.image!, params: parameters, header: headers)
+                    self.dismiss(animated: true, completion: nil)
+        }
+    
 }
 
 extension EditProfileViewController
@@ -192,3 +210,72 @@ extension EditProfileViewController
 }
 
 
+//MARK:- API Calling
+extension EditProfileViewController
+{
+    func updateAccountAPi() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+        ProgressHud.hide()
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {
+            self.backBtn()
+            DispatchQueue.main.async {
+                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            }
+            
+
+        }else{
+            let mess = json["responseText"] as! String
+            Alert.showError(title: "Error", message: mess, vc: self)
+        }
+
+    }
+        
+    let failure:failureHandler = { [weak self] error, errorMessage in
+        ProgressHud.hide()
+        DispatchQueue.main.async {
+            Alert.showError(title: "Error", message: errorMessage, vc: self!)
+        }
+    }
+        
+    //Calling API
+        let parameters:EIDictonary = ["customer_id": user_id,"firstname":firstNameTF.text!,"lastname":lastNameTF.text!]
+    
+    SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.edit_profile, successCall: success, failureCall: failure)
+    }
+}
+
+
+//MARK:- API Calling for Profile Image Update
+extension EditProfileViewController
+{
+    
+    func uploadPhoto(_ url: String, image: UIImage, params: [String : Any], header: [String:String]) {
+       let httpHeaders = HTTPHeaders(header)
+       AF.upload(multipartFormData: { multiPart in
+           for p in params {
+               multiPart.append("\(p.value)".data(using: String.Encoding.utf8)!, withName: p.key)
+           }
+          multiPart.append(image.jpegData(compressionQuality: 0.4)!, withName: "image", fileName: "file.jpg", mimeType: "image/jpg")
+       }, to: url, method: .post, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
+           print("Upload Progress: \(progress.fractionCompleted)")
+       }).responseJSON(completionHandler: { data in
+           print("upload finished: \(data)")
+       }).response { (response) in
+           switch response.result {
+           case .success( _):
+                self.backBtn()
+                DispatchQueue.main.async {
+                    self.showToast(message: "Profile photo changed successfully", seconds: 2.0)
+                }
+           case .failure(let err):
+                showAlertWithOK(title: "Error", message: "\(err)",view : self,actionHandler:{
+                self.backBtn()
+                })
+           }
+       }
+   }
+}

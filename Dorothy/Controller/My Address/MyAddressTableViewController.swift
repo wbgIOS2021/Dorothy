@@ -18,14 +18,13 @@ class MyAddressTableViewController: UITableViewController {
         super.viewDidLoad()
         addressTableView.dataSource = self
         cellRegister()
-        cartBadgeIcon(qty:"5")
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1058823529, green: 0.07450980392, blue: 0.07450980392, alpha: 1)
-       // navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-        //navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        //navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1058823529, green: 0.07450980392, blue: 0.07450980392, alpha: 1)
+        self.cartCount()
     }
     
     func cellRegister()

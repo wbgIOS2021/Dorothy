@@ -28,7 +28,7 @@ class ProductListViewController: UIViewController {
         categoryCollectionView.delegate = self
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
-        cartBadgeIcon(qty:"4")
+        
         
         for _ in 0..<category_listArray.count{
             bolValue.append(false)
@@ -38,7 +38,7 @@ class ProductListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-       
+        self.cartCount()
     }
     override func viewDidLayoutSubviews() {
         UIView.animate(withDuration: 1, animations: { [weak self] in

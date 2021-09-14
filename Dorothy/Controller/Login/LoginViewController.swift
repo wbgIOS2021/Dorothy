@@ -50,6 +50,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func forgotPasswordBtn(_ sender: Any) {
+        self.showToast(message: "Comming Soon...", seconds: 2.0)
     }
 }
 extension LoginViewController
@@ -70,7 +71,7 @@ extension LoginViewController
             Alert.showError(title: "Error", message: "Please enter password", vc: self)
         }
         else{
-            print("login call")
+            loginAPi()
         }
     }
     
@@ -85,4 +86,50 @@ extension LoginViewController
     }
 
 }
+
+
+//MARK:- API Calling
+extension LoginViewController
+{
+    func loginAPi() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+        ProgressHud.hide()
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {
+
+            let responseData = json["responseData"] as! [String: Any]
+            saveStringOnLocal(key: "user_id", value: responseData["id"] as! String)
+            let name = "\(responseData["firstName"] as! String)"+" \(responseData["lastName"] as! String)"
+            saveStringOnLocal(key: "name", value: name)
+            saveStringOnLocal(key: "profile_pic", value: responseData["profileImage"] as! String)
+            // redirect to home page
+            self.homePage()
+            DispatchQueue.main.async {
+                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            }
+                    }else{
+            let mess = json["responseText"] as! String
+            Alert.showError(title: "Error", message: mess, vc: self)
+        }
+
+    }
+        
+    let failure:failureHandler = { [weak self] error, errorMessage in
+        ProgressHud.hide()
+        DispatchQueue.main.async {
+           
+            Alert.showError(title: "Error", message: errorMessage, vc: self!)
+        }
+    }
+        
+    //Calling API
+    let parameters:EIDictonary = ["email": "","phone":phoneTextField!.text!,"password": passwordTextField.text!,"device_type": "A","device_token":"12345"]
+    
+    SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.user_login, successCall: success, failureCall: failure)
+    }
+}
+
 

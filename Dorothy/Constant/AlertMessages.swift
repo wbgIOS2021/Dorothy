@@ -32,10 +32,10 @@ func showAlertWithOK(title: String, message: String,view : UIViewController,acti
     view.present(alert, animated: true, completion: nil)
 }
 
-func showAlertWithCancel(title: String, message: String,view : UIViewController,actionHandler:@escaping alertActionHandler) -> Void {
+func showAlertWithCancel(title: String, message: String,view : UIViewController,btn_title: String,actionHandler:@escaping alertActionHandler) -> Void {
     
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let OKAction = UIAlertAction(title: "OK", style: .default,handler :{
+    let OKAction = UIAlertAction(title: btn_title, style: .default,handler :{
         (UIAlertAction) in
         actionHandler()
     })

@@ -295,12 +295,12 @@
 			path = "Page Descriptions";
 			sourceTree = "<group>";
 		};
-		201ADE2F26E39329009B63B7 /* login */ = {
+		201ADE2F26E39329009B63B7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				201ADE3026E39329009B63B7 /* LoginViewController.swift */,
 			);
-			path = login;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		201AF19626E619EB00FAB7E4 /* Checkout */ = {
@@ -515,7 +515,7 @@
 				20EA505526E72C8C006D1969 /* Product Details */,
 				20EA504F26E725B6006D1969 /* Wishlist */,
 				201AF19626E619EB00FAB7E4 /* Checkout */,
-				201ADE2F26E39329009B63B7 /* login */,
+				201ADE2F26E39329009B63B7 /* Login */,
 				201ADE0D26E37B69009B63B7 /* Page Descriptions */,
 				201ADDD526E3309A009B63B7 /* Contact Us */,
 				20568E7C26E2088B0027C272 /* Order Summary */,

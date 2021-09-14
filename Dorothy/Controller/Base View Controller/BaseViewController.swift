@@ -13,7 +13,6 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }
 
@@ -29,8 +28,15 @@ extension UIViewController
     // Cart page Calling
     func cartBtn()
     {
-        let cartVC = storyboard?.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
-        navigationController?.pushViewController(cartVC, animated: true)
+        let isLogin = getStringValueFromLocal(key: "user_id")
+        if isLogin != nil{
+            let cartVC = storyboard?.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+            navigationController?.pushViewController(cartVC, animated: true)
+        }else
+        {
+            goToLogin(message: "You have not login yet. Please login")
+        }
+
     }
     
     // Home Page Calling
@@ -93,8 +99,9 @@ extension UIViewController
           let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
           rightButton.setBackgroundImage(UIImage(named: "empty_cart"), for: .normal)
           rightButton.addTarget(self, action: #selector(cartBtnAction), for: .touchUpInside)
-          rightButton.addSubview(label)
-
+            if qty != "0"{
+                rightButton.addSubview(label)
+            }
           // Bar button item
           let rightBarButtomItem = UIBarButtonItem(customView: rightButton)
 
@@ -103,7 +110,15 @@ extension UIViewController
     @objc func cartBtnAction() {
         cartBtn()
     }
-        
+     
+    // Login call with alert
+    func goToLogin(message:String)
+    {
+        showAlertWithCancel(title: "Login Require", message: message, view: self, btn_title: "Login", actionHandler: {
+            let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.pushViewController(login, animated: true)
+        })
+    }
 }
 
 //MARK:- CODE FOR CUSTOM TOAST
@@ -184,7 +199,44 @@ extension UIViewController
   }
 }
 
-//Animations : https://github.com/marcosgriselli/ViewAnimator
 
+//Cart Count API
+extension UIViewController
+{
+    func cartCount() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+        ProgressHud.hide()
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {
+            if json["responseData"] as! String == "0"
+            {
+                self.cartBadgeIcon(qty: json["responseData"] as! String)
+            }else{
+                self.cartBadgeIcon(qty: json["responseData"] as! String)
+            }
+        }else{
+            ProgressHud.hide()
+            
+        }
+        
+    }
+        let failure:failureHandler = { [weak self] error, errorMessage in
+            ProgressHud.hide()
+            DispatchQueue.main.async {
+                showAlertWith(title: "Error", message: errorMessage, view: self!)
+            }
+            
+        }
+        
+        //Calling API
+        let parameters:EIDictonary = ["customer_id": getStringValueFromLocal(key: "user_id") ?? "0"]
+        
+        SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.cartCount, successCall: success, failureCall: failure)
+       
+    }
+}
 
 

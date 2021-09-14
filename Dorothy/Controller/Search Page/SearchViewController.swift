@@ -15,17 +15,18 @@ class SearchViewController: UIViewController, UISearchBarDelegate{
     var product_listArray: [[String:Any]] = [["product_id": "57","thumb":"http://13.127.27.45/dorothy/image/cache/catalog/product/img702-350x350.png","name": "Authentic  African Nigerian Suya","description": "FRESHLY Made home Suya Very HOT and SPICY..","price": "$32.00","special": "0","tax": "$32.00","rating": "0","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "0"],["product_id": "55","thumb":"http://13.127.27.45/dorothy/image/cache/catalog/product/image%2048-350x350.png","name": "dry ground  ogbono ","description": "dry ground ogbono&nbsp;..","price": "$23.30","special": "0","tax": "$23.30","rating": "3","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "0"],["product_id": "54","thumb":"http://13.127.27.45/dorothy/image/cache/catalog/product/image%2051-350x350.png","name": "dry grounded  pepper","description": "dry grounded pepper..","price":"$80.00","special": "0","tax": "$80.00","rating": "3","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "1"],["product_id": "56","thumb":"http://13.127.27.45/dorothy/image/cache/catalog/product/img703-350x350.png","name": "Genuine African Nigerian Suya","description": "freshly prepared with homemade Signature Suya spice..","price": "$32.00","special": "0","tax": "$32.00","rating": "3","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "0"],["product_id": "53","thumb": "http://13.127.27.45/dorothy/image/cache/catalog/product/image%2040-350x350.png","name":"Knorr Chicken  Cube","description": "Knorr Chicken Cube..","price": "$250.00","special": "0","tax": "$250.00","rating": "3","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "0"],["product_id": "51","thumb": "http://13.127.27.45/dorothy/image/cache/catalog/product/image%2037-350x350.png","name": "Milo","description": "Milo..","price": "$250.00","special": "0","tax": "$250.00","rating": "2","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "1"],["product_id": "50","thumb": "http://13.127.27.45/dorothy/image/cache/catalog/product/image%2036-350x350.png","name": "Peak Milk","description": "Peak Milk..","price": "$200.00","special": "0","tax": "$200.00","rating": "3","minimum": "1","stock_status_id": "6","stock_status": "2-3 Days","option_count": 1,"is_wishlist": "0"],["product_id": "52","thumb": "http://13.127.27.45/dorothy/image/cache/catalog/product/image%2039-350x350.png","name": "Suya Spice","description": "Suya Spice..","price": "$250.00","special": "0","tax": "$250.00","rating": "4","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "1"]]
 
     var filtered_product_listArray: [[String:Any]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cellRegister()
         searchBar.delegate = self
-        cartBadgeIcon(qty:"5")
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-        
+        self.cartCount()
     }
     func cellRegister()
     {

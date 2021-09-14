@@ -15,25 +15,44 @@ class SideMenuViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var menuView:UIView!
     @IBOutlet weak var upperSectionView: UIView!
+    @IBOutlet weak var checkLoginBtn: UIButton!
     
-    var menuItems = [["name":"Home","page_id":""],["name":"Category","page_id":""],["name":"My Profile","page_id":""],["name":"My Wishlist","page_id":""],["name":"About Us","page_id":""],["name":"Contact Us","page_id":""],["name":"Delivery Information","page_id":""],["name":"Term & Condition","page_id":""],["name":"Privacy Policy","page_id":""],["name":"Logout","page_id":""]]
-    
+    var menuItems = [["name":"Home","page_id":""],["name":"Category","page_id":""],["name":"My Profile","page_id":""],["name":"My Wishlist","page_id":""],["name":"About Us","page_id":""],["name":"Contact Us","page_id":""],["name":"Delivery Information","page_id":""],["name":"Term & Condition","page_id":""],["name":"Privacy Policy","page_id":""]]
+    var user_pic:String = getStringValueFromLocal(key: "profile_pic") ?? "user1"
     override func viewDidLoad() {
         super.viewDidLoad()
         menuView.setGradientBackground1()
         menuTable.dataSource = self
         menuTable.delegate = self
-        
+        checkLoginBtn.layer.cornerRadius = 10
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
         
+        let isLogin = getStringValueFromLocal(key: "user_id")
+        if isLogin != nil{
+            checkLoginBtn.isHidden = true
+        }else
+        {
+            checkLoginBtn.isHidden = false
+        }
         
     }
     override func viewWillAppear(_ animated: Bool) {
         menuTable.reloadData()
-        
+        user_pic = getStringValueFromLocal(key: "profile_pic") ?? "user1"
+        profileImage.sd_setImage(with: URL(string: user_pic), placeholderImage: UIImage(named: "user1"))
+        nameLabel!.text! = " \(getStringValueFromLocal(key: "name") ?? " ")"
     }
     
+}
+
+extension SideMenuViewController
+{
+    @IBAction func loginbtn(_ sender:UIButton)
+    {
+        let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(login, animated: true)
+    }
 }
 
 // MARK:Menu View
@@ -79,16 +98,30 @@ extension SideMenuViewController: UITableViewDelegate
             //My Profile
             sideMenuController?.hideMenu()
             print(menuItems[indexPath.row])
-            let vc = storyboard?.instantiateViewController(withIdentifier: "MyProfileViewController") as! MyProfileViewController
-
-            navigationController?.pushViewController(vc, animated: true)
+            let isLogin = getStringValueFromLocal(key: "user_id")
+            if isLogin != nil{
+                sideMenuController?.hideMenu()
+                let vc = storyboard?.instantiateViewController(withIdentifier: "MyProfileViewController") as! MyProfileViewController
+                navigationController?.pushViewController(vc, animated: true)
+            }else
+            {
+                goToLogin(message: "You have not login yet. Please login")
+            }
       
         case 3:
             //My Wishlist
             sideMenuController?.hideMenu()
             print(menuItems[indexPath.row])
-            let vc = storyboard?.instantiateViewController(withIdentifier: "WishlistTableViewController") as! WishlistTableViewController
-            navigationController?.pushViewController(vc, animated: true)
+            let isLogin = getStringValueFromLocal(key: "user_id")
+            if isLogin != nil{
+                sideMenuController?.hideMenu()
+                let vc = storyboard?.instantiateViewController(withIdentifier: "WishlistTableViewController") as! WishlistTableViewController
+                navigationController?.pushViewController(vc, animated: true)
+            }else
+            {
+                goToLogin(message: "You have not login yet. Please login")
+            }
+            
         case 5:
             // Contact Us
             sideMenuController?.hideMenu()
@@ -96,17 +129,7 @@ extension SideMenuViewController: UITableViewDelegate
             let vc = storyboard?.instantiateViewController(withIdentifier: "ContactUsViewController") as! ContactUsViewController
 
             navigationController?.pushViewController(vc, animated: true)
-        case 9:
-            // Logout
-            sideMenuController?.hideMenu()
-//            showAlertWithCancel(title: "Info.", message: "Do you sure want to logout?", view: self, actionHandler: {
-                UserDefaults.standard.removeObject(forKey: "user_id")
-                UserDefaults.standard.removeObject(forKey: "mobile")
-                UserDefaults.standard.removeObject(forKey: "name")
-                UserDefaults.standard.removeObject(forKey: "profile_pic")
-//            })
-            let vc = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            navigationController?.pushViewController(vc, animated: true)
+        
         default:
             sideMenuController?.hideMenu()
             print("default value")

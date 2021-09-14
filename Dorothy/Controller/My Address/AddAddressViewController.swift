@@ -33,10 +33,11 @@ class AddAddressViewController: UIViewController {
         pickerView.isHidden = true
         saveBtn.layer.cornerRadius = 30
         saveBtn.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        cartBadgeIcon(qty:"5")
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
+        self.cartCount()
     }
     
     

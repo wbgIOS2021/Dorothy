@@ -26,7 +26,10 @@ class MyProfileViewController: UIViewController, UIScrollViewDelegate {
                      ["title":"My Address","subTitle":"Add or Update Address"],
                      ["title":"Privacy","subTitle":"Change your password"]]
         
+    var user_list_Dic: [String:Any] = [:]
     
+    var user_id = getStringValueFromLocal(key: "user_id") ?? "0"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground(view: backView)
@@ -36,7 +39,7 @@ class MyProfileViewController: UIViewController, UIScrollViewDelegate {
         profileScrollView.delegate = self
         curveView.layer.cornerRadius = 100
         curveView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        cartBadgeIcon(qty:"5")
+        
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
@@ -46,20 +49,27 @@ class MyProfileViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
+        gettingData()
+        self.cartCount()
     }
     
     @IBAction func backBtn(_ sender: Any) {
         self.homePage()
     }
     
-//    @IBAction func cartBtn(_ sender: Any) {
-//        cartBtn()
-//    }
+
     @IBAction func editProfileBtn(_ sender: Any) {
-        let editProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
-        self.navigationController?.pushViewController(editProfileVC, animated: true)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "EditProfileViewController") as! EditProfileViewController
+        vc.user_list_Dic = user_list_Dic
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func logoutBtn(_ sender: Any) {
+        showAlertWithCancel(title: "Info.", message: "Do you sure want to logout?", view: self, btn_title: "Logout", actionHandler: {
+            UserDefaults.standard.removeObject(forKey: "user_id")
+            UserDefaults.standard.removeObject(forKey: "name")
+            UserDefaults.standard.removeObject(forKey: "profile_pic")
+            self.homePage()
+        })
     }
 }
 
@@ -105,3 +115,64 @@ extension MyProfileViewController: UITableViewDelegate
     }
 }
 
+
+//MARK:- API Calling
+extension MyProfileViewController
+{
+    func gettingData() -> Void {
+        ProgressHud.show()
+
+        let success:successHandler = {  response in
+
+            let json = response as! [String : Any]
+            if json["responseCode"] as! Int == 1
+            {
+                
+                let responseData = json["responseData"] as! [String : Any]
+
+                    let customerId = responseData["customerId"] as! String
+                    let firstName = responseData["firstName"] as! String
+                    let lastName = responseData["lastName"] as! String
+                    let email = responseData["email"] as! String
+                    let telephone = responseData["telephone"] as! String
+                    let profileImage = responseData["profileImage"] as! String
+                        
+                    self.userName.text! = firstName + " " + lastName
+                    self.userEmail.text! = email
+                    self.userMobile.text! = telephone
+                    self.user_pic.sd_setImage(with: URL(string: profileImage), placeholderImage: UIImage(named: "default_user"))
+
+                    saveStringOnLocal(key: "profile_pic", value: profileImage)
+                    saveStringOnLocal(key: "name", value: firstName + " " + lastName)
+                
+                self.user_list_Dic["firstName"] = firstName
+                self.user_list_Dic["lastName"] = lastName
+                self.user_list_Dic["email"] = email
+                self.user_list_Dic["telephone"] = telephone
+                self.user_list_Dic["profileImage"] = profileImage
+
+                DispatchQueue.main.async
+                {
+                    ProgressHud.hide()
+                   
+                }
+            }else{
+                let mess = json["responseText"] as! String
+                Alert.showError(title: "Error", message: mess, vc: self)
+            }
+                
+        }
+        
+        let failure:failureHandler = { [weak self] error, errorMessage in
+            ProgressHud.hide()
+            DispatchQueue.main.async {
+               // showAlertWith(title: "Error", message: errorMessage, view: self!)
+            }
+        }
+        
+        //Calling API
+        let parameters:EIDictonary = ["customer_id":user_id]
+        SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.view_profile, successCall: success, failureCall: failure)
+    }
+}
+ 
