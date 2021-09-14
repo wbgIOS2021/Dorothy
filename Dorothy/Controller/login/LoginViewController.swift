@@ -16,8 +16,6 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var loginScrollView: UIScrollView!
-    var mobile_number = ""
-    var email_address = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         textFieldDesign()
@@ -38,7 +36,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         
         passwordTextField.label.text = "Enter Password"
         passwordTextField.containerRadius = 30.0
-        passwordTextField.leadingEdgePaddingOverride = 35.0
+        passwordTextField.leadingEdgePaddingOverride = 20.0
         passwordTextField.leadingView = UIImageView(image: UIImage(named: "lock"))
         passwordTextField.leadingViewMode = .always
         
@@ -72,13 +70,12 @@ extension LoginViewController
             Alert.showError(title: "Error", message: "Please enter password", vc: self)
         }
         else{
-            
-            self.homePage()
+            print("login call")
         }
     }
     
     @IBAction func signupBtn(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SendOtpViewController") as! SendOtpViewController
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -88,5 +85,4 @@ extension LoginViewController
     }
 
 }
-
 

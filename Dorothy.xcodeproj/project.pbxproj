@@ -24,6 +24,7 @@
 		201ADE3126E39329009B63B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201ADE3026E39329009B63B7 /* LoginViewController.swift */; };
 		201AF19226E5FEF000FAB7E4 /* VerifyOtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */; };
 		201AF19826E619EB00FAB7E4 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF19726E619EB00FAB7E4 /* CheckoutViewController.swift */; };
+		201AF39526EF5EE9005E23CE /* SendOtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF39426EF5EE9005E23CE /* SendOtpViewController.swift */; };
 		20568E4A26E1F87B0027C272 /* MyProfileMenuListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E4726E1F87A0027C272 /* MyProfileMenuListTableViewCell.swift */; };
 		20568E4C26E1F87B0027C272 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E4926E1F87A0027C272 /* MyProfileViewController.swift */; };
 		20568E5D26E204250027C272 /* MyOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E5526E204250027C272 /* MyOrderTableViewController.swift */; };
@@ -130,6 +131,7 @@
 		201ADE3026E39329009B63B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOtpViewController.swift; sourceTree = "<group>"; };
 		201AF19726E619EB00FAB7E4 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		201AF39426EF5EE9005E23CE /* SendOtpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendOtpViewController.swift; sourceTree = "<group>"; };
 		20568E4726E1F87A0027C272 /* MyProfileMenuListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileMenuListTableViewCell.swift; sourceTree = "<group>"; };
 		20568E4926E1F87A0027C272 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		20568E5526E204250027C272 /* MyOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrderTableViewController.swift; sourceTree = "<group>"; };
@@ -293,18 +295,9 @@
 			path = "Page Descriptions";
 			sourceTree = "<group>";
 		};
-		201ADE1326E383EB009B63B7 /* Registration */ = {
-			isa = PBXGroup;
-			children = (
-				201ADE1626E383EB009B63B7 /* RegistrationViewController.swift */,
-			);
-			path = Registration;
-			sourceTree = "<group>";
-		};
 		201ADE2F26E39329009B63B7 /* login */ = {
 			isa = PBXGroup;
 			children = (
-				201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */,
 				201ADE3026E39329009B63B7 /* LoginViewController.swift */,
 			);
 			path = login;
@@ -316,6 +309,16 @@
 				201AF19726E619EB00FAB7E4 /* CheckoutViewController.swift */,
 			);
 			path = Checkout;
+			sourceTree = "<group>";
+		};
+		201AF39326EF5EB7005E23CE /* Sign UP */ = {
+			isa = PBXGroup;
+			children = (
+				201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */,
+				201AF39426EF5EE9005E23CE /* SendOtpViewController.swift */,
+				201ADE1626E383EB009B63B7 /* RegistrationViewController.swift */,
+			);
+			path = "Sign UP";
 			sourceTree = "<group>";
 		};
 		20568E4626E1F87A0027C272 /* My Profile */ = {
@@ -504,6 +507,7 @@
 		20864BBA26DD0658008BC813 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				201AF39326EF5EB7005E23CE /* Sign UP */,
 				2014DA9826E8805700E54886 /* ProductList */,
 				2014DA8B26E876C600E54886 /* Categories */,
 				200A672A26E763A500136341 /* Search Page */,
@@ -512,7 +516,6 @@
 				20EA504F26E725B6006D1969 /* Wishlist */,
 				201AF19626E619EB00FAB7E4 /* Checkout */,
 				201ADE2F26E39329009B63B7 /* login */,
-				201ADE1326E383EB009B63B7 /* Registration */,
 				201ADE0D26E37B69009B63B7 /* Page Descriptions */,
 				201ADDD526E3309A009B63B7 /* Contact Us */,
 				20568E7C26E2088B0027C272 /* Order Summary */,
@@ -917,6 +920,7 @@
 				20864B8B26DD04D4008BC813 /* Dorothy.xcdatamodeld in Sources */,
 				20EA505E26E72CAB006D1969 /* RatingReviewCollectionViewCell.swift in Sources */,
 				208011BA26E0CABF00FFAB9C /* MyAddressTableViewCell.swift in Sources */,
+				201AF39526EF5EE9005E23CE /* SendOtpViewController.swift in Sources */,
 				208011C426E0FBC800FFAB9C /* CartViewController.swift in Sources */,
 				208011B226E0B0AE00FFAB9C /* SideMenuViewController.swift in Sources */,
 				20864BDE26DD0728008BC813 /* Reachability.swift in Sources */,

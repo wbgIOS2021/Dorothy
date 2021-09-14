@@ -16,14 +16,17 @@ typealias failureHandler = (Error?, String) -> Void
 
 enum RequestedUrlType: String {
 
- case HomePage = "home_page"
-    
+    case HomePage = "homepage"
+    case user_login = "main_login"
+    case user_register = "register"
+    case sendOTP = "send_otp"
+    case verifyOTP = "otp_verify"
 }
 
 class ServiceCall: NSObject
 {
    
-    static let kServerURL = "" //URL
+    static let kServerURL = "http://13.127.27.45/dorothy/index.php?route=appapi" //URL
 
     static var mmm : DataRequest?
     
@@ -91,8 +94,17 @@ func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:Request
         
         
         case RequestedUrlType.HomePage.rawValue:
-            urlString = ServiceCall.kServerURL + "";
-        
+            urlString = ServiceCall.kServerURL + "/product/homepage";
+            
+        case RequestedUrlType.user_login.rawValue:
+            urlString = ServiceCall.kServerURL + "/home/main_login";
+        case RequestedUrlType.user_register.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/add";
+        case RequestedUrlType.sendOTP.rawValue:
+            urlString = ServiceCall.kServerURL + "/home/login";
+        case RequestedUrlType.verifyOTP.rawValue:
+            urlString = ServiceCall.kServerURL + "/home/otp_verify";
+
 
         default:
             print("Default value")

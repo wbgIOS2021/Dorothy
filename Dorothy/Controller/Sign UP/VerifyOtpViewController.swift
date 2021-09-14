@@ -21,10 +21,15 @@ class VerifyOtpViewController: UIViewController {
     @IBOutlet weak var otpTextFieldBottomLabel3: UILabel!
     @IBOutlet weak var otpTextFieldBottomLabel2: UILabel!
     @IBOutlet weak var otpTextFieldBottomLabel4: UILabel!
-
+    
+    var mobile:String = ""
+    var country_code:String = ""
+    var otp:String = ""
+    var code:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         setupThings()
+        mobileLabelDisplay()
     }
     
     
@@ -45,8 +50,10 @@ class VerifyOtpViewController: UIViewController {
         }else if otp1 == false || otp2 == false || otp3 == false || otp4 == false
         {
             Alert.showError(title: "Error", message: "Invalid OTP!!!", vc: self)
-        }else{
-            homePage()
+        }
+        else{
+            code = "\(otpTextField1.text!)" + "\(otpTextField2.text!)" + "\(otpTextField3.text!)" + "\(otpTextField4.text!)"
+            verifyOTPAPI()
         }
     }
     @IBAction func backBtn(_ sender: UIButton) {
@@ -109,7 +116,15 @@ class VerifyOtpViewController: UIViewController {
             otpTextField4.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
 
     }
+    func mobileLabelDisplay()
+    {   let mobileNumer = mobile
+        let intLetters = mobileNumer.prefix(2)
+        let endLetters = mobileNumer.suffix(2)
 
+        let newString = intLetters + "******" + endLetters
+        mobileNumberLabel.text! = String(newString)+"--------->>>>\(otp)"
+    }
+    
 }
 
 extension VerifyOtpViewController:UITextFieldDelegate
@@ -118,3 +133,53 @@ extension VerifyOtpViewController:UITextFieldDelegate
         textField.text = ""
     }
 }
+
+
+//MARK:- Verify OTP API Calling
+extension VerifyOtpViewController
+{
+    func verifyOTPAPI() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+        ProgressHud.hide()
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {
+            if json["isRegister"] as! String == "1"
+            {
+                showAlertWithOK(title: "Warning", message: "This number is already registered with us.\n Please login using it or Sign up with another number.",view : self,actionHandler:{
+                    let vC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                    self.navigationController?.pushViewController(vC, animated: true)
+                })
+            }else{
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
+                vc.mobile = self.mobile
+                self.navigationController?.pushViewController(vc, animated: true)
+                DispatchQueue.main.async {
+                    self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+                }
+
+            }
+        }else{
+            let mess = json["responseText"] as! String
+            Alert.showError(title: "Error", message: mess, vc: self)
+        }
+
+    }
+
+    let failure:failureHandler = { [weak self] error, errorMessage in
+        ProgressHud.hide()
+        DispatchQueue.main.async {
+
+            Alert.showError(title: "Error", message: errorMessage, vc: self!)
+        }
+    }
+
+    //Calling API
+    let parameters:EIDictonary = ["phone": mobile,"otp":code]
+
+    SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.verifyOTP, successCall: success, failureCall: failure)
+    }
+}
+

@@ -17,7 +17,7 @@ class SideMenuViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var upperSectionView: UIView!
     
     var menuItems = [["name":"Home","page_id":""],["name":"Category","page_id":""],["name":"My Profile","page_id":""],["name":"My Wishlist","page_id":""],["name":"About Us","page_id":""],["name":"Contact Us","page_id":""],["name":"Delivery Information","page_id":""],["name":"Term & Condition","page_id":""],["name":"Privacy Policy","page_id":""],["name":"Logout","page_id":""]]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         menuView.setGradientBackground1()
@@ -31,6 +31,7 @@ class SideMenuViewController: UIViewController, UIScrollViewDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         menuTable.reloadData()
+        
     }
     
 }
@@ -98,9 +99,13 @@ extension SideMenuViewController: UITableViewDelegate
         case 9:
             // Logout
             sideMenuController?.hideMenu()
-            print(menuItems[indexPath.row])
+//            showAlertWithCancel(title: "Info.", message: "Do you sure want to logout?", view: self, actionHandler: {
+                UserDefaults.standard.removeObject(forKey: "user_id")
+                UserDefaults.standard.removeObject(forKey: "mobile")
+                UserDefaults.standard.removeObject(forKey: "name")
+                UserDefaults.standard.removeObject(forKey: "profile_pic")
+//            })
             let vc = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-
             navigationController?.pushViewController(vc, animated: true)
         default:
             sideMenuController?.hideMenu()
