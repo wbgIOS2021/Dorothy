@@ -16,10 +16,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var lastNameTF: UITextField!
     
     @IBOutlet weak var changeProfilePicBtn: UIButton!
-    @IBOutlet weak var mobileNumberLabel: UILabel!
+    @IBOutlet weak var mobileNumberTF: UITextField!
     
     @IBOutlet weak var curveView: UIView!
-    @IBOutlet weak var emailIDLabel: UILabel!
+    @IBOutlet weak var emailIdTF: UITextField!
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var cartBtn: UIBarButtonItem!
     @IBOutlet weak var backView:UIView!
@@ -28,15 +28,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var user_id = getStringValueFromLocal(key: "user_id") ?? "0"
     var user_list_Dic: [String:Any] = [:]
     var image = UIImage(named:"no-image")
-    
+    var country_code:String = "+91"
     override func viewDidLoad() {
         super.viewDidLoad()
         additionalSetup()
         
         firstNameTF.text! = user_list_Dic["firstName"] as! String
         lastNameTF.text! = user_list_Dic["lastName"] as! String
-        mobileNumberLabel.text! = user_list_Dic["telephone"] as! String
-        emailIDLabel.text! = user_list_Dic["email"] as! String
+        mobileNumberTF.text! = user_list_Dic["telephone"] as! String
+        emailIdTF.text! = user_list_Dic["email"] as! String
         
         profileImage.sd_setImage(with: URL(string: user_list_Dic["profileImage"] as! String), placeholderImage: UIImage(named: "default_user"))
     }
@@ -76,6 +76,9 @@ extension EditProfileViewController
         alertsheet(title: "Upload", txt: "Please select Image")
     }
     @IBAction func mobileUpdateBtn(_ sender: Any) {
+        change_phonenoOTPAPi()
+    }
+    @IBAction func emailUpdateBtn(_ sender: Any) {
     
     }
 
@@ -279,3 +282,46 @@ extension EditProfileViewController
        }
    }
 }
+
+//MARK:- API Calling
+extension EditProfileViewController
+{
+    func change_phonenoOTPAPi() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+        ProgressHud.hide()
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {            
+            let vC = self.storyboard?.instantiateViewController(withIdentifier: "VerifyOtpViewController") as! VerifyOtpViewController
+            vC.mobile = self.mobileNumberTF.text!
+            vC.country_code = self.country_code
+            vC.otp = json["responseData"] as! String
+            vC.isLoggedUser = 1
+            self.navigationController?.pushViewController(vC, animated: true)
+            DispatchQueue.main.async {
+                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            }
+        }else{
+            let mess = json["responseText"] as! String
+            Alert.showError(title: "Error", message: mess, vc: self)
+        }
+
+    }
+        
+    let failure:failureHandler = { [weak self] error, errorMessage in
+        ProgressHud.hide()
+        DispatchQueue.main.async {
+            Alert.showError(title: "Error", message: errorMessage, vc: self!)
+        }
+    }
+        
+    //Calling API
+        let parameters:EIDictonary = ["code": country_code,"customer_id":user_id, "phone_no":mobileNumberTF.text!]
+    
+    SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.change_phoneno, successCall: success, failureCall: failure)
+    }
+}
+
+

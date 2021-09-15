@@ -26,6 +26,7 @@ class VerifyOtpViewController: UIViewController {
     var country_code:String = ""
     var otp:String = ""
     var code:String = ""
+    var isLoggedUser = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         setupThings()
@@ -37,7 +38,11 @@ class VerifyOtpViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     @IBAction func resendCodeBtnAction(_ sender: Any) {
-        
+        if isLoggedUser == 1{
+            resendOTPToChangeMobileAPi()
+        }else{
+            resendOTPAPi()
+        }
     }
     
     @IBAction func verifyOtpBtnAction(_ sender: Any) {
@@ -50,6 +55,9 @@ class VerifyOtpViewController: UIViewController {
         }else if otp1 == false || otp2 == false || otp3 == false || otp4 == false
         {
             Alert.showError(title: "Error", message: "Invalid OTP!!!", vc: self)
+        }else if isLoggedUser == 1{
+            code = "\(otpTextField1.text!)" + "\(otpTextField2.text!)" + "\(otpTextField3.text!)" + "\(otpTextField4.text!)"
+            changeMobileVerifyOTPAPI()
         }
         else{
             code = "\(otpTextField1.text!)" + "\(otpTextField2.text!)" + "\(otpTextField3.text!)" + "\(otpTextField4.text!)"
@@ -180,6 +188,128 @@ extension VerifyOtpViewController
     let parameters:EIDictonary = ["phone": mobile,"otp":code]
 
     SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.verifyOTP, successCall: success, failureCall: failure)
+    }
+}
+
+//MARK:- API Calling for Change Mobile Varification
+extension VerifyOtpViewController
+{
+    func changeMobileVerifyOTPAPI() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+        ProgressHud.hide()
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {
+            let vC = self.storyboard?.instantiateViewController(withIdentifier: "MyProfileViewController") as! MyProfileViewController
+            self.navigationController?.pushViewController(vC, animated: true)
+            DispatchQueue.main.async {
+                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            }
+        }else{
+            let mess = json["responseText"] as! String
+            Alert.showError(title: "Error", message: mess, vc: self)
+            print("code--------",self.code)
+        }
+
+    }
+        
+    let failure:failureHandler = { [weak self] error, errorMessage in
+        ProgressHud.hide()
+        DispatchQueue.main.async {
+            Alert.showError(title: "Error", message: errorMessage, vc: self!)
+        }
+    }
+        
+    //Calling API
+        let parameters:EIDictonary = ["customer_id":getStringValueFromLocal(key: "user_id") ?? "0","phone_no": mobile,"otp":code]
+    
+    SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.change_mobile_otp_verify, successCall: success, failureCall: failure)
+    }
+}
+
+//MARK:- RESEND OTP API Calling for Change Mobile Varification
+extension VerifyOtpViewController
+{
+    
+    func resendOTPToChangeMobileAPi() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+        ProgressHud.hide()
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {
+            //let responseData = json["responseData"] as! [String: Any]
+            self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            self.otp = json["responseData"] as! String
+            DispatchQueue.main.async
+            {
+                self.mobileLabelDisplay()
+            }
+
+        }else{
+            let mess = json["responseText"] as! String
+            Alert.showError(title: "Error", message: mess, vc: self)
+        }
+
+    }
+        
+    let failure:failureHandler = { [weak self] error, errorMessage in
+        ProgressHud.hide()
+        DispatchQueue.main.async {
+           // showAlertWith(title: "Error", message: errorMessage, view: self!)
+            //self!.showError(title: "Error", message: errorMessage)
+            Alert.showError(title: "Error", message: errorMessage, vc: self!)
+        }
+    }
+        
+    //Calling API
+        let parameters:EIDictonary = ["code": country_code,"customer_id":getStringValueFromLocal(key: "user_id") ?? "0","phone_no":mobile]
+    
+    SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.change_phoneno, successCall: success, failureCall: failure)
+    }
+}
+
+//MARK:- Resend OTP
+extension VerifyOtpViewController
+{
+    func resendOTPAPi() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+        ProgressHud.hide()
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {
+            self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            self.otp = json["responseData"] as! String
+            DispatchQueue.main.async
+            {
+                self.mobileLabelDisplay()
+            }
+
+        }else{
+            let mess = json["responseText"] as! String
+            Alert.showError(title: "Error", message: mess, vc: self)
+        }
+
+    }
+        
+    let failure:failureHandler = { [weak self] error, errorMessage in
+        ProgressHud.hide()
+        DispatchQueue.main.async {
+           // showAlertWith(title: "Error", message: errorMessage, view: self!)
+            //self!.showError(title: "Error", message: errorMessage)
+            Alert.showError(title: "Error", message: errorMessage, vc: self!)
+        }
+    }
+        
+    //Calling API
+    let parameters:EIDictonary = ["code": country_code,"mobile_no":mobile]
+    
+    SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.sendOTP, successCall: success, failureCall: failure)
     }
 }
 

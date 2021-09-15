@@ -1611,7 +1611,7 @@
                                                         <rect key="frame" x="20" y="344" width="374" height="80"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HCt-MU-USX">
-                                                                <rect key="frame" x="20" y="19" width="263" height="42"/>
+                                                                <rect key="frame" x="20" y="15.5" width="263" height="49.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8s-zC-9Gn">
                                                                         <rect key="frame" x="0.0" y="0.0" width="263" height="16.5"/>
@@ -1619,12 +1619,14 @@
                                                                         <color key="textColor" name="fontColor2"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+918240015660" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPZ-3U-Z9m">
-                                                                        <rect key="frame" x="0.0" y="24.5" width="263" height="17.5"/>
-                                                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Mobile Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dSA-ul-DeF">
+                                                                        <rect key="frame" x="0.0" y="24.5" width="263" height="25"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="25" id="Ogc-Y8-iLy"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
                                                                 </subviews>
                                                             </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csZ-NE-utA">
@@ -1659,29 +1661,46 @@
                                                         <rect key="frame" x="20" y="444" width="374" height="80"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M18-fo-QSx">
-                                                                <rect key="frame" x="20" y="19" width="334" height="42"/>
+                                                                <rect key="frame" x="20" y="15.5" width="263" height="49.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzG-Ov-dr7">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="16.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="263" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                                         <color key="textColor" name="fontColor2"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="biswajithazari@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIM-fN-tHI">
-                                                                        <rect key="frame" x="0.0" y="24.5" width="334" height="17.5"/>
-                                                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0g8-SH-EvP">
+                                                                        <rect key="frame" x="0.0" y="24.5" width="263" height="25"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="25" id="Dsb-bF-1Lk"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
                                                                 </subviews>
                                                             </stackView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYw-QF-IaS">
+                                                                <rect key="frame" x="303" y="25" width="51" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="51" id="Xnt-Jb-9Ni"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Update">
+                                                                    <color key="titleColor" name="themeColor2"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="emailUpdateBtn:" destination="GVf-hR-Bzk" eventType="touchUpInside" id="OFo-in-Ubw"/>
+                                                                    <action selector="mobileUpdateBtn:" destination="GVf-hR-Bzk" eventType="touchUpInside" id="q6z-2M-yNb"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
+                                                            <constraint firstItem="VYw-QF-IaS" firstAttribute="centerY" secondItem="M18-fo-QSx" secondAttribute="centerY" id="41A-QE-ITj"/>
                                                             <constraint firstAttribute="height" constant="80" id="ELV-T9-YzW"/>
                                                             <constraint firstItem="M18-fo-QSx" firstAttribute="centerY" secondItem="J2e-UR-ETp" secondAttribute="centerY" id="GBi-TZ-R9b"/>
                                                             <constraint firstItem="M18-fo-QSx" firstAttribute="leading" secondItem="J2e-UR-ETp" secondAttribute="leading" constant="20" id="Jha-il-Yp6"/>
-                                                            <constraint firstAttribute="trailing" secondItem="M18-fo-QSx" secondAttribute="trailing" constant="20" id="QNY-rG-a89"/>
+                                                            <constraint firstItem="VYw-QF-IaS" firstAttribute="leading" secondItem="M18-fo-QSx" secondAttribute="trailing" constant="20" id="OBk-26-P1X"/>
+                                                            <constraint firstAttribute="trailing" secondItem="VYw-QF-IaS" secondAttribute="trailing" constant="20" id="TID-9K-moe"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="shodow">
@@ -1750,10 +1769,10 @@
                         <outlet property="cartBtn" destination="5h5-kt-Qq2" id="YiO-hX-OKE"/>
                         <outlet property="changeProfilePicBtn" destination="qnx-ZP-yub" id="jhA-Rv-ddC"/>
                         <outlet property="curveView" destination="ZOW-7v-VX5" id="dpk-dZ-XcR"/>
-                        <outlet property="emailIDLabel" destination="eIM-fN-tHI" id="ssO-83-bgg"/>
+                        <outlet property="emailIdTF" destination="0g8-SH-EvP" id="qFC-2o-D6p"/>
                         <outlet property="firstNameTF" destination="jQu-1T-Wct" id="BaE-cb-KRL"/>
                         <outlet property="lastNameTF" destination="m2S-iO-HZy" id="0we-lu-Fct"/>
-                        <outlet property="mobileNumberLabel" destination="CPZ-3U-Z9m" id="dZ7-9z-WUG"/>
+                        <outlet property="mobileNumberTF" destination="dSA-ul-DeF" id="5S7-cc-Zhh"/>
                         <outlet property="profileImage" destination="OD6-gc-ABq" id="Jh7-vD-yZx"/>
                         <outlet property="profileScrollView" destination="91s-GC-1tW" id="UMM-fE-w5B"/>
                         <outlet property="saveBtn" destination="Kdt-Rq-91e" id="kKF-8H-egX"/>

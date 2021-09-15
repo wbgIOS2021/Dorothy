@@ -27,6 +27,8 @@ enum RequestedUrlType: String {
     case view_profile = "myAccount"
     case edit_profile = "editAccount"
     case update_profile = "profile_image"
+    case change_phoneno = "change_phoneno"
+    case change_mobile_otp_verify = "mobile_otp_verify"
 }
 
 class ServiceCall: NSObject
@@ -120,6 +122,10 @@ func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:Request
             urlString = ServiceCall.kServerURL + "/customer/editAccount";
         case RequestedUrlType.update_profile.rawValue:
             urlString = ServiceCall.kServerURL + "/customer/profile_image";
+        case RequestedUrlType.change_phoneno.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/change_phoneno";
+        case RequestedUrlType.change_mobile_otp_verify.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/mobile_otp_verify";
 
         default:
             print("Default value")
