@@ -25,6 +25,7 @@
 		201AF19226E5FEF000FAB7E4 /* VerifyOtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */; };
 		201AF19826E619EB00FAB7E4 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF19726E619EB00FAB7E4 /* CheckoutViewController.swift */; };
 		201AF39526EF5EE9005E23CE /* SendOtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF39426EF5EE9005E23CE /* SendOtpViewController.swift */; };
+		2044BAA426F3220400E0DDCD /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2044BAA326F3220400E0DDCD /* ChangePasswordViewController.swift */; };
 		20568E4A26E1F87B0027C272 /* MyProfileMenuListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E4726E1F87A0027C272 /* MyProfileMenuListTableViewCell.swift */; };
 		20568E4C26E1F87B0027C272 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E4926E1F87A0027C272 /* MyProfileViewController.swift */; };
 		20568E5D26E204250027C272 /* MyOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E5526E204250027C272 /* MyOrderTableViewController.swift */; };
@@ -84,6 +85,7 @@
 		20864BDE26DD0728008BC813 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BD826DD0728008BC813 /* Reachability.swift */; };
 		20864BDF26DD0728008BC813 /* IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BD926DD0728008BC813 /* IBDesignable.swift */; };
 		20864BE026DD0728008BC813 /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BDA26DD0728008BC813 /* AlertMessages.swift */; };
+		2095719126F30C2C0039EC9F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2095719026F30C2C0039EC9F /* ForgotPasswordViewController.swift */; };
 		20DBC5E326E2361B004CAD0B /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DBC5E226E2361B004CAD0B /* EditProfileViewController.swift */; };
 		20EA505126E725B6006D1969 /* WishlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA505026E725B6006D1969 /* WishlistTableViewController.swift */; };
 		20EA505726E72C8C006D1969 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA505626E72C8C006D1969 /* ProductDetailsViewController.swift */; };
@@ -132,6 +134,7 @@
 		201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOtpViewController.swift; sourceTree = "<group>"; };
 		201AF19726E619EB00FAB7E4 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		201AF39426EF5EE9005E23CE /* SendOtpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendOtpViewController.swift; sourceTree = "<group>"; };
+		2044BAA326F3220400E0DDCD /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		20568E4726E1F87A0027C272 /* MyProfileMenuListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileMenuListTableViewCell.swift; sourceTree = "<group>"; };
 		20568E4926E1F87A0027C272 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		20568E5526E204250027C272 /* MyOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrderTableViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +202,7 @@
 		20864BD826DD0728008BC813 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		20864BD926DD0728008BC813 /* IBDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignable.swift; sourceTree = "<group>"; };
 		20864BDA26DD0728008BC813 /* AlertMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
+		2095719026F30C2C0039EC9F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		20DBC5E226E2361B004CAD0B /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		20EA505026E725B6006D1969 /* WishlistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistTableViewController.swift; sourceTree = "<group>"; };
 		20EA505626E72C8C006D1969 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
@@ -319,6 +323,14 @@
 				201ADE1626E383EB009B63B7 /* RegistrationViewController.swift */,
 			);
 			path = "Sign UP";
+			sourceTree = "<group>";
+		};
+		2044BA9F26F321E500E0DDCD /* Change Password */ = {
+			isa = PBXGroup;
+			children = (
+				2044BAA326F3220400E0DDCD /* ChangePasswordViewController.swift */,
+			);
+			path = "Change Password";
 			sourceTree = "<group>";
 		};
 		20568E4626E1F87A0027C272 /* My Profile */ = {
@@ -507,6 +519,8 @@
 		20864BBA26DD0658008BC813 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2044BA9F26F321E500E0DDCD /* Change Password */,
+				2095718F26F30C0F0039EC9F /* Forgot Password */,
 				201AF39326EF5EB7005E23CE /* Sign UP */,
 				2014DA9826E8805700E54886 /* ProductList */,
 				2014DA8B26E876C600E54886 /* Categories */,
@@ -575,6 +589,14 @@
 				20864BDA26DD0728008BC813 /* AlertMessages.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		2095718F26F30C0F0039EC9F /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				2095719026F30C2C0039EC9F /* ForgotPasswordViewController.swift */,
+			);
+			path = "Forgot Password";
 			sourceTree = "<group>";
 		};
 		20EA504F26E725B6006D1969 /* Wishlist */ = {
@@ -929,6 +951,8 @@
 				200A671826E731DC00136341 /* ShowReviewTableViewController.swift in Sources */,
 				20864B8126DD04D4008BC813 /* AppDelegate.swift in Sources */,
 				2080117826E0A6A000FFAB9C /* HomeCategoryListCollectionViewCell.swift in Sources */,
+				2044BAA426F3220400E0DDCD /* ChangePasswordViewController.swift in Sources */,
+				2095719126F30C2C0039EC9F /* ForgotPasswordViewController.swift in Sources */,
 				20EA505126E725B6006D1969 /* WishlistTableViewController.swift in Sources */,
 				201ADE3126E39329009B63B7 /* LoginViewController.swift in Sources */,
 				20864BDF26DD0728008BC813 /* IBDesignable.swift in Sources */,

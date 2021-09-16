@@ -50,8 +50,10 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func forgotPasswordBtn(_ sender: Any) {
-        self.showToast(message: "Comming Soon...", seconds: 2.0)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
 extension LoginViewController
 {
@@ -110,7 +112,7 @@ extension LoginViewController
             DispatchQueue.main.async {
                 self.showToast(message: json["responseText"] as! String, seconds: 2.0)
             }
-                    }else{
+        }else{
             let mess = json["responseText"] as! String
             Alert.showError(title: "Error", message: mess, vc: self)
         }

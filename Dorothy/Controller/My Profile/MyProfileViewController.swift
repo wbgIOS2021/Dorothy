@@ -108,7 +108,8 @@ extension MyProfileViewController: UITableViewDelegate
             
         case .privacy:
             print(menuItems[indexPath.row])
-            
+            let VC = storyboard?.instantiateViewController(withIdentifier: "ChangePasswordViewController") as! ChangePasswordViewController
+            navigationController?.pushViewController(VC, animated: true)
         case .none:
             print(".......")
         }

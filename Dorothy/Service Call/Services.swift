@@ -17,10 +17,12 @@ typealias failureHandler = (Error?, String) -> Void
 enum RequestedUrlType: String {
 
     case HomePage = "homepage"
+    
     case user_login = "main_login"
     case user_register = "register"
     case sendOTP = "send_otp"
     case verifyOTP = "otp_verify"
+    case forgot_password = "forgot_password"
     
     case cartCount = "cart_total_quantity"
     
@@ -29,6 +31,15 @@ enum RequestedUrlType: String {
     case update_profile = "profile_image"
     case change_phoneno = "change_phoneno"
     case change_mobile_otp_verify = "mobile_otp_verify"
+    case update_email = "update_email"
+    case change_password = "change_password"
+    
+    case gettingAddress = "getAddress"
+    case deleteAddress = "deleteAddress"
+    case countryList = "countryList"
+    case stateList = "stateList"
+    case addAddress = "addressAdd"
+    case updateAddress = "addressUpdate"
 }
 
 class ServiceCall: NSObject
@@ -112,6 +123,8 @@ func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:Request
             urlString = ServiceCall.kServerURL + "/home/login";
         case RequestedUrlType.verifyOTP.rawValue:
             urlString = ServiceCall.kServerURL + "/home/otp_verify";
+        case RequestedUrlType.forgot_password.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/forget_password";
         
         case RequestedUrlType.cartCount.rawValue:
             urlString = ServiceCall.kServerURL + "/cart/cart_total_quantity";
@@ -126,6 +139,23 @@ func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:Request
             urlString = ServiceCall.kServerURL + "/customer/change_phoneno";
         case RequestedUrlType.change_mobile_otp_verify.rawValue:
             urlString = ServiceCall.kServerURL + "/customer/mobile_otp_verify";
+        case RequestedUrlType.update_email.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/update_customer_email";
+        case RequestedUrlType.change_password.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/change_password";
+            
+        case RequestedUrlType.gettingAddress.rawValue:
+            urlString = ServiceCall.kServerURL + "/address/getAddress";
+        case RequestedUrlType.deleteAddress.rawValue:
+            urlString = ServiceCall.kServerURL + "/address/deleteAddress";
+        case RequestedUrlType.countryList.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/countryList";
+        case RequestedUrlType.stateList.rawValue:
+            urlString = ServiceCall.kServerURL + "/customer/stateList";
+        case RequestedUrlType.addAddress.rawValue:
+            urlString = ServiceCall.kServerURL + "/address/addressAdd";
+        case RequestedUrlType.updateAddress.rawValue:
+            urlString = ServiceCall.kServerURL + "/address/addressUpdate";
 
         default:
             print("Default value")

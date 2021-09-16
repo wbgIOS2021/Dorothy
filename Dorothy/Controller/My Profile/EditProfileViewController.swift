@@ -32,16 +32,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         additionalSetup()
-        
-        firstNameTF.text! = user_list_Dic["firstName"] as! String
-        lastNameTF.text! = user_list_Dic["lastName"] as! String
-        mobileNumberTF.text! = user_list_Dic["telephone"] as! String
-        emailIdTF.text! = user_list_Dic["email"] as! String
-        
+
         profileImage.sd_setImage(with: URL(string: user_list_Dic["profileImage"] as! String), placeholderImage: UIImage(named: "default_user"))
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
+        firstNameTF.text! = user_list_Dic["firstName"] as! String
+        lastNameTF.text! = user_list_Dic["lastName"] as! String
+        mobileNumberTF.text! = user_list_Dic["telephone"] as! String
+        emailIdTF.text! = user_list_Dic["email"] as! String
         self.cartCount()
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -69,23 +68,57 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 extension EditProfileViewController
 {
     @IBAction func submitBtn(_ sender: Any) {
-        updateAccountAPi()
+        if firstNameTF.text! == ""
+        {
+            Alert.showError(title: "Error", message: "Enter first name", vc: self)
+        }else if lastNameTF.text! == ""
+        {
+            Alert.showError(title: "Error", message: "Enter last name", vc: self)
+        }else{
+            updateAccountAPi()
+        }
     }
     @IBAction func profileChangeBtn(_ sender: Any) {
         checkCameraAccess()
         alertsheet(title: "Upload", txt: "Please select Image")
     }
     @IBAction func mobileUpdateBtn(_ sender: Any) {
-        change_phonenoOTPAPi()
+        let mobile = validateNumber(mobileNumberTF.text!)
+        if mobileNumberTF.text! == ""
+        {
+            Alert.showError(title: "Error", message: "Enter mobile number", vc: self)
+        }else if mobile == false || mobileNumberTF.text?.count != 10
+        {
+            Alert.showError(title: "Error", message: "Invalid mobile", vc: self)
+        }else if mobileNumberTF.text! == user_list_Dic["telephone"] as! String
+        {
+            Alert.showError(title: "Error", message: "Please enter another number", vc: self)
+        }else{
+            change_phonenoOTPAPi()
+        }
+
     }
     @IBAction func emailUpdateBtn(_ sender: Any) {
-    
+        let email = validateEmailID(emailID: emailIdTF!.text!)
+        if emailIdTF.text! == ""
+        {
+            Alert.showError(title: "Error", message: "Enter email address", vc: self)
+        }else if email == false
+        {
+            Alert.showError(title: "Error", message: "Invalid email", vc: self)
+        }else if emailIdTF.text! == user_list_Dic["email"] as! String
+        {
+            Alert.showError(title: "Error", message: "Please enter another email", vc: self)
+        }else{
+            updateEmailAddressAPi()
+        }
     }
 
     @IBAction func backBtn(_ sender: Any) {
         backBtn()
     }
 }
+
 
 
 //MARK:- Gallery and Camera Access
@@ -283,7 +316,7 @@ extension EditProfileViewController
    }
 }
 
-//MARK:- API Calling
+//MARK:- API Calling For Update Mobile Number
 extension EditProfileViewController
 {
     func change_phonenoOTPAPi() -> Void {
@@ -321,6 +354,44 @@ extension EditProfileViewController
         let parameters:EIDictonary = ["code": country_code,"customer_id":user_id, "phone_no":mobileNumberTF.text!]
     
     SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.change_phoneno, successCall: success, failureCall: failure)
+    }
+}
+
+
+//MARK:- API Calling For Update Email
+extension EditProfileViewController
+{
+    func updateEmailAddressAPi() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+        ProgressHud.hide()
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {
+            self.backBtn()
+            DispatchQueue.main.async {
+                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            }
+            
+        }else{
+            let mess = json["responseText"] as! String
+            Alert.showError(title: "Error", message: mess, vc: self)
+        }
+
+    }
+        
+    let failure:failureHandler = { [weak self] error, errorMessage in
+        ProgressHud.hide()
+        DispatchQueue.main.async {
+            Alert.showError(title: "Error", message: errorMessage, vc: self!)
+        }
+    }
+        
+    //Calling API
+        let parameters:EIDictonary = ["customer_id":user_id, "email":emailIdTF.text!]
+    
+    SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.update_email, successCall: success, failureCall: failure)
     }
 }
 
