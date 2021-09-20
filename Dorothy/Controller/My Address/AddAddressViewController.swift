@@ -156,7 +156,7 @@ extension AddAddressViewController
             addAddress()
             self.backBtn()
         }else{
-            showToast(message: "under processing", seconds: 1.5)
+            updateAddress()
             self.backBtn()
         }
     }
@@ -186,6 +186,7 @@ extension AddAddressViewController: UIPickerViewDelegate,UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
             stateTF.text! = state_data[row]["name"] as! String
+            state_id = state_data[row]["id"] as! String
 
         pickerView.isHidden = true
 
@@ -282,3 +283,38 @@ extension AddAddressViewController
     }
 }
 
+//MARK:- Update Address
+extension AddAddressViewController
+{
+    //Add or Remove wishlist
+    func updateAddress() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+        ProgressHud.hide()
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {
+            self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            self.backBtn()
+        }else{
+            //ProgressHud.hide()
+            self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+        }
+        
+    }
+        let failure:failureHandler = { [weak self] error, errorMessage in
+            ProgressHud.hide()
+            DispatchQueue.main.async {
+                showAlertWith(title: "Error", message: errorMessage, view: self!)
+            }
+            
+        }
+        
+        //Calling API
+        let parameters:EIDictonary = ["address_id":addressId,"customer_id":user_id,"firstname":firstNameTF.text! ,"lastname":lastNameTF.text!,"company":"","address_1":houseNumberTF.text!,"address_2":landmarkTF.text!,"str_address":streetAddressTF.text!,"city":cityTF.text! ,"phone":mobileTF.text!,"postcode":pincodeTF.text!,"country_id":country_id,"state_id":state_id,"default_address":isDefault]
+        
+        SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.updateAddress, successCall: success, failureCall: failure)
+       
+    }
+}

@@ -3898,7 +3898,7 @@
                                 </subviews>
                                 <color key="backgroundColor" name="themeColor2"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="GDo-9Z-s43" secondAttribute="height" multiplier="69:10" id="8si-Iz-W1i"/>
+                                    <constraint firstAttribute="height" constant="60" id="9yg-Bd-A0f"/>
                                     <constraint firstItem="lL3-dh-Dq4" firstAttribute="centerX" secondItem="GDo-9Z-s43" secondAttribute="centerX" id="Ysc-XG-h3y"/>
                                     <constraint firstItem="lL3-dh-Dq4" firstAttribute="centerY" secondItem="GDo-9Z-s43" secondAttribute="centerY" id="ypR-bE-2xS"/>
                                 </constraints>
@@ -3931,6 +3931,7 @@
                         <outlet property="billingAddress" destination="9TG-Uh-ZOc" id="JOg-Qu-iwL"/>
                         <outlet property="billingView" destination="spH-Im-s7x" id="Q88-E4-7HV"/>
                         <outlet property="bottomView" destination="GDo-9Z-s43" id="G2N-Gy-kHU"/>
+                        <outlet property="bottomViewHeight" destination="9yg-Bd-A0f" id="oXQ-wy-UTs"/>
                         <outlet property="cartQty" destination="uhZ-d9-3tq" id="hSS-mA-pWH"/>
                         <outlet property="cashOnDeliveryBtn" destination="0KC-jh-WsZ" id="oZE-h3-3bK"/>
                         <outlet property="cashOnDeliveryView" destination="q2E-c8-dKc" id="NeN-Ng-gZ7"/>

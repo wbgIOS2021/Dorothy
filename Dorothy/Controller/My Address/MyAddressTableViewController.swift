@@ -86,6 +86,7 @@ class MyAddressTableViewController: UITableViewController {
         cell.deleteAddressbtn.addTarget(self, action: #selector(self.deleteAddress), for: .touchUpInside)
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
        UIView.animate(withDuration: 0.8) {
@@ -96,6 +97,29 @@ class MyAddressTableViewController: UITableViewController {
             cell.alpha = 1
         }
    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isComeFromCheckout == true{
+            let address = address_data[indexPath.row]
+            let addressId = address["addressId"] as! String
+            let firstname = address["firstname"] as! String
+            let lastname = address["lastname"] as! String
+            let address1 = address["address1"] as! String
+            let address2 = address["address2"] as! String
+            let postcode = address["postcode"] as! String
+            let city = address["city"] as! String
+            let zone = address["zone"] as! String
+            let phone = address["phone"] as! String
+            let strAddress = address["strAddress"] as! String
+            let address_full_name = firstname + " " + lastname
+            let default_addresses = address1 + ", " + address2 + ", " + strAddress  + ", " + city + ", " + zone + " - " + postcode + ", " + phone
+            let vc = storyboard?.instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController
+            vc.isComeFromMyAddress = true
+            vc.addressId = addressId
+            vc.billing_name = "\(address_full_name)"
+            vc.billing_address = "\(default_addresses)"
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     // Edit Address
     @objc func editAddress(_ sender: UIButton)

@@ -15,12 +15,16 @@ class MyOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var orderView: UIView!
     @IBOutlet weak var productsTableView: OwnTableView!
     @IBOutlet weak var productsTableViewHeight: NSLayoutConstraint!
+    
     var count:Int = 3
+    var data : [[String:Any]] = []
+    var order_Id:String = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         self.orderView.dropShadow()
         cellregister()
         productsTableView.dataSource = self
+        productsTableView.delegate = self
         self.productsTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
     }
     
@@ -56,20 +60,37 @@ class MyOrderTableViewCell: UITableViewCell {
     }
 }
 
-extension MyOrderTableViewCell: UITableViewDataSource
+extension MyOrderTableViewCell: UITableViewDataSource, UITableViewDelegate
 {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return count
+        if data.count < 4{
+            return data.count
+        }
+        else{
+            return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = productsTableView.dequeueReusableCell(withIdentifier: "OrdersTableViewCell", for: indexPath) as! OrdersTableViewCell
         cell.productPrice.isHidden = true
+        let cellData = data[indexPath.row]
+        cell.productImage.sd_setImage(with: URL(string: "http://13.127.27.45/dorothy/image/catalog/product/img703.png"), placeholderImage: UIImage(named: "no-image"))
+        
+        cell.productName.text! = cellData["name"] as! String
+        let weight = Float(cellData["weight"] as! String)!
+        cell.productQty.text! = "\(weight.clean)" + " \(cellData["weight_type"] as! String)"
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: "OrderSummaryViewController") as! OrderSummaryViewController
+        vc.orderId = order_Id
+        let navigationController = self.window?.rootViewController as! UINavigationController
+        navigationController.pushViewController(vc, animated: true)
     }
     
     

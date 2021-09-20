@@ -23,9 +23,7 @@ enum RequestedUrlType: String {
     case sendOTP = "send_otp"
     case verifyOTP = "otp_verify"
     case forgot_password = "forgot_password"
-    
-    case cartCount = "cart_total_quantity"
-    
+        
     case view_profile = "myAccount"
     case edit_profile = "editAccount"
     case update_profile = "profile_image"
@@ -40,6 +38,21 @@ enum RequestedUrlType: String {
     case stateList = "stateList"
     case addAddress = "addressAdd"
     case updateAddress = "addressUpdate"
+    
+    case wishlist_products = "my_wishlist"
+    case addRemoveWishlist = "add_remove_wishlist"
+    
+    case cart_list = "cart_list"
+    case removeCart = "cart_data_delete"
+    case addToCart = "add_to_cart_new"
+    case updateCart = "update_to_cart"
+    case cartCount = "cart_total_quantity"
+    
+    case checkout = "checkout"
+    
+    case makeOrder = "make_order"
+    case orderList = "order_list"
+    
 }
 
 class ServiceCall: NSObject
@@ -156,6 +169,29 @@ func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:Request
             urlString = ServiceCall.kServerURL + "/address/addressAdd";
         case RequestedUrlType.updateAddress.rawValue:
             urlString = ServiceCall.kServerURL + "/address/addressUpdate";
+            
+        case RequestedUrlType.wishlist_products.rawValue:
+            urlString = ServiceCall.kServerURL + "/wishlist/my_wishlist";
+        case RequestedUrlType.addRemoveWishlist.rawValue:
+            urlString = ServiceCall.kServerURL + "/wishlist/add";
+            
+        case RequestedUrlType.cart_list.rawValue:
+            urlString = ServiceCall.kServerURL + "/cart/cart_list";
+        case RequestedUrlType.removeCart.rawValue:
+            urlString = ServiceCall.kServerURL + "/cart/cart_data_delete";
+        case RequestedUrlType.addToCart.rawValue:
+            urlString = ServiceCall.kServerURL + "/cart/add_to_cart_new";
+        case RequestedUrlType.updateCart.rawValue:
+            urlString = ServiceCall.kServerURL + "/cart/update_to_cart";
+        case RequestedUrlType.cartCount.rawValue:
+            urlString = ServiceCall.kServerURL + "/cart/cart_total_quantity";
+        case RequestedUrlType.checkout.rawValue:
+            urlString = ServiceCall.kServerURL + "/cart/checkOut";
+         
+        case RequestedUrlType.makeOrder.rawValue:
+            urlString = ServiceCall.kServerURL + "/order/make_order";
+        case RequestedUrlType.orderList.rawValue:
+            urlString = ServiceCall.kServerURL + "/order/order_list";
 
         default:
             print("Default value")

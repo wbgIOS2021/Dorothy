@@ -33,6 +33,7 @@ class OrderSummaryViewController: UIViewController {
     @IBOutlet weak var cartBtn: UIBarButtonItem!
     @IBOutlet weak var orderDetailsView: UIView!
     
+    var orderId:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         cellregister()
@@ -40,6 +41,8 @@ class OrderSummaryViewController: UIViewController {
         totalSavingView.layer.borderColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         bottomReturnView.layer.cornerRadius = 30
         bottomReturnView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        orderIdLabel.text = "Order ID: " + orderId
     }
     
     func cellregister()

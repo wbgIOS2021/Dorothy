@@ -239,4 +239,101 @@ extension UIViewController
     }
 }
 
+//MARK:- Add or Remove wishlist
+extension UIViewController
+{
+    
+    func wishlistAction(product_id:String,actionHandler:@escaping successHandlers) -> Void {
+        let isLogin = getStringValueFromLocal(key: "user_id")
+        if isLogin != nil{
+            
+        
+        ProgressHud.show()
 
+        let success:successHandler = {  response in
+            ProgressHud.hide()
+            let json = response as! [String : Any]
+            if json["responseCode"] as! Int == 1
+            {
+                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+                actionHandler(response)
+            }else{
+                ProgressHud.hide()
+                
+            }
+            
+        }
+            let failure:failureHandler = { [weak self] error, errorMessage in
+                ProgressHud.hide()
+                DispatchQueue.main.async {
+                    showAlertWith(title: "Error", message: errorMessage, view: self!)
+                }
+                
+            }
+            
+            //Calling API
+            let parameters:EIDictonary = ["customer_id": getStringValueFromLocal(key: "user_id") ?? "0","product_id":product_id ]
+            
+            SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.addRemoveWishlist, successCall: success, failureCall: failure)
+        }else
+        {
+            goToLogin(message: "Please login to add wishlist")
+        }
+    }
+}
+
+//MARK:- Add to cart
+extension UIViewController
+{
+    
+    func addCartAction(product_id:String,quantity:Int,actionHandler:@escaping successHandlers) -> Void{
+        let isLogin = getStringValueFromLocal(key: "user_id")
+        if isLogin != nil{
+            ProgressHud.show()
+
+            let success:successHandler = {  response in
+                ProgressHud.hide()
+                let json = response as! [String : Any]
+                if json["responseCode"] as! Int == 1
+                {
+                    actionHandler(response)
+                }else{
+                    showAlertWith(title: "Warning", message: json["responseText"] as! String, view: self)
+                }
+            }
+                let failure:failureHandler = { [weak self] error, errorMessage in
+                    ProgressHud.hide()
+                    DispatchQueue.main.async {
+                        showAlertWith(title: "Error", message: errorMessage, view: self!)
+                    }
+                    
+                }
+                
+                //Calling API
+            let parameters:EIDictonary = ["product_id": product_id,"customer_id": getStringValueFromLocal(key: "user_id") ?? "0","quantity":quantity,"option[227][]":"18","option[228]":"20"]
+                
+                SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.addToCart, successCall: success, failureCall: failure)
+        }else
+        {
+            goToLogin(message: "Please login to add to cart")
+        }
+           
+    }
+    
+    func addCart2(product:[String:Any])
+    {
+        let success:successHandler = {  response in
+            let json = response as! [String : Any]
+            if json["responseCode"] as! Int == 1
+            {
+                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+                self.cartCount()
+                
+            }else{
+                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+                self.cartCount()
+            }
+        }
+        self.addCartAction(product_id:product["productId"] as! String, quantity:Int(product["minimum"] as! String)!,actionHandler:success)
+    }
+}
