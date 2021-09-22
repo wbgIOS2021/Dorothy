@@ -90,11 +90,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         //Status Bar
         let topInset: CGFloat = UIApplication.shared.keyWindow?.safeAreaInsets.top ?? UIApplication.shared.statusBarFrame.size.height
         let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width:UIScreen.main.bounds.width, height: topInset))
-        //(int)[UIApplication sharedApplication].statusBarFrame.size.height;
+        
         statusBarView.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.07450980392, blue: 0.07450980392, alpha: 1)
         self.navigationController?.view.addSubview(statusBarView)
         setNeedsStatusBarAppearanceUpdate()
         
+        //Adding Observer
         self.spicesTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         self.spicySuyaTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         self.popularTableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
@@ -103,9 +104,12 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
             self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.handleTimer), userInfo: nil, repeats: true)
         }
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer.invalidate()
+        
+        //Removing Observer
         self.spicesTableView.removeObserver(self, forKeyPath: "contentSize")
         self.spicySuyaTableView.removeObserver(self, forKeyPath: "contentSize")
         self.popularTableView.removeObserver(self, forKeyPath: "contentSize")
@@ -119,6 +123,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         return .lightContent
     }
     
+    //Calling Observer
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?){
         if let obj = object as? UIScrollView {
             if obj == self.spicesTableView && keyPath == "contentSize" {

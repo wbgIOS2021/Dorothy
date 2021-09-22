@@ -75,16 +75,21 @@ extension SendOtpViewController
         let json = response as! [String : Any]
         if json["responseCode"] as! Int == 1
         {
-            
-            let vC = self.storyboard?.instantiateViewController(withIdentifier: "VerifyOtpViewController") as! VerifyOtpViewController
-            vC.mobile = self.mobileTextField.text!
-            vC.country_code = self.country_code
-            vC.otp = json["responseData"] as! String
-            self.navigationController?.pushViewController(vC, animated: true)
-            
-            DispatchQueue.main.async {
-                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            if json["isRegistered"] as! Int == 1
+            {
+                self.goToLogin(title: "Warning", message: "This number is already registered with us.\n Please login using it or Sign up with another number.")
+            }else{
+                let vC = self.storyboard?.instantiateViewController(withIdentifier: "VerifyOtpViewController") as! VerifyOtpViewController
+                vC.mobile = self.mobileTextField.text!
+                vC.country_code = self.country_code
+                vC.otp = json["responseData"] as! String
+                self.navigationController?.pushViewController(vC, animated: true)
+                
+                DispatchQueue.main.async {
+                    self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+                }
             }
+ 
         }else{
             let mess = json["responseText"] as! String
             Alert.showError(title: "Error", message: mess, vc: self)

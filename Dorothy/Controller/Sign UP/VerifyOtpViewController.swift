@@ -154,21 +154,13 @@ extension VerifyOtpViewController
         let json = response as! [String : Any]
         if json["responseCode"] as! Int == 1
         {
-            if json["isRegister"] as! String == "1"
-            {
-                showAlertWithOK(title: "Warning", message: "This number is already registered with us.\n Please login using it or Sign up with another number.",view : self,actionHandler:{
-                    let vC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                    self.navigationController?.pushViewController(vC, animated: true)
-                })
-            }else{
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
-                vc.mobile = self.mobile
-                self.navigationController?.pushViewController(vc, animated: true)
-                DispatchQueue.main.async {
-                    self.showToast(message: json["responseText"] as! String, seconds: 2.0)
-                }
-
+           let vc = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
+            vc.mobile = self.mobile
+            self.navigationController?.pushViewController(vc, animated: true)
+            DispatchQueue.main.async {
+                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
             }
+
         }else{
             let mess = json["responseText"] as! String
             Alert.showError(title: "Error", message: mess, vc: self)

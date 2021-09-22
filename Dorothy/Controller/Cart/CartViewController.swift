@@ -98,15 +98,17 @@ extension CartViewController: UITableViewDataSource
         
         
         let cellData = cart_listArray[indexPath.row]
-        cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "bbq"))
+        cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
         cell.productName.text! = cellData["name"] as! String
-        if cellData["price"] as! String == "0.00" || cellData["price"] as! String == "0" || cellData["price"] as! String == cellData["orginalPrice"] as! String{
-            cell.specialPrice!.text! = "$ \(cellData["orginalPrice"] as! String)"
-            cell.price.isHidden = true
-        }else{
-            cell.price!.text! = "$ \(cellData["orginalPrice"] as! String)"
-            cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
-        }
+//        if cellData["price"] as! String == "0.00" || cellData["price"] as! String == "0" || cellData["price"] as! String == cellData["orginalPrice"] as! String{
+//            cell.specialPrice!.text! = "$ \(cellData["orginalPrice"] as! String)"
+//            cell.price.isHidden = true
+//        }else{
+//            cell.price.isHidden = true
+//            cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
+//        }
+        cell.price.isHidden = true
+        cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
         cell.productModal.text! = cellData["model"] as! String
         cell.productQuantity.text! = cellData["quantity"] as! String
         cell.increaseButton.tag = indexPath.row
@@ -283,7 +285,7 @@ extension CartViewController
                     self.totalPayLabel.text! = "$ \(cartTotal!)"
                     self.totalSaveLabel.text! = "$ \(Float(total!) - Float(cartTotal!))"
                     self.cartTableView.reloadData()
-                    print("cart_listArray",self.cart_listArray)
+                    
                 }
         }else{
             ProgressHud.hide()
@@ -293,7 +295,7 @@ extension CartViewController
         let failure:failureHandler = { [weak self] error, errorMessage in
             ProgressHud.hide()
             DispatchQueue.main.async {
-               // showAlertWith(title: "Error", message: errorMessage, view: self!)
+               showAlertWith(title: "Error", message: errorMessage, view: self!)
             }
         }
         

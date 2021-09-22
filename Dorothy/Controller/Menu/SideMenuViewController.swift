@@ -17,10 +17,11 @@ class SideMenuViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var upperSectionView: UIView!
     @IBOutlet weak var checkLoginBtn: UIButton!
     
-    var menuItems = [["name":"Home","page_id":""],["name":"Category","page_id":""],["name":"My Profile","page_id":""],["name":"My Wishlist","page_id":""],["name":"About Us","page_id":""],["name":"Contact Us","page_id":""],["name":"Delivery Information","page_id":""],["name":"Term & Condition","page_id":""],["name":"Privacy Policy","page_id":""]]
+    var menuItems:[[String:Any]] = [["name":"Home","page_id":""],["name":"Category","page_id":""],["name":"My Profile","page_id":""],["name":"My Wishlist","page_id":""],["name":"Contact Us","page_id":""]]
     var user_pic:String = getStringValueFromLocal(key: "profile_pic") ?? "user1"
     override func viewDidLoad() {
         super.viewDidLoad()
+        gettingData()
         menuView.setGradientBackground1()
         menuTable.dataSource = self
         menuTable.delegate = self
@@ -66,7 +67,7 @@ extension SideMenuViewController: UITableViewDataSource
         let cell = menuTable.dequeueReusableCell(withIdentifier: "SideMneuTableViewCell", for: indexPath) as! SideMneuTableViewCell
         
         let cellData = menuItems[indexPath.row]
-        cell.menuTitleLabel!.text! = cellData["name"] ?? "...."
+        cell.menuTitleLabel!.text! = cellData["name"] as! String
         return cell
     }
     
@@ -84,11 +85,13 @@ extension SideMenuViewController: UITableViewDelegate
         switch indexPath.row{
         
         case 0:
+            
             // Home
             print(menuItems[indexPath.row])
             sideMenuController?.hideMenu()
            
         case 1:
+            
             // Category
             print(menuItems[indexPath.row])
             sideMenuController?.hideMenu()
@@ -103,9 +106,8 @@ extension SideMenuViewController: UITableViewDelegate
                 sideMenuController?.hideMenu()
                 let vc = storyboard?.instantiateViewController(withIdentifier: "MyProfileViewController") as! MyProfileViewController
                 navigationController?.pushViewController(vc, animated: true)
-            }else
-            {
-                goToLogin(message: "You have not login yet. Please login")
+            }else{
+                goToLogin(title: "Login Require", message: "You have not login yet. Please login")
             }
       
         case 3:
@@ -117,12 +119,11 @@ extension SideMenuViewController: UITableViewDelegate
                 sideMenuController?.hideMenu()
                 let vc = storyboard?.instantiateViewController(withIdentifier: "WishlistTableViewController") as! WishlistTableViewController
                 navigationController?.pushViewController(vc, animated: true)
-            }else
-            {
-                goToLogin(message: "You have not login yet. Please login")
+            }else{
+                goToLogin(title: "Login Require", message: "You have not login yet. Please login")
             }
             
-        case 5:
+        case 4:
             // Contact Us
             sideMenuController?.hideMenu()
             print(menuItems[indexPath.row])
@@ -132,18 +133,62 @@ extension SideMenuViewController: UITableViewDelegate
         
         default:
             sideMenuController?.hideMenu()
-            print("default value")
-            
             let vc = storyboard?.instantiateViewController(withIdentifier: "PageDescriptionViewController") as! PageDescriptionViewController
-            vc.title = menuItems[indexPath.row]["name"]
+            let cellData = menuItems[indexPath.row]
+            vc.page_id = cellData["page_id"] as! String
             navigationController?.pushViewController(vc, animated: true)
         }
         
     }
 }
+
+//MARK:- Page List API Calling
 extension SideMenuViewController
 {
-    
+    func gettingData() -> Void {
+    ProgressHud.show()
+
+    let success:successHandler = {  response in
+
+        let json = response as! [String : Any]
+        if json["responseCode"] as! Int == 1
+        {
+            let responseData = json["responseData"] as? [[String : Any]]
+            
+            for data in responseData!
+                {
+                    let name = data["name"] as! String
+                    let page_id = data["page_id"] as! String
+                    
+                    let dic:[String : Any] = ["name":name,"page_id":page_id]
+                    self.menuItems.append(dic)
+                }
+                
+                //Reloading Table Views And Collection View
+                DispatchQueue.main.async
+                {
+                    ProgressHud.hide()
+                    self.menuTable.reloadData()
+                }
+        }else{
+            ProgressHud.hide()
+            print("Comming Soon................................")
+        }
+    }
+        let failure:failureHandler = { [weak self] error, errorMessage in
+            ProgressHud.hide()
+            DispatchQueue.main.async {
+               // showAlertWith(title: "Error", message: errorMessage, view: self!)
+            }
+        }
+        
+        //Calling API
+        let parameters:EIDictonary = [:]
+        
+        SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.pageLists, successCall: success, failureCall: failure)
+    }
+
 }
+
 
 

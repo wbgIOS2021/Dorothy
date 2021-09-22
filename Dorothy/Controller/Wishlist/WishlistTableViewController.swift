@@ -77,6 +77,7 @@ extension WishlistTableViewController
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return product_listArray.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = wishlistTableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as! ProductTableViewCell
         cell.likeBtn.isHidden = true
@@ -125,6 +126,7 @@ extension WishlistTableViewController
                 confrigation.performsFirstActionWithFullSwipe = false
                 return confrigation
     }
+    
     //Add to cart Action
     @objc func productsAddToCart(_ sender:UIButton)
     {

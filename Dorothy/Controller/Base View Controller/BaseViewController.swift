@@ -34,7 +34,7 @@ extension UIViewController
             navigationController?.pushViewController(cartVC, animated: true)
         }else
         {
-            goToLogin(message: "You have not login yet. Please login")
+            goToLogin(title: "Login Require", message: "You have not login yet. Please login")
         }
 
     }
@@ -112,9 +112,9 @@ extension UIViewController
     }
      
     // Login call with alert
-    func goToLogin(message:String)
+    func goToLogin(title:String, message:String)
     {
-        showAlertWithCancel(title: "Login Require", message: message, view: self, btn_title: "Login", actionHandler: {
+        showAlertWithCancel(title: title, message: message, view: self, btn_title: "Login", actionHandler: {
             let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             self.navigationController?.pushViewController(login, animated: true)
         })
@@ -277,9 +277,11 @@ extension UIViewController
             SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.addRemoveWishlist, successCall: success, failureCall: failure)
         }else
         {
-            goToLogin(message: "Please login to add wishlist")
+            goToLogin(title: "Login Require", message: "Please login to add wishlist")
         }
     }
+    
+    
 }
 
 //MARK:- Add to cart
@@ -315,7 +317,7 @@ extension UIViewController
                 SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.addToCart, successCall: success, failureCall: failure)
         }else
         {
-            goToLogin(message: "Please login to add to cart")
+            goToLogin(title: "Login Require", message: "Please login to add to cart")
         }
            
     }

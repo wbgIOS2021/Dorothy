@@ -12,11 +12,11 @@ class CategoriesTableViewController: UITableViewController {
     @IBOutlet var categoryTableView: UITableView!
     @IBOutlet weak var cartBtn: UIBarButtonItem!
 
-    var category_listArray: [[String:Any]] = [["id": "61","image": "http://13.127.27.45/dorothy/image/cache/catalog/category/rice%201-144x128.png","title": "Grains"],["id": "60","image": "http://13.127.27.45/dorothy/image/cache/catalog/category/soup%201-144x128.png","title": "Soups"],["id": "62","image": "http://13.127.27.45/dorothy/image/cache/catalog/category/beverage%201-144x128.png","title": "Beverages"],["id": "63","image": "http://13.127.27.45/dorothy/image/cache/catalog/category/spice-144x128.png","title": "Spices",],["id": "64","image": "http://13.127.27.45/dorothy/image/cache/catalog/product/img701-144x128.png","title": "Suya Spices"],["id": "59","image": "http://13.127.27.45/dorothy/image/cache/catalog/category/steak-144x128.png","title": "Suya"]]
+    var category_listArray: [[String:Any]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         cellRegister()
-        
+        gettingData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +30,6 @@ class CategoriesTableViewController: UITableViewController {
         categoryTableView.register(UINib(nibName: "AllCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "AllCategoryTableViewCell")
 
     }
-    
 }
 
 //MARK:- Navigation  Action Button
@@ -41,9 +40,7 @@ extension CategoriesTableViewController
         backBtn()
 
     }
-//    @IBAction func cartBtn(_ sender: Any) {
-//        cartBtn()
-//    }
+
 }
 
 // MARK: - Table view data source
@@ -101,4 +98,51 @@ extension CategoriesTableViewController
    }
 }
 
+
+//MARK:- API Calling
+extension CategoriesTableViewController
+{
+    func gettingData() -> Void {
+        ProgressHud.show()
+
+        let success:successHandler = {  response in
+            let json = response as! [String : Any]
+            let responseData = json["responseData"] as? [[String : Any]]
+                
+                
+            for data in responseData!
+                {
+                    
+                    let id = data["id"] as! String
+                    let title = data["title"] as! String
+                    let image = data["image"] as! String
+                    let description = data["description"] as! String
+                    let subCategory = data["subCategory"] as! [[String:Any]]
+                    
+                    let dic:[String : Any] = ["id":id,"title":title,"image":image,"description":description,"subCategory":subCategory]
+
+                    self.category_listArray.append(dic)
+                }
+                
+                //Reloading Table Views And Collection View
+                DispatchQueue.main.async
+                {
+                    ProgressHud.hide()
+                    self.categoryTableView.reloadData()
+                }
+        }
+        
+        let failure:failureHandler = { [weak self] error, errorMessage in
+            ProgressHud.hide()
+            DispatchQueue.main.async {
+               showAlertWith(title: "Error", message: errorMessage, view: self!)
+            }
+        }
+        
+        //Calling API
+        let parameters:EIDictonary = [:]
+        SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "GET", methodType: RequestedUrlType.category_list, successCall: success, failureCall: failure)
+    }
+}
+ 
 

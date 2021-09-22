@@ -12,103 +12,101 @@ class SearchViewController: UIViewController, UISearchBarDelegate{
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var productsTableView: UITableView!
     @IBOutlet weak var cartBtn: UIBarButtonItem!
-    var product_listArray: [[String:Any]] = [["product_id": "57","thumb":"http://13.127.27.45/dorothy/image/cache/catalog/product/img702-350x350.png","name": "Authentic  African Nigerian Suya","description": "FRESHLY Made home Suya Very HOT and SPICY..","price": "$32.00","special": "0","tax": "$32.00","rating": "0","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "0"],["product_id": "55","thumb":"http://13.127.27.45/dorothy/image/cache/catalog/product/image%2048-350x350.png","name": "dry ground  ogbono ","description": "dry ground ogbono&nbsp;..","price": "$23.30","special": "0","tax": "$23.30","rating": "3","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "0"],["product_id": "54","thumb":"http://13.127.27.45/dorothy/image/cache/catalog/product/image%2051-350x350.png","name": "dry grounded  pepper","description": "dry grounded pepper..","price":"$80.00","special": "0","tax": "$80.00","rating": "3","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "1"],["product_id": "56","thumb":"http://13.127.27.45/dorothy/image/cache/catalog/product/img703-350x350.png","name": "Genuine African Nigerian Suya","description": "freshly prepared with homemade Signature Suya spice..","price": "$32.00","special": "0","tax": "$32.00","rating": "3","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "0"],["product_id": "53","thumb": "http://13.127.27.45/dorothy/image/cache/catalog/product/image%2040-350x350.png","name":"Knorr Chicken  Cube","description": "Knorr Chicken Cube..","price": "$250.00","special": "0","tax": "$250.00","rating": "3","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "0"],["product_id": "51","thumb": "http://13.127.27.45/dorothy/image/cache/catalog/product/image%2037-350x350.png","name": "Milo","description": "Milo..","price": "$250.00","special": "0","tax": "$250.00","rating": "2","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "1"],["product_id": "50","thumb": "http://13.127.27.45/dorothy/image/cache/catalog/product/image%2036-350x350.png","name": "Peak Milk","description": "Peak Milk..","price": "$200.00","special": "0","tax": "$200.00","rating": "3","minimum": "1","stock_status_id": "6","stock_status": "2-3 Days","option_count": 1,"is_wishlist": "0"],["product_id": "52","thumb": "http://13.127.27.45/dorothy/image/cache/catalog/product/image%2039-350x350.png","name": "Suya Spice","description": "Suya Spice..","price": "$250.00","special": "0","tax": "$250.00","rating": "4","minimum": "1","stock_status_id": "7","stock_status": "In Stock","option_count": 0,"is_wishlist": "1"]]
-
+    
+    var product_listArray: [[String:Any]] = []
     var filtered_product_listArray: [[String:Any]] = []
+    let user_id = (getStringValueFromLocal(key: "user_id") ?? "0")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cellRegister()
+//        searchBar.showsCancelButton = true
         searchBar.delegate = self
-        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
+        gettingData()
         self.cartCount()
     }
+    
     func cellRegister()
     {
         productsTableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductTableViewCell")
 
     }
-//    @IBAction func cartBtn(_ sender: Any) {
-//        cartBtn()
-//    }
+
     @IBAction func backBtn(_ sender: Any) {
         backBtn()
     }
 }
 extension SearchViewController: UITableViewDataSource
 {
-     
+    
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if filtered_product_listArray.count > 0{
+        if filtered_product_listArray.count > 0
+        {
             return filtered_product_listArray.count
         }
         return product_listArray.count
+        
     }
+    
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = productsTableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as! ProductTableViewCell
+        var cellData:[String:Any] = [:]
+        if filtered_product_listArray.count > 0
+        {
+            cellData = filtered_product_listArray[indexPath.row]
+        }else{
+            cellData = product_listArray[indexPath.row]
+        }
+          
+        cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
+
+        cell.productName!.text! = cellData["name"] as! String
+        cell.productweight.text! = cellData["description"] as! String
+        if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
+            cell.specialPrice!.text! = "\(cellData["price"] as! String)"
+            cell.productPrice.isHidden = true
+        }else{
+            cell.productPrice!.text! = "\(cellData["price"] as! String)"
+            cell.specialPrice!.text! = "\(cellData["special"] as! String)"
+        }
+        cell.likeBtn.isHidden = true
+        cell.addToCartBtn.tag = indexPath.row
+        cell.addToCartBtn.addTarget(self, action: #selector(self.productsAddToCart), for: .touchUpInside)
+        return cell
+        
+    }
+        
+        
+    @objc func productsAddToCart(_ sender:UIButton)
+    {
+        var product:[String:Any] = [:]
         
         if filtered_product_listArray.count > 0
         {
-            let cell = productsTableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as! ProductTableViewCell
-            
-            let cellData = filtered_product_listArray[indexPath.row]
-        
-            
-            cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
-
-            cell.productName!.text! = cellData["name"] as! String
-            cell.productweight.text! = cellData["description"] as! String
-            if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
-                cell.productPrice!.text! = "$ \(cellData["price"] as! String)"
-            }else{
-                cell.productPrice!.text! = "$ \(cellData["special"] as! String)"
-            }
-            if cellData["is_wishlist"] as! String == "1"{
-                cell.likeBtn.setBackgroundImage(UIImage(named: "fill_heart"), for: .normal)
-            }else{
-                cell.likeBtn.setBackgroundImage(UIImage(named: "empty_heart"), for: .normal)
-            }
-            return cell
+            product =  filtered_product_listArray[sender.tag]
+            addCart2(product:product)
         }else{
-            
-            let cell = productsTableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as! ProductTableViewCell
-            let cellData = product_listArray[indexPath.row]
-        
-            
-            cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
-
-            cell.productName!.text! = cellData["name"] as! String
-            cell.productweight.text! = cellData["description"] as! String
-            if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
-                cell.productPrice!.text! = "$ \(cellData["price"] as! String)"
-            }else{
-                cell.productPrice!.text! = "$ \(cellData["special"] as! String)"
-            }
-            if cellData["is_wishlist"] as! String == "1"{
-                cell.likeBtn.setBackgroundImage(UIImage(named: "fill_heart"), for: .normal)
-            }else{
-                cell.likeBtn.setBackgroundImage(UIImage(named: "empty_heart"), for: .normal)
-            }
-            return cell
-
+            product = product_listArray[sender.tag]
+            addCart2(product:product)
         }
-        return UITableViewCell()
     }
     
     
     
-    
-    }
+}
+
 extension SearchViewController:UITableViewDelegate
 {
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
         navigationController?.pushViewController(vC, animated: true)
-        }
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
        UIView.animate(withDuration: 0.8) {
@@ -134,4 +132,63 @@ extension SearchViewController
 
 
 
+//MARK:- API Calling
+extension SearchViewController
+{
+    func gettingData() -> Void {
+    ProgressHud.show()
 
+    let success:successHandler = {  response in
+
+        let json = response as! [String : Any]
+        self.product_listArray.removeAll()
+        
+        if json["responseCode"] as! Int == 1
+        {
+            let responseData = json["responseData"] as? [[String : Any]]
+            for data in responseData!
+                {
+                    
+                    let product_id = data["product_id"] as! String
+                    let thumb = data["thumb"] as! String
+                    let name = data["name"] as! String
+                    let description = data["description"] as! String
+                    let price = data["price"] as! String
+                    let special = data["special"] as! String
+                    let tax = data["tax"] as! String
+                    let rating = data["rating"] as! String
+                    let minimum = data["minimum"] as! String
+                    let stock_status_id = data["stock_status_id"] as! String
+                    let stock_status = data["stock_status"] as! String
+                    let option_count = data["option_count"] as! Int
+                    let is_wishlist = data["is_wishlist"] as! String
+                        
+                    let dic:[String : Any] = ["productId":product_id,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"tax":tax,"rating":rating,"minimum":minimum,"stock_status_id":stock_status_id,"stock_status":stock_status,"option_count":option_count,"is_wishlist":is_wishlist]
+
+                    self.product_listArray.append(dic)
+                }
+                
+                //Reloading Table Views And Collection View
+                DispatchQueue.main.async
+                {
+                    ProgressHud.hide()
+                    self.productsTableView.reloadData()
+                }
+        }else{
+            ProgressHud.hide()
+            print("Comming Soon................................")
+        }
+    }
+        let failure:failureHandler = { [weak self] error, errorMessage in
+            ProgressHud.hide()
+            DispatchQueue.main.async {
+              showAlertWith(title: "Error", message: errorMessage, view: self!)
+            }
+        }
+        
+        //Calling API
+        let parameters:EIDictonary = ["currency_code": "USD","customer_id": user_id,"product_name":""]
+        
+        SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.searchProduct, successCall: success, failureCall: failure)
+    }
+}

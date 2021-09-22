@@ -52,7 +52,15 @@ enum RequestedUrlType: String {
     
     case makeOrder = "make_order"
     case orderList = "order_list"
+    case orderDetails = "order_details"
     
+    case category_list = "category_list"
+    case category_wise_product = "category_wise_product"
+
+    case searchProduct = "search_product"
+    
+    case pageLists = "page_list"
+    case pageDescription = "page_desc"
 }
 
 class ServiceCall: NSObject
@@ -192,7 +200,21 @@ func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:Request
             urlString = ServiceCall.kServerURL + "/order/make_order";
         case RequestedUrlType.orderList.rawValue:
             urlString = ServiceCall.kServerURL + "/order/order_list";
-
+        case RequestedUrlType.orderDetails.rawValue:
+            urlString = ServiceCall.kServerURL + "/order/order_details";
+            
+        case RequestedUrlType.category_list.rawValue:
+            urlString = ServiceCall.kServerURL + "/home/category_list";
+        case RequestedUrlType.category_wise_product.rawValue:
+            urlString = ServiceCall.kServerURL + "/product/category_wise_product";
+            
+        case RequestedUrlType.searchProduct.rawValue:
+            urlString = ServiceCall.kServerURL + "/product/productSearch";
+            
+        case RequestedUrlType.pageLists.rawValue:
+            urlString = ServiceCall.kServerURL + "/home/page_list";
+        case RequestedUrlType.pageDescription.rawValue:
+            urlString = ServiceCall.kServerURL + "/home/page_description";
         default:
             print("Default value")
         

@@ -14,6 +14,7 @@ class MyOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var orderPrice: UILabel!
     @IBOutlet weak var orderView: UIView!
     @IBOutlet weak var productsTableView: OwnTableView!
+    @IBOutlet weak var view_all: UILabel!
     @IBOutlet weak var productsTableViewHeight: NSLayoutConstraint!
     
     var count:Int = 3
@@ -67,9 +68,11 @@ extension MyOrderTableViewCell: UITableViewDataSource, UITableViewDelegate
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if data.count < 4{
+            view_all.isHidden = true
             return data.count
         }
         else{
+            view_all.isHidden = false
             return 3
         }
     }
@@ -78,7 +81,7 @@ extension MyOrderTableViewCell: UITableViewDataSource, UITableViewDelegate
         let cell = productsTableView.dequeueReusableCell(withIdentifier: "OrdersTableViewCell", for: indexPath) as! OrdersTableViewCell
         cell.productPrice.isHidden = true
         let cellData = data[indexPath.row]
-        cell.productImage.sd_setImage(with: URL(string: "http://13.127.27.45/dorothy/image/catalog/product/img703.png"), placeholderImage: UIImage(named: "no-image"))
+        cell.productImage.sd_setImage(with: URL(string: cellData["image"] as! String), placeholderImage: UIImage(named: "no-image"))
         
         cell.productName.text! = cellData["name"] as! String
         let weight = Float(cellData["weight"] as! String)!
