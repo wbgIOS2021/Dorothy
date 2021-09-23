@@ -136,7 +136,6 @@ class MyAddressTableViewController: UITableViewController {
         deleteAddressAction(addressId:address["addressId"] as! String,index:sender.tag)
        
     }
-
 }
 
 //MARK:- Action Buttons
@@ -146,13 +145,11 @@ extension MyAddressTableViewController
         backBtn()
     }
     
-
     @IBAction func addNewAddressBtn(_ sender: Any) {
-        
         let vc = storyboard?.instantiateViewController(withIdentifier: "AddAddressViewController") as! AddAddressViewController
-
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     @IBAction func searchBtn(_ sender: Any) {
         searchBtn()
     }
@@ -202,7 +199,7 @@ extension MyAddressTableViewController
                     addressTableView.reloadData()
                 }
             }else{
-                self.showToast(message: json["responseText"] as! String, seconds: 1.0)
+                //self.showToast(message: json["responseText"] as! String, seconds: 1.0)
                 
             }
                 
@@ -248,6 +245,8 @@ extension MyAddressTableViewController
                 }
             }else{
                 self.showToast(message: json["responseText"] as! String, seconds: 1.5)
+                
+                
             }
             
         }

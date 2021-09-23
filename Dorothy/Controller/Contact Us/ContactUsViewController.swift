@@ -54,7 +54,7 @@ class ContactUsViewController: UIViewController {
         let asterix = NSAttributedString(string: "*", attributes: [.foregroundColor: UIColor.red])
         attriburedString.append(asterix)
         textField.label.attributedText = attriburedString
-        if textField == emailAddressTF || textField == subjectTF{
+        if textField == subjectTF{
             textField.label.text = label_name
         }
     }
@@ -63,6 +63,36 @@ class ContactUsViewController: UIViewController {
     }
     
     @IBAction func sendBtn(_ sender: Any) {
+        let email = validateEmailID(emailID: emailAddressTF!.text!)
+        let mobile = validateNumber(mobileNumberTF!.text!)
+        
+        if firstNameTF!.text! == ""
+        {
+            Alert.showError(title: "Error", message: "Please enter first Name", vc: self)
+        }
+        else if lastNameTF!.text! == ""
+        {
+            Alert.showError(title: "Error", message: "Please enter last Name", vc: self)
+        }
+        else if mobileNumberTF!.text! == ""
+        {
+            Alert.showError(title: "Error", message: "Please enter mobile number", vc: self)
+        }
+        else if mobile == false || mobileNumberTF!.text!.count != 10
+        {
+            Alert.showError(title: "Error", message: "Invalid mobile number", vc: self)
+        }
+        else if emailAddressTF!.text! == ""
+        {
+            Alert.showError(title: "Error", message: "Please enter email", vc: self)
+        }
+        else if email == false
+        {
+            Alert.showError(title: "Error", message: "Invalid email", vc: self)
+        }
+        else{
+            contactUsAPI()
+        }
     }
 }
 
@@ -82,4 +112,39 @@ extension ContactUsViewController: UITextViewDelegate
             messageTextArea.textColor = UIColor.darkGray
         }
     }
+}
+
+//MARK:-  Return API
+extension ContactUsViewController
+{
+    func contactUsAPI() -> Void {
+        ProgressHud.show()
+        let success:successHandler = {  response in
+            ProgressHud.hide()
+            let json = response as! [String : Any]
+            if json["responseCode"] as! Int == 1
+            {
+                showAlertWithOK(title: "Success", message: json["responseText"] as! String, view: self, actionHandler: {
+                    self.homePage()
+                })
+                
+            }else{
+                //self.showToast(message: json["responseText"] as! String, seconds: 1.5)
+            }
+            
+        }
+            let failure:failureHandler = { [weak self] error, errorMessage in
+                ProgressHud.hide()
+                DispatchQueue.main.async {
+                    showAlertWith(title: "Error", message: errorMessage, view: self!)
+                }
+                
+            }
+            
+            //Calling API
+        let parameters:EIDictonary = ["first_name":firstNameTF.text!,"last_name":lastNameTF.text!,"email":emailAddressTF.text!,"email_subject":subjectTF.text!,"mobile_no":mobileNumberTF.text!,"enquiry":messageTextArea.text!]
+            
+            SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.contact_us, successCall: success, failureCall: failure)
+           
+        }
 }

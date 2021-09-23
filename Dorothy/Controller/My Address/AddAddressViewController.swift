@@ -45,6 +45,7 @@ class AddAddressViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
+        self.gettingStates()
         self.cartCount()
     }
     
@@ -163,8 +164,6 @@ extension AddAddressViewController
  
     
     @IBAction func stateSelectBtn(_ sender: Any) {
-        self.gettingStates()
-        
         pickerView.reloadAllComponents()
         pickerView.isHidden = false
 

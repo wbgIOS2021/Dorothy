@@ -18,12 +18,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var addToCartBtn: UIButton!
     @IBOutlet weak var productView: UIView!
+    @IBOutlet weak var outOfStockView: UIView!
     @IBOutlet weak var specialPrice: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         productView.dropShadow()
         self.productImage.layer.cornerRadius = self.productImage.frame.size.width / 2
         self.productImage.clipsToBounds = true
+        outOfStockView.layer.cornerRadius = 10
         // Initialization code
     }
 

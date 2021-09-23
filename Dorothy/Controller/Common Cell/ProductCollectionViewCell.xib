@@ -33,6 +33,25 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jU-wb-8uu" customClass="ViewDesign" customModule="Dorothy" customModuleProvider="target">
                         <rect key="frame" x="10" y="10" width="171" height="231"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yib-ak-iY0">
+                                <rect key="frame" x="2" y="0.0" width="84" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Out of Stock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvd-9r-miH">
+                                        <rect key="frame" x="0.0" y="0.0" width="84" height="20"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
+                                        <color key="textColor" name="themeColor2"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="themeColor3"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Hvd-9r-miH" secondAttribute="bottom" id="5fw-9P-NHa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hvd-9r-miH" secondAttribute="trailing" id="RiQ-ZD-nYe"/>
+                                    <constraint firstItem="Hvd-9r-miH" firstAttribute="leading" secondItem="yib-ak-iY0" secondAttribute="leading" id="TUu-pI-nsl"/>
+                                    <constraint firstAttribute="height" constant="20" id="UOR-y4-GGv"/>
+                                    <constraint firstItem="Hvd-9r-miH" firstAttribute="top" secondItem="yib-ak-iY0" secondAttribute="top" id="gMt-DM-tnc"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xma-hr-7Wv">
                                 <rect key="frame" x="136" y="10" width="20" height="18"/>
                                 <constraints>
@@ -102,6 +121,9 @@
                             <constraint firstItem="PYv-Ma-ZzP" firstAttribute="top" secondItem="7jU-wb-8uu" secondAttribute="top" constant="25" id="M5s-5g-Nzh"/>
                             <constraint firstItem="0iw-xH-ai4" firstAttribute="top" secondItem="G6F-dR-ktx" secondAttribute="top" id="UbF-CX-Lum"/>
                             <constraint firstItem="0iw-xH-ai4" firstAttribute="leading" secondItem="G6F-dR-ktx" secondAttribute="trailing" constant="5" id="Wbq-n0-hzs"/>
+                            <constraint firstItem="yib-ak-iY0" firstAttribute="top" secondItem="7jU-wb-8uu" secondAttribute="top" id="XCx-sJ-q2O"/>
+                            <constraint firstItem="Xma-hr-7Wv" firstAttribute="leading" secondItem="yib-ak-iY0" secondAttribute="trailing" constant="50" id="byS-Yy-QU3"/>
+                            <constraint firstItem="yib-ak-iY0" firstAttribute="leading" secondItem="7jU-wb-8uu" secondAttribute="leading" constant="2" id="cCS-kS-ruY"/>
                             <constraint firstItem="PYv-Ma-ZzP" firstAttribute="centerX" secondItem="7jU-wb-8uu" secondAttribute="centerX" id="chf-7S-Ca1"/>
                             <constraint firstItem="Xma-hr-7Wv" firstAttribute="top" secondItem="7jU-wb-8uu" secondAttribute="top" constant="10" id="fzS-0n-Kvg"/>
                             <constraint firstItem="YL2-jm-Odb" firstAttribute="centerX" secondItem="PYv-Ma-ZzP" secondAttribute="centerX" id="g0T-Vd-vnQ"/>
@@ -132,6 +154,7 @@
             <connections>
                 <outlet property="addToCartBtn" destination="zMT-1n-ycJ" id="Yts-Bh-lF0"/>
                 <outlet property="likeBtn" destination="Xma-hr-7Wv" id="eeZ-Er-0nI"/>
+                <outlet property="outOfStockView" destination="yib-ak-iY0" id="7su-LN-GSu"/>
                 <outlet property="productImage" destination="PYv-Ma-ZzP" id="kxA-5l-rDV"/>
                 <outlet property="productName" destination="YL2-jm-Odb" id="bZT-1k-vox"/>
                 <outlet property="productPrice" destination="0iw-xH-ai4" id="8R1-cw-6dc"/>
@@ -148,6 +171,12 @@
         <image name="food_icon1" width="117" height="117"/>
         <namedColor name="fontColor2">
             <color red="0.19607843137254902" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeColor2">
+            <color red="0.96470588235294119" green="0.015686274509803921" blue="0.015686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeColor3">
+            <color red="0.99215686274509807" green="0.78823529411764703" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

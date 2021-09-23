@@ -53,6 +53,8 @@ enum RequestedUrlType: String {
     case makeOrder = "make_order"
     case orderList = "order_list"
     case orderDetails = "order_details"
+    case return_reason_list = "return_reason_list"
+    case return_order = "return_order"
     
     case category_list = "category_list"
     case category_wise_product = "category_wise_product"
@@ -61,12 +63,16 @@ enum RequestedUrlType: String {
     
     case pageLists = "page_list"
     case pageDescription = "page_desc"
+    
+    case contact_us = "contact_us"
+    
+    
 }
 
 class ServiceCall: NSObject
 {
    
-    static let kServerURL = "http://13.127.27.45/dorothy/index.php?route=appapi" //URL
+    static let kServerURL = "http://13.127.27.45/dorothy/index.php?route=" //URL
 
     static var mmm : DataRequest?
     
@@ -134,87 +140,94 @@ func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:Request
         
         
         case RequestedUrlType.HomePage.rawValue:
-            urlString = ServiceCall.kServerURL + "/product/homepage";
+            urlString = ServiceCall.kServerURL + "appapi/product/homepage";
             
         case RequestedUrlType.user_login.rawValue:
-            urlString = ServiceCall.kServerURL + "/home/main_login";
+            urlString = ServiceCall.kServerURL + "appapi/home/main_login";
         case RequestedUrlType.user_register.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/add";
+            urlString = ServiceCall.kServerURL + "appapi/customer/add";
         case RequestedUrlType.sendOTP.rawValue:
-            urlString = ServiceCall.kServerURL + "/home/login";
+            urlString = ServiceCall.kServerURL + "appapi/home/login";
         case RequestedUrlType.verifyOTP.rawValue:
-            urlString = ServiceCall.kServerURL + "/home/otp_verify";
+            urlString = ServiceCall.kServerURL + "appapi/home/otp_verify";
         case RequestedUrlType.forgot_password.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/forget_password";
+            urlString = ServiceCall.kServerURL + "appapi/customer/forget_password";
         
         case RequestedUrlType.cartCount.rawValue:
-            urlString = ServiceCall.kServerURL + "/cart/cart_total_quantity";
+            urlString = ServiceCall.kServerURL + "appapi/cart/cart_total_quantity";
             
         case RequestedUrlType.view_profile.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/myAccount";
+            urlString = ServiceCall.kServerURL + "appapi/customer/myAccount";
         case RequestedUrlType.edit_profile.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/editAccount";
+            urlString = ServiceCall.kServerURL + "appapi/customer/editAccount";
         case RequestedUrlType.update_profile.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/profile_image";
+            urlString = ServiceCall.kServerURL + "appapi/customer/profile_image";
         case RequestedUrlType.change_phoneno.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/change_phoneno";
+            urlString = ServiceCall.kServerURL + "appapi/customer/change_phoneno";
         case RequestedUrlType.change_mobile_otp_verify.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/mobile_otp_verify";
+            urlString = ServiceCall.kServerURL + "appapi/customer/mobile_otp_verify";
         case RequestedUrlType.update_email.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/update_customer_email";
+            urlString = ServiceCall.kServerURL + "appapi/customer/update_customer_email";
         case RequestedUrlType.change_password.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/change_password";
+            urlString = ServiceCall.kServerURL + "appapi/customer/change_password";
             
         case RequestedUrlType.gettingAddress.rawValue:
-            urlString = ServiceCall.kServerURL + "/address/getAddress";
+            urlString = ServiceCall.kServerURL + "appapi/address/getAddress";
         case RequestedUrlType.deleteAddress.rawValue:
-            urlString = ServiceCall.kServerURL + "/address/deleteAddress";
+            urlString = ServiceCall.kServerURL + "appapi/address/deleteAddress";
         case RequestedUrlType.countryList.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/countryList";
+            urlString = ServiceCall.kServerURL + "appapi/customer/countryList";
         case RequestedUrlType.stateList.rawValue:
-            urlString = ServiceCall.kServerURL + "/customer/stateList";
+            urlString = ServiceCall.kServerURL + "appapi/customer/stateList";
         case RequestedUrlType.addAddress.rawValue:
-            urlString = ServiceCall.kServerURL + "/address/addressAdd";
+            urlString = ServiceCall.kServerURL + "appapi/address/addressAdd";
         case RequestedUrlType.updateAddress.rawValue:
-            urlString = ServiceCall.kServerURL + "/address/addressUpdate";
+            urlString = ServiceCall.kServerURL + "appapi/address/addressUpdate";
             
         case RequestedUrlType.wishlist_products.rawValue:
-            urlString = ServiceCall.kServerURL + "/wishlist/my_wishlist";
+            urlString = ServiceCall.kServerURL + "appapi/wishlist/my_wishlist";
         case RequestedUrlType.addRemoveWishlist.rawValue:
-            urlString = ServiceCall.kServerURL + "/wishlist/add";
+            urlString = ServiceCall.kServerURL + "appapi/wishlist/add";
             
         case RequestedUrlType.cart_list.rawValue:
-            urlString = ServiceCall.kServerURL + "/cart/cart_list";
+            urlString = ServiceCall.kServerURL + "appapi/cart/cart_list";
         case RequestedUrlType.removeCart.rawValue:
-            urlString = ServiceCall.kServerURL + "/cart/cart_data_delete";
+            urlString = ServiceCall.kServerURL + "appapi/cart/cart_data_delete";
         case RequestedUrlType.addToCart.rawValue:
-            urlString = ServiceCall.kServerURL + "/cart/add_to_cart_new";
+            urlString = ServiceCall.kServerURL + "appapi/cart/add_to_cart_new";
         case RequestedUrlType.updateCart.rawValue:
-            urlString = ServiceCall.kServerURL + "/cart/update_to_cart";
+            urlString = ServiceCall.kServerURL + "appapi/cart/update_to_cart";
         case RequestedUrlType.cartCount.rawValue:
-            urlString = ServiceCall.kServerURL + "/cart/cart_total_quantity";
+            urlString = ServiceCall.kServerURL + "appapi/cart/cart_total_quantity";
         case RequestedUrlType.checkout.rawValue:
-            urlString = ServiceCall.kServerURL + "/cart/checkOut";
+            urlString = ServiceCall.kServerURL + "appapi/cart/checkOut";
          
         case RequestedUrlType.makeOrder.rawValue:
-            urlString = ServiceCall.kServerURL + "/order/make_order";
+            urlString = ServiceCall.kServerURL + "appapi/order/make_order";
         case RequestedUrlType.orderList.rawValue:
-            urlString = ServiceCall.kServerURL + "/order/order_list";
+            urlString = ServiceCall.kServerURL + "appapi/order/order_list";
         case RequestedUrlType.orderDetails.rawValue:
-            urlString = ServiceCall.kServerURL + "/order/order_details";
+            urlString = ServiceCall.kServerURL + "appapi/order/order_details";
+        case RequestedUrlType.return_reason_list.rawValue:
+            urlString = ServiceCall.kServerURL + "appapi/product/return_reason_list";
+        case RequestedUrlType.return_order.rawValue:
+            urlString = ServiceCall.kServerURL + "appapi/product/order_return";
             
         case RequestedUrlType.category_list.rawValue:
-            urlString = ServiceCall.kServerURL + "/home/category_list";
+            urlString = ServiceCall.kServerURL + "appapi/home/category_list";
         case RequestedUrlType.category_wise_product.rawValue:
-            urlString = ServiceCall.kServerURL + "/product/category_wise_product";
+            urlString = ServiceCall.kServerURL + "appapi/product/category_wise_product";
             
         case RequestedUrlType.searchProduct.rawValue:
-            urlString = ServiceCall.kServerURL + "/product/productSearch";
+            urlString = ServiceCall.kServerURL + "appapi/product/productSearch";
             
         case RequestedUrlType.pageLists.rawValue:
-            urlString = ServiceCall.kServerURL + "/home/page_list";
+            urlString = ServiceCall.kServerURL + "appapi/home/page_list";
         case RequestedUrlType.pageDescription.rawValue:
-            urlString = ServiceCall.kServerURL + "/home/page_description";
+            urlString = ServiceCall.kServerURL + "appapi/home/page_description";
+            
+        case RequestedUrlType.contact_us.rawValue:
+            urlString = ServiceCall.kServerURL + "information/contact/send_mail";
         default:
             print("Default value")
         

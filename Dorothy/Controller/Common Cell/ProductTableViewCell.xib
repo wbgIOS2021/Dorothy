@@ -33,6 +33,26 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUT-wn-ztv" customClass="ViewDesign" customModule="Dorothy" customModuleProvider="target">
                         <rect key="frame" x="10" y="10" width="479" height="126"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbk-wd-aIn">
+                                <rect key="frame" x="2" y="0.0" width="80" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Out of Stock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNR-9U-QWb">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="20"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
+                                        <color key="textColor" name="themeColor2"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="themeColor3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="5jh-6H-fmY"/>
+                                    <constraint firstAttribute="trailing" secondItem="yNR-9U-QWb" secondAttribute="trailing" id="Hfz-oS-1pV"/>
+                                    <constraint firstAttribute="bottom" secondItem="yNR-9U-QWb" secondAttribute="bottom" id="QL5-HI-lRi"/>
+                                    <constraint firstItem="yNR-9U-QWb" firstAttribute="top" secondItem="lbk-wd-aIn" secondAttribute="top" id="RTg-uy-E8S"/>
+                                    <constraint firstAttribute="height" constant="20" id="Vyh-1w-fWy"/>
+                                    <constraint firstItem="yNR-9U-QWb" firstAttribute="leading" secondItem="lbk-wd-aIn" secondAttribute="leading" id="wcp-TZ-3ZC"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_icon1" translatesAutoresizingMaskIntoConstraints="NO" id="MtV-wK-qVy">
                                 <rect key="frame" x="189.5" y="13" width="100" height="100"/>
                                 <constraints>
@@ -41,23 +61,23 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="AJQ-nF-bj5">
-                                <rect key="frame" x="8" y="43" width="161.5" height="40"/>
+                                <rect key="frame" x="8" y="48" width="171.5" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="African Suya" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txn-eX-Fxe">
-                                        <rect key="frame" x="0.0" y="0.0" width="161.5" height="17.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy ." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FN7-Y1-gtT">
-                                        <rect key="frame" x="0.0" y="29.5" width="161.5" height="10.5"/>
+                                        <rect key="frame" x="0.0" y="19.5" width="171.5" height="10.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="9"/>
                                         <color key="textColor" name="fontColor2"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="qyg-tD-mxE"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="qyg-tD-mxE"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDG-Ho-VBe">
@@ -112,18 +132,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AJQ-nF-bj5" secondAttribute="bottom" constant="10" id="1yR-tx-pbY"/>
+                            <constraint firstItem="AJQ-nF-bj5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lbk-wd-aIn" secondAttribute="bottom" constant="5" id="672-D6-TTz"/>
+                            <constraint firstItem="lbk-wd-aIn" firstAttribute="top" secondItem="dUT-wn-ztv" secondAttribute="top" id="7Lh-nR-iyX"/>
                             <constraint firstAttribute="trailing" secondItem="VK1-87-C69" secondAttribute="trailing" id="8hm-FD-xnj"/>
                             <constraint firstItem="qDG-Ho-VBe" firstAttribute="top" secondItem="dUT-wn-ztv" secondAttribute="top" constant="10" id="C7E-mU-Kc6"/>
+                            <constraint firstItem="lbk-wd-aIn" firstAttribute="leading" secondItem="dUT-wn-ztv" secondAttribute="leading" constant="2" id="Cgr-28-9bd"/>
                             <constraint firstItem="AJQ-nF-bj5" firstAttribute="leading" secondItem="dUT-wn-ztv" secondAttribute="leading" constant="8" id="MhK-Yl-asY"/>
                             <constraint firstItem="AJQ-nF-bj5" firstAttribute="centerY" secondItem="dUT-wn-ztv" secondAttribute="centerY" id="MlP-H3-6EK"/>
                             <constraint firstItem="MtV-wK-qVy" firstAttribute="centerY" secondItem="dUT-wn-ztv" secondAttribute="centerY" id="UTM-sU-LXZ"/>
                             <constraint firstAttribute="bottom" secondItem="VK1-87-C69" secondAttribute="bottom" id="UxH-gd-QBL"/>
-                            <constraint firstItem="MtV-wK-qVy" firstAttribute="leading" secondItem="AJQ-nF-bj5" secondAttribute="trailing" constant="20" id="Yxq-lO-vsy"/>
+                            <constraint firstItem="MtV-wK-qVy" firstAttribute="leading" secondItem="AJQ-nF-bj5" secondAttribute="trailing" constant="10" id="Yxq-lO-vsy"/>
                             <constraint firstAttribute="bottom" secondItem="MtV-wK-qVy" secondAttribute="bottom" constant="13" id="dQD-5O-YFu"/>
                             <constraint firstItem="JBC-D9-hEx" firstAttribute="centerY" secondItem="MtV-wK-qVy" secondAttribute="centerY" id="fw0-ex-XJ4"/>
                             <constraint firstAttribute="trailing" secondItem="qDG-Ho-VBe" secondAttribute="trailing" constant="10" id="hAZ-wt-txb"/>
                             <constraint firstItem="JBC-D9-hEx" firstAttribute="leading" secondItem="MtV-wK-qVy" secondAttribute="trailing" constant="20" id="hqS-b2-biy"/>
-                            <constraint firstItem="AJQ-nF-bj5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dUT-wn-ztv" secondAttribute="top" constant="10" id="mu6-bF-u53"/>
                             <constraint firstItem="MtV-wK-qVy" firstAttribute="centerX" secondItem="dUT-wn-ztv" secondAttribute="centerX" id="vAV-Yw-KRL"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -144,6 +166,7 @@
             <connections>
                 <outlet property="addToCartBtn" destination="VK1-87-C69" id="eX7-zP-Tkw"/>
                 <outlet property="likeBtn" destination="qDG-Ho-VBe" id="unF-7P-vjg"/>
+                <outlet property="outOfStockView" destination="lbk-wd-aIn" id="XwS-hZ-Rjw"/>
                 <outlet property="productImage" destination="MtV-wK-qVy" id="194-JE-hor"/>
                 <outlet property="productName" destination="Txn-eX-Fxe" id="gzC-Fu-xmC"/>
                 <outlet property="productPrice" destination="dPD-dD-iis" id="TxV-7z-5F2"/>
@@ -160,6 +183,12 @@
         <image name="food_icon1" width="117" height="117"/>
         <namedColor name="fontColor2">
             <color red="0.19607843137254902" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeColor2">
+            <color red="0.96470588235294119" green="0.015686274509803921" blue="0.015686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="themeColor3">
+            <color red="0.99215686274509807" green="0.78823529411764703" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

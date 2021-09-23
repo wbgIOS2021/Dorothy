@@ -100,13 +100,7 @@ extension CartViewController: UITableViewDataSource
         let cellData = cart_listArray[indexPath.row]
         cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
         cell.productName.text! = cellData["name"] as! String
-//        if cellData["price"] as! String == "0.00" || cellData["price"] as! String == "0" || cellData["price"] as! String == cellData["orginalPrice"] as! String{
-//            cell.specialPrice!.text! = "$ \(cellData["orginalPrice"] as! String)"
-//            cell.price.isHidden = true
-//        }else{
-//            cell.price.isHidden = true
-//            cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
-//        }
+
         cell.price.isHidden = true
         cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
         cell.productModal.text! = cellData["model"] as! String
@@ -122,6 +116,7 @@ extension CartViewController: UITableViewDataSource
             cell.qtyView.isHidden = false
             cell.addProductButton.isHidden = true
         }
+        
         cell.addProductButton.tag = indexPath.row
         cell.addProductButton.addTarget(self, action: #selector(self.addProduct), for: .touchUpInside)
         return cell

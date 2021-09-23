@@ -26,7 +26,7 @@ class WishlistTableViewController: UITableViewController {
     }
     func cellRegister()
     {
-        wishlistTableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductTableViewCell")
+        wishlistTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
 
     }
         
@@ -79,23 +79,21 @@ extension WishlistTableViewController
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = wishlistTableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as! ProductTableViewCell
-        cell.likeBtn.isHidden = true
+        let cell = wishlistTableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
         
         let cellData = product_listArray[indexPath.row]
-        //let url = URL(string: cellData["thumb"] as! String)
         cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
         cell.productName!.text! = cellData["name"] as! String
-        cell.productweight.text! = cellData["product_model"] as! String
+        cell.productModal.text! = cellData["product_model"] as! String
         if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
             cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
-            cell.productPrice.isHidden = true
+            cell.price.text! = " "
         }else{
-            cell.productPrice!.text! = "$ \(cellData["price"] as! String)"
+            cell.price!.text! = "$ \(cellData["price"] as! String)"
             cell.specialPrice!.text! = "$ \(cellData["special"] as! String)"
         }
-        cell.addToCartBtn.tag = indexPath.row
-        cell.addToCartBtn.addTarget(self, action: #selector(self.productsAddToCart), for: .touchUpInside)
+        cell.addProductButton.isHidden = true
+        cell.qtyView.isHidden = true
         return cell
     }
     
@@ -127,12 +125,6 @@ extension WishlistTableViewController
                 return confrigation
     }
     
-    //Add to cart Action
-    @objc func productsAddToCart(_ sender:UIButton)
-    {
-        let product =  product_listArray[sender.tag]
-        addCart2(product:product)
-    }
 
 }
 //MARK:- Table View Delegate

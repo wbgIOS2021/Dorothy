@@ -34,6 +34,7 @@ class CheckoutViewController: UIViewController {
     @IBOutlet weak var taxLabel: UILabel!
     @IBOutlet weak var shippingCharge: UILabel!
     @IBOutlet weak var finalAmount: UILabel!
+    @IBOutlet weak var proceed_to_pay_btn: UIButton!
     
     let user_id = (getStringValueFromLocal(key: "user_id") ?? "0")
     var cart_listArray: [[String:Any]] = []
@@ -49,8 +50,8 @@ class CheckoutViewController: UIViewController {
     var shipping_name:String = ""
     var shipping_rate:String = ""
     var order_description:String = ""
-    
-    var paymentMethod = 0
+    var address_not_found = 0
+    var paymentMethod = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         addressView.dropShadow()
@@ -82,21 +83,39 @@ class CheckoutViewController: UIViewController {
             paymentMethod = 1
             onlinePaymentBtn.setImage(UIImage(named: "red_small_ball"), for: .normal)
             cashOnDeliveryBtn.setImage(nil, for: .normal)
+            self.proceed_to_pay_btn.setTitle("Proceed to Pay", for: .normal)
     }
     
     @IBAction func cashOnDeliveryBtnAction(_ sender: Any) {
             paymentMethod = 0
             cashOnDeliveryBtn.setImage(UIImage(named: "red_small_ball"), for: .normal)
             onlinePaymentBtn.setImage(nil, for: .normal)
+            self.proceed_to_pay_btn.setTitle("Place Order", for: .normal)
     }
     
     @IBAction func addOrChangeAddress(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "MyAddressTableViewController") as! MyAddressTableViewController
-        vc.isComeFromCheckout = true
-        navigationController?.pushViewController(vc, animated: true)
+        self.goToMyAddressPage()
     }
     @IBAction func proceedBtn(_ sender: Any) {
-        makeOrderAPI()
+        if self.address_not_found != 1{
+            if paymentMethod == 0{
+                makeOrderAPI()
+               // showAlertWith(title: "Success", message: "Placed Successfully", view: self)
+            }else{
+            showToast(message: "Online Payment Commin Soon", seconds: 2.0)
+            }
+        }else{
+            showAlertWithCancel(title: "Address required", message: "Address Not Found", view: self, btn_title: "Add Address", actionHandler: {
+                self.goToMyAddressPage()
+            })
+        }
+    }
+    
+    func goToMyAddressPage(){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyAddressTableViewController") as! MyAddressTableViewController
+        vc.isComeFromCheckout = true
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
 }
@@ -309,10 +328,13 @@ extension CheckoutViewController
             }else{
 
                 self.userAddressView.isHidden = true
-                self.bottomView.isHidden = true
-                self.bottomViewHeight.constant = 0
+                //self.bottomView.isHidden = true
+                //self.bottomViewHeight.constant = 0
+                self.address_not_found = 1
                 self.addAddressBtn.setTitle("Add Address", for: .normal)
-                
+//                showAlertWithCancel(title: "Address required", message: "Address Not Found!!!", view: self, btn_title: "Add Address", actionHandler: {
+//                    self.goToMyAddressPage()
+//                })
             }
                 
         }

@@ -17,12 +17,13 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var specialPrice: UILabel!
     @IBOutlet weak var productView: UIView!
+    @IBOutlet weak var outOfStockView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.productImage.layer.cornerRadius = self.productImage.frame.size.width / 2
         self.productImage.clipsToBounds = true
-        //productView.dropShadow()
+        outOfStockView.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

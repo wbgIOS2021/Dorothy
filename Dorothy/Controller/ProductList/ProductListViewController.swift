@@ -181,6 +181,13 @@ extension ProductListViewController: UITableViewDataSource
         }else{
             cell.likeBtn.setBackgroundImage(UIImage(named: "empty_heart"), for: .normal)
         }
+        if cellData["stockStatusId"] as! String == "7"{
+            cell.outOfStockView.isHidden = true
+            cell.addToCartBtn.isHidden = false
+        }else{
+            cell.outOfStockView.isHidden = false
+            cell.addToCartBtn.isHidden = true
+        }
         cell.likeBtn.tag = indexPath.row
         cell.likeBtn.addTarget(self, action: #selector(self.wishlistCheck), for: .touchUpInside)
         cell.addToCartBtn.tag = indexPath.row
