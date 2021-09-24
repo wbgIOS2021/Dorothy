@@ -131,8 +131,9 @@ extension WishlistTableViewController
 extension WishlistTableViewController
 {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-        navigationController?.pushViewController(vC, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+        vc.productId = product_listArray[indexPath.row]["productId"] as! String
+        navigationController?.pushViewController(vc, animated: true)
        }
     
     

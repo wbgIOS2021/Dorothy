@@ -1842,22 +1842,50 @@
                                             <constraint firstItem="7vu-XQ-NaH" firstAttribute="top" secondItem="0jF-JR-Hpt" secondAttribute="bottom" constant="100" id="g79-jB-75u"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ark-zi-kdu">
+                                        <rect key="frame" x="354" y="383" width="24" height="24"/>
+                                        <state key="normal" backgroundImage="eye_hide"/>
+                                        <connections>
+                                            <action selector="oldPasswordEyeBtnAction:" destination="LTa-Oe-mUA" eventType="touchUpInside" id="r6C-6Y-r8p"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P6-bC-s5Q">
+                                        <rect key="frame" x="354" y="471" width="24" height="24"/>
+                                        <state key="normal" backgroundImage="eye_hide"/>
+                                        <connections>
+                                            <action selector="newPasswordEyeBtnAction:" destination="LTa-Oe-mUA" eventType="touchUpInside" id="xH9-QU-bw0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kww-3s-Cpl">
+                                        <rect key="frame" x="354" y="559" width="24" height="24"/>
+                                        <state key="normal" backgroundImage="eye_hide"/>
+                                        <connections>
+                                            <action selector="confirmPasswordEyeBtnAction:" destination="LTa-Oe-mUA" eventType="touchUpInside" id="O2x-f4-bpM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Kww-3s-Cpl" firstAttribute="trailing" secondItem="vFf-pW-Xb1" secondAttribute="trailing" constant="-20" id="27H-1i-FKd"/>
                                     <constraint firstItem="jOn-k6-xZb" firstAttribute="centerX" secondItem="uf5-o1-7zA" secondAttribute="centerX" id="352-Na-gB4"/>
+                                    <constraint firstItem="Ark-zi-kdu" firstAttribute="trailing" secondItem="SYV-vb-2h2" secondAttribute="trailing" constant="-20" id="4UI-wc-A6E"/>
                                     <constraint firstAttribute="bottom" secondItem="jOn-k6-xZb" secondAttribute="bottom" id="7Z2-mN-i3v"/>
+                                    <constraint firstItem="Ark-zi-kdu" firstAttribute="centerY" secondItem="SYV-vb-2h2" secondAttribute="centerY" id="TEh-OO-LVS"/>
                                     <constraint firstAttribute="trailing" secondItem="jOn-k6-xZb" secondAttribute="trailing" id="Wvp-S1-FJa"/>
+                                    <constraint firstItem="6P6-bC-s5Q" firstAttribute="trailing" secondItem="fYK-SI-lcn" secondAttribute="trailing" constant="-20" id="gIf-r9-6eQ"/>
+                                    <constraint firstItem="Kww-3s-Cpl" firstAttribute="centerY" secondItem="vFf-pW-Xb1" secondAttribute="centerY" id="oMV-hf-wUQ"/>
+                                    <constraint firstItem="6P6-bC-s5Q" firstAttribute="centerY" secondItem="fYK-SI-lcn" secondAttribute="centerY" id="ouB-Ag-8Sv"/>
                                     <constraint firstItem="jOn-k6-xZb" firstAttribute="top" secondItem="uf5-o1-7zA" secondAttribute="top" id="qIb-zq-Y2M"/>
                                     <constraint firstItem="jOn-k6-xZb" firstAttribute="leading" secondItem="uf5-o1-7zA" secondAttribute="leading" id="udo-7E-6RP"/>
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bca-TT-F2h">
                                 <rect key="frame" x="0.0" y="832" width="428" height="60"/>
+                                <color key="backgroundColor" name="themeColor2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="nSw-XK-5qq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
-                                <state key="normal" title="SAVE" backgroundImage="curved_button">
+                                <state key="normal" title="SAVE">
                                     <color key="titleColor" name="fontColor3"/>
                                 </state>
                                 <connections>
@@ -1887,8 +1915,11 @@
                     <connections>
                         <outlet property="backView" destination="jOn-k6-xZb" id="7wg-UY-Xox"/>
                         <outlet property="chnagePwdScrollView" destination="uf5-o1-7zA" id="RdT-tQ-tDQ"/>
+                        <outlet property="confirmPasswordEyeBtn" destination="Kww-3s-Cpl" id="Feb-K9-2Xn"/>
                         <outlet property="confirmPasswordTF" destination="vFf-pW-Xb1" id="HBv-S2-dFs"/>
+                        <outlet property="newPasswordEyeBtn" destination="6P6-bC-s5Q" id="fof-hR-plV"/>
                         <outlet property="newPasswordTF" destination="fYK-SI-lcn" id="YR4-dD-Jwg"/>
+                        <outlet property="oldPasswordEyeBtn" destination="Ark-zi-kdu" id="W0H-dK-735"/>
                         <outlet property="oldPasswordTF" destination="SYV-vb-2h2" id="BCx-Yd-i08"/>
                         <outlet property="saveBtn" destination="Bca-TT-F2h" id="cXI-Ne-bR0"/>
                     </connections>
@@ -3218,14 +3249,32 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtA-qD-o0l">
+                                                        <rect key="frame" x="364" y="443" width="24" height="24"/>
+                                                        <state key="normal" backgroundImage="eye_hide"/>
+                                                        <connections>
+                                                            <action selector="passwordEyeBtnAction:" destination="uq8-SJ-hBx" eventType="touchUpInside" id="8q3-1v-qm4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzK-dO-p5L">
+                                                        <rect key="frame" x="364" y="523" width="24" height="24"/>
+                                                        <state key="normal" backgroundImage="eye_hide"/>
+                                                        <connections>
+                                                            <action selector="confirmPasswordEyeBtnAction:" destination="uq8-SJ-hBx" eventType="touchUpInside" id="kgG-5G-5f1"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="JtA-qD-o0l" firstAttribute="centerY" secondItem="i5f-sv-f9K" secondAttribute="centerY" id="Kzu-Qk-Q2z"/>
                                                     <constraint firstAttribute="bottom" secondItem="6r9-Jh-ajG" secondAttribute="bottom" constant="30" id="OX5-m8-1kC"/>
+                                                    <constraint firstItem="rzK-dO-p5L" firstAttribute="trailing" secondItem="Hoa-0L-dva" secondAttribute="trailing" constant="-20" id="a5K-5d-qXl"/>
                                                     <constraint firstItem="yAX-Lo-Xqz" firstAttribute="centerX" secondItem="EYe-Xh-DWn" secondAttribute="centerX" id="bie-QD-N7H"/>
+                                                    <constraint firstItem="JtA-qD-o0l" firstAttribute="trailing" secondItem="i5f-sv-f9K" secondAttribute="trailing" constant="-20" id="eOo-tl-rMI"/>
                                                     <constraint firstItem="yAX-Lo-Xqz" firstAttribute="top" secondItem="EYe-Xh-DWn" secondAttribute="top" constant="10" id="eae-W1-ffw"/>
                                                     <constraint firstAttribute="trailing" secondItem="6r9-Jh-ajG" secondAttribute="trailing" constant="20" id="h47-hb-fcY"/>
                                                     <constraint firstItem="6r9-Jh-ajG" firstAttribute="leading" secondItem="EYe-Xh-DWn" secondAttribute="leading" constant="20" id="pj8-5r-g46"/>
+                                                    <constraint firstItem="rzK-dO-p5L" firstAttribute="centerY" secondItem="Hoa-0L-dva" secondAttribute="centerY" id="r5T-N5-EW7"/>
                                                     <constraint firstItem="6r9-Jh-ajG" firstAttribute="top" secondItem="yAX-Lo-Xqz" secondAttribute="bottom" constant="60" id="u71-bK-iSz"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -3271,12 +3320,14 @@
                     </view>
                     <connections>
                         <outlet property="backView" destination="3Vo-Ef-1gw" id="43f-jt-jfH"/>
+                        <outlet property="confirmPasswordEyeBtn" destination="rzK-dO-p5L" id="LlM-8r-V6G"/>
                         <outlet property="confirmPasswordField" destination="Hoa-0L-dva" id="7n1-SU-r6D"/>
                         <outlet property="emailField" destination="Cma-Ui-QGo" id="n24-zW-BSP"/>
                         <outlet property="firstNameField" destination="0JY-QD-jdL" id="yUI-pj-LQf"/>
                         <outlet property="lastNameField" destination="8bD-Tg-T7N" id="8rf-U9-sy5"/>
                         <outlet property="loginBtn" destination="qE5-Cv-aQC" id="cB7-1i-kpf"/>
                         <outlet property="mobileNumberField" destination="47w-v8-082" id="Wae-aG-Mlf"/>
+                        <outlet property="passwordEyeBtn" destination="JtA-qD-o0l" id="A1N-ql-1hb"/>
                         <outlet property="passwordField" destination="i5f-sv-f9K" id="nYk-tD-i4a"/>
                         <outlet property="signupBtn" destination="8Oh-D9-M1b" id="OCp-HD-aJ8"/>
                     </connections>
@@ -3474,6 +3525,13 @@
                                     <constraint firstItem="gha-N7-FW5" firstAttribute="centerX" secondItem="GdO-Es-NfP" secondAttribute="centerX" id="vRD-MI-zjj"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfK-la-iBu">
+                                <rect key="frame" x="364" y="649.66666666666663" width="24" height="24"/>
+                                <state key="normal" backgroundImage="eye_hide"/>
+                                <connections>
+                                    <action selector="eyeButtonAction:" destination="s18-7X-ypO" eventType="touchUpInside" id="5eq-QD-Ee3"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEb-4b-m9l">
                                 <rect key="frame" x="25" y="70.666666666666671" width="8.3333333333333357" height="18"/>
                                 <color key="tintColor" name="themeColor2"/>
@@ -3491,6 +3549,8 @@
                             <constraint firstItem="T1u-q9-itZ" firstAttribute="bottom" secondItem="GdO-Es-NfP" secondAttribute="bottom" id="D3h-Ay-NJq"/>
                             <constraint firstItem="EEb-4b-m9l" firstAttribute="leading" secondItem="T1u-q9-itZ" secondAttribute="leading" constant="25" id="G7N-Ov-6Gi"/>
                             <constraint firstItem="T1u-q9-itZ" firstAttribute="trailing" secondItem="GdO-Es-NfP" secondAttribute="trailing" id="b3E-DD-omq"/>
+                            <constraint firstItem="QfK-la-iBu" firstAttribute="trailing" secondItem="Iaz-fF-mTu" secondAttribute="trailing" constant="-20" id="d33-Bd-wpE"/>
+                            <constraint firstItem="QfK-la-iBu" firstAttribute="centerY" secondItem="Iaz-fF-mTu" secondAttribute="centerY" id="mu4-Qz-DEb"/>
                             <constraint firstItem="EEb-4b-m9l" firstAttribute="top" secondItem="T1u-q9-itZ" secondAttribute="top" constant="25" id="utd-97-ngi"/>
                         </constraints>
                     </view>
@@ -3500,6 +3560,7 @@
                         <outlet property="loginBtn" destination="2S8-g1-eoq" id="Sjw-WU-5hL"/>
                         <outlet property="loginScrollView" destination="GdO-Es-NfP" id="pZ0-FG-r11"/>
                         <outlet property="loginView" destination="VAC-1C-Uwz" id="R7M-Ld-BdD"/>
+                        <outlet property="passwordEyeBtn" destination="QfK-la-iBu" id="Q5Z-ks-aRE"/>
                         <outlet property="passwordTextField" destination="Iaz-fF-mTu" id="dFP-mi-LEz"/>
                         <outlet property="phoneTextField" destination="UBW-1f-ghu" id="hzQ-oa-LUu"/>
                     </connections>
@@ -4699,7 +4760,7 @@ Nigerian Suya</string>
                                 <rect key="frame" x="0.0" y="830" width="428" height="62"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXB-BD-NP8">
-                                        <rect key="frame" x="148" y="13" width="132" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="62"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
                                         <state key="normal" title="ADD TO CART">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4711,8 +4772,10 @@ Nigerian Suya</string>
                                 </subviews>
                                 <color key="backgroundColor" name="themeColor2"/>
                                 <constraints>
-                                    <constraint firstItem="yXB-BD-NP8" firstAttribute="centerY" secondItem="tgm-Oa-yag" secondAttribute="centerY" id="1on-nw-N37"/>
-                                    <constraint firstItem="yXB-BD-NP8" firstAttribute="centerX" secondItem="tgm-Oa-yag" secondAttribute="centerX" id="8WA-TK-Iyg"/>
+                                    <constraint firstAttribute="bottom" secondItem="yXB-BD-NP8" secondAttribute="bottom" id="0aH-dN-7Xj"/>
+                                    <constraint firstItem="yXB-BD-NP8" firstAttribute="leading" secondItem="tgm-Oa-yag" secondAttribute="leading" id="5Ey-Ph-j9N"/>
+                                    <constraint firstItem="yXB-BD-NP8" firstAttribute="top" secondItem="tgm-Oa-yag" secondAttribute="top" id="Wdu-Ci-LQU"/>
+                                    <constraint firstAttribute="trailing" secondItem="yXB-BD-NP8" secondAttribute="trailing" id="cRi-FH-Vgl"/>
                                     <constraint firstAttribute="width" secondItem="tgm-Oa-yag" secondAttribute="height" multiplier="69:10" id="nF9-Ih-2qo"/>
                                 </constraints>
                             </view>
@@ -4751,6 +4814,7 @@ Nigerian Suya</string>
                     <connections>
                         <outlet property="ProductRating" destination="U6A-rD-tha" id="GVa-PH-pJf"/>
                         <outlet property="addReviewView" destination="W7k-I4-eH2" id="rRQ-VZ-odH"/>
+                        <outlet property="addToCartBtn" destination="yXB-BD-NP8" id="q8Z-BE-XcQ"/>
                         <outlet property="addToCartView" destination="tgm-Oa-yag" id="xKR-Al-8N7"/>
                         <outlet property="beTheFirstReview" destination="iwT-GK-KWD" id="E4x-Qd-a2c"/>
                         <outlet property="cartBtn" destination="eGZ-CA-6Cr" id="uhm-K4-6Pe"/>
@@ -4945,19 +5009,19 @@ Nigerian Suya</string>
                                             <rect key="frame" x="10" y="10" width="408" height="201"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Adarsh raj" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSi-Mb-NHb">
-                                                    <rect key="frame" x="20" y="10" width="368" height="64.333333333333329"/>
+                                                    <rect key="frame" x="20" y="10" width="368" height="39"/>
                                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D09-IH-9wH">
-                                                    <rect key="frame" x="19.999999999999996" y="79.333333333333329" width="43.666666666666657" height="17.666666666666671"/>
+                                                    <rect key="frame" x="19.999999999999996" y="77" width="43.666666666666657" height="20"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnh-L8-GaN" customClass="CosmosView" customModule="Cosmos">
-                                                    <rect key="frame" x="85.666666666666686" y="79.333333333333329" width="150" height="17.666666666666671"/>
+                                                    <rect key="frame" x="85.666666666666686" y="77" width="150" height="20"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="B1Q-cl-KZ2"/>
@@ -4992,20 +5056,29 @@ Nigerian Suya</string>
                                                     <color key="textColor" name="fontColor2"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuD-8z-oRQ">
+                                                    <rect key="frame" x="20" y="49" width="368" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" name="fontColor2"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstItem="D09-IH-9wH" firstAttribute="top" secondItem="LSi-Mb-NHb" secondAttribute="bottom" constant="5" id="2er-N8-d94"/>
                                                 <constraint firstAttribute="bottom" secondItem="KuR-qD-TwO" secondAttribute="bottom" constant="10" id="7zd-GE-3VZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="LSi-Mb-NHb" secondAttribute="trailing" constant="20" id="8S5-ie-T42"/>
                                                 <constraint firstItem="D09-IH-9wH" firstAttribute="leading" secondItem="LSi-Mb-NHb" secondAttribute="leading" id="8T8-wf-PIa"/>
+                                                <constraint firstItem="wuD-8z-oRQ" firstAttribute="leading" secondItem="LSi-Mb-NHb" secondAttribute="leading" id="APk-OS-0oA"/>
                                                 <constraint firstItem="rnh-L8-GaN" firstAttribute="leading" secondItem="D09-IH-9wH" secondAttribute="trailing" constant="22" id="B9V-rD-zUt"/>
+                                                <constraint firstItem="wuD-8z-oRQ" firstAttribute="trailing" secondItem="LSi-Mb-NHb" secondAttribute="trailing" id="CGH-LU-SEh"/>
                                                 <constraint firstItem="D09-IH-9wH" firstAttribute="centerY" secondItem="rnh-L8-GaN" secondAttribute="centerY" id="DUo-FN-Shx"/>
                                                 <constraint firstItem="LSi-Mb-NHb" firstAttribute="leading" secondItem="XUw-I9-WWk" secondAttribute="leading" constant="20" id="KkV-Aw-kfu"/>
                                                 <constraint firstItem="KuR-qD-TwO" firstAttribute="top" secondItem="D09-IH-9wH" secondAttribute="bottom" constant="10" id="RkR-4v-Ux4"/>
                                                 <constraint firstItem="rnh-L8-GaN" firstAttribute="top" secondItem="D09-IH-9wH" secondAttribute="top" id="SYZ-8z-btE"/>
                                                 <constraint firstItem="KuR-qD-TwO" firstAttribute="trailing" secondItem="LSi-Mb-NHb" secondAttribute="trailing" id="Yka-tR-UWJ"/>
                                                 <constraint firstItem="LSi-Mb-NHb" firstAttribute="top" secondItem="XUw-I9-WWk" secondAttribute="top" constant="10" id="b8B-d0-81W"/>
+                                                <constraint firstItem="wuD-8z-oRQ" firstAttribute="top" secondItem="LSi-Mb-NHb" secondAttribute="bottom" id="bY5-7C-nGZ"/>
+                                                <constraint firstItem="D09-IH-9wH" firstAttribute="top" secondItem="wuD-8z-oRQ" secondAttribute="bottom" constant="10" id="cva-JZ-IvL"/>
                                                 <constraint firstItem="KuR-qD-TwO" firstAttribute="leading" secondItem="D09-IH-9wH" secondAttribute="leading" id="vWJ-3b-9k0"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -5023,6 +5096,7 @@ Nigerian Suya</string>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="added_date" destination="wuD-8z-oRQ" id="iQR-ql-p5E"/>
                                     <outlet property="rating" destination="rnh-L8-GaN" id="mYX-yG-6Sb"/>
                                     <outlet property="ratingView" destination="XUw-I9-WWk" id="AEW-JU-jfn"/>
                                     <outlet property="reviewText" destination="KuR-qD-TwO" id="Z8f-QF-O14"/>
@@ -5582,6 +5656,17 @@ We will sent a link on your email</string>
             <point key="canvasLocation" x="-522" y="860"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="38s-iQ-uBa">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="6Ka-bc-O7x">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="rnh-L8-GaN">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Visa_icon" width="74" height="24"/>
         <image name="app_logo" width="63" height="61"/>
@@ -5596,12 +5681,12 @@ We will sent a link on your email</string>
         <image name="cash_icon" width="54" height="54"/>
         <image name="chevron.compact.left" catalog="system" width="64" height="128"/>
         <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="curved_button" width="414" height="59"/>
         <image name="default_user" width="88" height="88"/>
         <image name="empty_cart" width="13" height="14"/>
         <image name="empty_heart" width="14" height="13"/>
         <image name="empty_red_ball" width="28" height="28"/>
         <image name="empty_star" width="24" height="24"/>
+        <image name="eye_hide" width="24" height="24"/>
         <image name="fill_star" width="16" height="15"/>
         <image name="food_icon2" width="414" height="339"/>
         <image name="ic_shield" width="383" height="406"/>

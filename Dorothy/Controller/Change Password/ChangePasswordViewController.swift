@@ -13,16 +13,25 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var oldPasswordTF: MDCOutlinedTextField!
     @IBOutlet weak var chnagePwdScrollView: UIScrollView!
     @IBOutlet weak var newPasswordTF: MDCOutlinedTextField!
-    
     @IBOutlet weak var confirmPasswordTF: MDCOutlinedTextField!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var oldPasswordEyeBtn: UIButton!
+    @IBOutlet weak var newPasswordEyeBtn: UIButton!
+    @IBOutlet weak var confirmPasswordEyeBtn: UIButton!
     
+    var oldPasswordEyeBtnClick = true
+    var newPasswordEyeBtnClick = true
+    var confirmPasswordEyeBtnClick = true
     var user_id = getStringValueFromLocal(key: "user_id") ?? "0"
     override func viewDidLoad() {
         super.viewDidLoad()
         textFieldDesign()
         setGradientBackground(view: backView)
+        
+        saveBtn.layer.cornerRadius = 30
+        saveBtn.clipsToBounds = true
+        saveBtn.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
@@ -71,6 +80,41 @@ class ChangePasswordViewController: UIViewController {
         }else{
             changePasswordAPi()
         }
+    }
+    @IBAction func oldPasswordEyeBtnAction(_ sender: Any) {
+        if(oldPasswordEyeBtnClick == true) {
+            oldPasswordTF.isSecureTextEntry = false
+            oldPasswordEyeBtn.setBackgroundImage(UIImage(named: "eye"), for: UIControl.State.normal)
+
+                } else {
+                    oldPasswordTF.isSecureTextEntry = true
+                    oldPasswordEyeBtn.setBackgroundImage(UIImage(named: "eye_hide"), for: UIControl.State.normal)
+                }
+
+        oldPasswordEyeBtnClick = !oldPasswordEyeBtnClick
+    }
+    @IBAction func newPasswordEyeBtnAction(_ sender: Any) {
+        if(newPasswordEyeBtnClick == true) {
+            newPasswordTF.isSecureTextEntry = false
+            newPasswordEyeBtn.setBackgroundImage(UIImage(named: "eye"), for: UIControl.State.normal)
+
+                } else {
+                    newPasswordTF.isSecureTextEntry = true
+                    newPasswordEyeBtn.setBackgroundImage(UIImage(named: "eye_hide"), for: UIControl.State.normal)
+                }
+
+        newPasswordEyeBtnClick = !newPasswordEyeBtnClick
+    }
+    @IBAction func confirmPasswordEyeBtnAction(_ sender: Any) {
+        if(confirmPasswordEyeBtnClick == true) {
+            confirmPasswordTF.isSecureTextEntry = false
+            confirmPasswordEyeBtn.setBackgroundImage(UIImage(named: "eye"), for: UIControl.State.normal)
+
+                } else {
+                    confirmPasswordTF.isSecureTextEntry = true
+                    confirmPasswordEyeBtn.setBackgroundImage(UIImage(named: "eye_hide"), for: UIControl.State.normal)
+                }
+        confirmPasswordEyeBtnClick = !confirmPasswordEyeBtnClick
     }
 }
 

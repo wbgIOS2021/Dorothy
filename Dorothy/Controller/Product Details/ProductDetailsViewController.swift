@@ -43,6 +43,7 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     @IBOutlet weak var wishlistBtn: UIButton!
     @IBOutlet var leftArrowBtn: UIButton!
     @IBOutlet var rightArrowBtn: UIButton!
+    @IBOutlet var addToCartBtn: UIButton!
     
     // Image
     @IBOutlet weak var productImage: UIImageView!
@@ -55,12 +56,20 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     @IBOutlet weak var cartBtn: UIBarButtonItem!
     @IBOutlet weak var productDetailsScrollView: UIScrollView!
     
+    
+    //Arrays
+    var productDetails_Array: [String:Any] = [:]
+    var imageGallery_Array: [[String:Any]] = []
+    var productReviews_Array: [[String:Any]] = []
+    var productRelated_Array: [[String:Any]] = []
+    var productOptions_Array: [[String:Any]] = []
     var productId:String = "50"
     var qty = 1
-    var isWishlisted = false
     var i : Int = 0
-    
-    var imagelist = ["food_image3","food_image4","food_image5","food_image6"]
+    var isStockAvailable = 0
+
+    let user_id = (getStringValueFromLocal(key: "user_id") ?? "0")
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         addSomeShadow()
@@ -78,6 +87,7 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
+        gettingData(productId:productId)
         self.cartCount()
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -130,8 +140,9 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     }
     
     @IBAction func reviewViewAllBtnAction(_ sender: Any) {
-        let vC = storyboard?.instantiateViewController(withIdentifier: "ShowReviewTableViewController") as! ShowReviewTableViewController
-        navigationController?.pushViewController(vC, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ShowReviewTableViewController") as! ShowReviewTableViewController
+        vc.productId = productId
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func addReviewBtn(_ sender: Any) {
@@ -142,6 +153,7 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
         popupVC.pdDelegate = self
         present(popupVC, animated: true, completion: nil)
     }
+    
     @IBAction func productShareBtn(_ sender: Any) {
         //Set the default sharing message.
 
@@ -156,23 +168,45 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
         }
     }
     
+    
+    
     @IBAction func productWishlistBtn(_ sender: Any) {
-        if isWishlisted == true{
-            isWishlisted = false
-            wishlistBtn.setBackgroundImage(UIImage(named: "empty_heart"), for: .normal)
+        
+        let success:successHandler = { [self]  response in
+            let json = response as! [String : Any]
+            if json["responseStatus"] as! String == "1"
+            {
+                wishlistBtn.setBackgroundImage(UIImage(named: "fill_heart"), for: .normal)
+            }else{
+                wishlistBtn.setBackgroundImage(UIImage(named: "empty_heart"), for: .normal)
             }
-        else{
-            isWishlisted = true
-            wishlistBtn.setBackgroundImage(UIImage(named: "fill_heart"), for: .normal)
-            }
-            
+        }
+
+        self.wishlistAction(product_id: self.productDetails_Array["productId"] as! String,actionHandler:success)
         
         
     }
     @IBAction func addToCartBtn(_ sender: Any) {
-        self.showToast(message : "Product added to cart successfully", seconds: 2.0)
+        if isStockAvailable == 0{
+            let success:successHandler = {  response in
+                let json = response as! [String : Any]
+                if json["responseCode"] as! Int == 1
+                {
+                    self.showToast(message : json["responseText"] as! String, seconds: 2.0)
+                    self.cartCount()
+                }else{
+                    self.showToast(message : json["responseText"] as! String, seconds: 1.5)
+                    self.cartCount()
+                }
+            }
+            self.addCartAction(product_id:productId, quantity:qty,actionHandler:success)
+        }
+        else{
+            self.showToast(message : "Out of Stock", seconds: 1.5)
+        }
     }
     
+
     @IBAction func similarProductSeeAllBtn(_ sender: Any) {
 
     }
@@ -180,39 +214,41 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     @IBAction func leftArrowBtn(_ sender: Any) {
         if i == 0{
             leftArrowBtn.isEnabled = false
-            productImage.image = UIImage(named: "food_icon2")
+            productImage.sd_setImage(with: URL(string: (productDetails_Array["thumb"] as! String)), placeholderImage: UIImage(named: "no-image"))
         }else{
             leftArrowBtn.isEnabled = true
             if(i > 0)
             {
                 i=i-1;
-                productImage.image = UIImage(named: imagelist[i])
+                let cellData = imageGallery_Array[i]
+                productImage.sd_setImage(with: URL(string: (cellData["thumb_image"] as! String)), placeholderImage: UIImage(named: "no-image"))
                 rightArrowBtn.isEnabled = true
             }
         }
         
     }
     
+    
+    
+    
+    
     @IBAction func rightArrowBtn(_ sender: Any) {
         
-        if i == imagelist.count{
+        if i == imageGallery_Array.count{
             rightArrowBtn.isEnabled = false
             i=i-1;
         }else{
             rightArrowBtn.isEnabled = true
-            if (i < (imagelist.count))
+            if (i < (imageGallery_Array.count))
             {
-                
-                productImage.image = UIImage(named: imagelist[i])
+                let cellData = imageGallery_Array[i]
+                productImage.sd_setImage(with: URL(string: (cellData["thumb_image"] as! String)), placeholderImage: UIImage(named: "no-image"))
                 i=i+1;
                 leftArrowBtn.isEnabled = true
+                
             }
-            
         }
-        
- 
     }
-    
     
 }
 
@@ -226,9 +262,7 @@ extension ProductDetailsViewController
     @IBAction func searchBtn(_ sender: Any) {
         searchBtn()
     }
-//    @IBAction func cartBtn(_ sender: Any) {
-//        cartBtn()
-//    }
+
 }
 
 
@@ -237,9 +271,9 @@ extension ProductDetailsViewController: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == ratingAndReviewCollectionView
         {
-            return 4
+            return productReviews_Array.count
         }
-        return 5
+        return productRelated_Array.count
         
     }
     
@@ -248,27 +282,86 @@ extension ProductDetailsViewController: UICollectionViewDataSource
         {
             let cell = ratingAndReviewCollectionView.dequeueReusableCell(withReuseIdentifier: "RatingReviewCollectionViewCell", for: indexPath) as! RatingReviewCollectionViewCell
             
+            let cellData = productReviews_Array[indexPath.row]
+            
+            cell.personName.text! = cellData["author"] as! String
+            cell.reviewLabel.text! = cellData["text"] as! String
+            cell.rating.rating = Double(cellData["rating"] as! String)!
             return cell
         }
+        
         let cell = similarProductCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
+        let cellData = productRelated_Array[indexPath.row]
+        cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
         
+        cell.productName!.text! = cellData["name"] as! String
+        cell.productWeight!.text! = "\(cellData["description"] as! String)"
+        if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
+            cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
+            cell.productPrice.isHidden = true
+        }else{
+            cell.productPrice!.text! = "$ \(cellData["price"] as! String)"
+            cell.specialPrice!.text! = "$ \(cellData["special"] as! String)"
+        }
         
+        if cellData["isWishlist"] as! String == "1"{
+            cell.likeBtn.setBackgroundImage(UIImage(named: "fill_heart"), for: .normal)
+        }else{
+            cell.likeBtn.setBackgroundImage(UIImage(named: "empty_heart"), for: .normal)
+        }
+
+        if cellData["stockStatusId"] as! String == "7"{
+            cell.outOfStockView.isHidden = true
+            cell.addToCartBtn.isHidden = false
+        }else{
+            cell.outOfStockView.isHidden = false
+            cell.addToCartBtn.isHidden = true
+        }
+        cell.likeBtn.tag = indexPath.row
+        cell.likeBtn.addTarget(self, action: #selector(self.wishlistCheck), for: .touchUpInside)
+        cell.addToCartBtn.tag = indexPath.row
+        cell.addToCartBtn.addTarget(self, action: #selector(self.productsAddToCart), for: .touchUpInside)
         return cell
-        
+    }
+    
+    @objc func wishlistCheck(_ sender: UIButton)
+    {
+        let list =  productRelated_Array[sender.tag]
+        let success:successHandler = {  response in
+            let json = response as! [String : Any]
+            let cell = self.similarProductCollectionView.cellForItem(at: NSIndexPath(row: sender.tag, section: 0) as IndexPath) as! ProductCollectionViewCell
+            if json["responseStatus"] as! String == "1"
+            {
+                cell.likeBtn.setBackgroundImage(UIImage(named: "fill_heart"), for: .normal)
+            }else{
+                cell.likeBtn.setBackgroundImage(UIImage(named: "empty_heart"), for: .normal)
+            }
+        }
+        self.wishlistAction(product_id: list["productId"] as! String,actionHandler:success)
+    }
+    
+    //Add to cart Action
+    @objc func productsAddToCart(_ sender:UIButton)
+    {
+        let product =  productRelated_Array[sender.tag]
+        addCart2(product:product)
     }
     
 }
 extension ProductDetailsViewController:UICollectionViewDelegate
 {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == ratingAndReviewCollectionView{
             
         }
         if collectionView == similarProductCollectionView{
-            let vC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-            navigationController?.pushViewController(vC, animated: true)
+        let vC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+        vC.productId = productRelated_Array[indexPath.row]["productId"] as! String
+        navigationController?.pushViewController(vC, animated: true)
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView,
                                 willDisplay cell: UICollectionViewCell,
                                 forItemAt indexPath: IndexPath) {
@@ -284,12 +377,193 @@ extension ProductDetailsViewController:UICollectionViewDelegate
 }
 
 
+
+
+//MARK:- API Calling
+extension ProductDetailsViewController
+{
+    func gettingData(productId:String) -> Void {
+    ProgressHud.show()
+    let success:successHandler = {  response in
+
+        let json = response as! [String : Any]
+        self.productDetails_Array.removeAll()
+        self.imageGallery_Array.removeAll()
+        self.productReviews_Array.removeAll()
+        self.productRelated_Array.removeAll()
+        self.productOptions_Array.removeAll()
+        if json["responseCode"] as! Int == 1
+        {
+            let responseData = json["responseData"] as! [String: Any]
+            
+            let productId = responseData["productId"] as! String
+            let thumb = responseData["thumb"] as! String
+            let name = responseData["name"] as! String
+            let shareLink = responseData["shareLink"] as! String
+            let categoryId = responseData["categoryId"] as! String
+            
+            let description = responseData["description"] as! String
+            let mainPrice = responseData["mainPrice"] as! String
+            let price = responseData["price"] as! String
+            let special = responseData["special"] as! String
+            let tax = responseData["tax"] as! String
+            
+            let productSaleOff = responseData["productSaleOff"] as! String
+            let rating = responseData["rating"] as! String
+            let minimum = responseData["minimum"] as! String
+            let manufacturer = responseData["manufacturer"] as! String
+            let model = responseData["model"] as! String
+            let stockInfo = responseData["stockInfo"] as! String
+            let weight = responseData["weight"] as! String
+            let weightName = responseData["weightName"] as! String
+      
+            let isWishlist = responseData["isWishlist"] as! String
+            let isPurchase = responseData["isPurchase"] as! String
+            let hasReview = responseData["hasReview"] as! String
+            let cartCount = responseData["cartCount"] as! String
+            let reviwCount = responseData["reviwCount"] as! String
+
+            
+            let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"shareLink":shareLink,"categoryId":categoryId,"description":description,"mainPrice":mainPrice,"price":price,"special":special,"tax":tax,"productSaleOff":productSaleOff,"rating":rating,"minimum":minimum,"manufacturer":manufacturer,"model":model,"stockInfo":stockInfo,"weight":weight,"weightName":weightName,"isWishlist":isWishlist,"isPurchase":isPurchase,"hasReview":hasReview,"cartCount":cartCount,"reviwCount":reviwCount]
+            
+            self.productDetails_Array = dic
+            print(self.productDetails_Array)
+            
+            _ = responseData["productOptions"] as! [[String:Any]] //
+            
+            
+            //Image Gallery
+            let imageGallery = responseData["imageGallery"] as! [[String:Any]]
+            for data in imageGallery
+            {
+                let thumb = data["thumb"] as! String
+                let dic = ["thumb_image":thumb]
+                self.imageGallery_Array.append(dic)
+            }
+            
+            //Product Reviews
+            let productReviews = responseData["productReviews"] as! [[String:Any]]
+            for data in productReviews
+            {
+                let reviewId = data["reviewId"] as! String
+                let author = data["author"] as! String
+                let text = data["text"] as! String
+                let rating = data["rating"] as! String
+                
+                let dic = ["reviewId":reviewId,"author":author,"text":text,"rating":rating]
+                self.productReviews_Array.append(dic)
+            }
+            
+            //Related Product
+            let productRelated = responseData["productRelated"] as! [[String:Any]]
+            for data in productRelated
+            {
+                let productId = data["productId"] as! String
+                let thumb = data["thumb"] as! String
+                let name = data["name"] as! String
+                let description = data["description"] as! String
+                let price = data["price"] as! String
+                let special = data["special"] as! String
+                let tax = data["tax"] as! String
+                let rating = data["rating"] as! String
+                let minimum = data["minimum"] as! String
+                let stockStatusId = data["stockStatusId"] as! String
+                let stockStatus = data["stockStatus"] as! String
+                let optionCount = data["optionCount"] as! String
+                let  isWishlist = data["isWishlist"] as! String
+                let categoryId = data["categoryId"] as! String
+                let  categoryName = data["categoryName"] as! String
+                
+                let dic = ["productId":productId,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"tax":tax,"rating":rating,"minimum":minimum,"stockStatusId":stockStatusId,"stockStatus":stockStatus,"optionCount":optionCount,"isWishlist":isWishlist,"categoryId":categoryId,"categoryName":categoryName]
+                self.productRelated_Array.append(dic)
+            }
+            
+                
+            //Reloading Table Views And Collection View
+            DispatchQueue.main.async
+                {
+                    
+                    ProgressHud.hide()
+                    self.applyAPI()
+                    if self.productReviews_Array.isEmpty{
+                        self.beTheFirstReview.isHidden = false
+                        self.reviewViewAllButton.isHidden = true
+                    }
+                    if self.productRelated_Array.isEmpty{
+                        self.relatedProductStackView.isHidden = true
+                    }
+                    
+                    self.ratingAndReviewCollectionView.reloadData()
+                    self.similarProductCollectionView.reloadData()
+                }
+        }else{
+            print("Comming Soon................................")
+        }
+
+        }
+        
+        let failure:failureHandler = {error, errorMessage in
+            ProgressHud.hide()
+            DispatchQueue.main.async {
+                print("NOT WORKING..............")
+            }
+        }
+        
+        //Calling API
+        let parameters:EIDictonary = ["product_id": self.productId,"customer_id":user_id,"currency_code": "USD","device_id": "12345ABD"]
+        
+        SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.product_details, successCall: success, failureCall: failure)
+    }
+}
+ 
+extension ProductDetailsViewController
+{
+    func applyAPI()
+    {
+        productImage.sd_setImage(with: URL(string: (productDetails_Array["thumb"] as! String)), placeholderImage: UIImage(named: "no-image"))
+        
+        productName.text! = productDetails_Array["name"] as! String
+        productionSubTitle.text! = productDetails_Array["model"] as! String
+        
+        if productDetails_Array["special"] as! String == "0.00" || productDetails_Array["special"] as! String == "0" || productDetails_Array["special"] as! String == productDetails_Array["price"] as! String{
+            productSpecialPrice.text! = "$ \(productDetails_Array["price"] as! String)"
+            productPrice.isHidden = true
+        }else{
+            productPrice.text! = "$ \(productDetails_Array["price"] as! String)"
+            productSpecialPrice.text! = "$ \(productDetails_Array["special"] as! String)"
+        }
+        
+        productDesc.text! = productDetails_Array["description"] as! String
+        
+        ratingView.rating = Double(productDetails_Array["rating"] as! String)!
+        ProductRating.text! = "(\(Double(productDetails_Array["rating"] as! String) ?? 0.0))"
+        if productDetails_Array["isWishlist"] as! String == "1"{
+            wishlistBtn.setBackgroundImage(UIImage(named: "fill_heart"), for: .normal)
+        }else{
+            wishlistBtn.setBackgroundImage(UIImage(named: "empty_heart"), for: .normal)
+        }
+        self.qty = Int(productDetails_Array["minimum"] as! String)!
+        
+        if productDetails_Array["stockInfo"] as! String == "text_instock"{
+            self.isStockAvailable = 0
+            self.addToCartBtn.setTitle("ADD TO CART", for: .normal)
+        }else{
+            self.isStockAvailable = 1
+            self.addToCartBtn.setTitle("Out Of Stock", for: .normal)
+        }
+    }
+    
+}
+
+
+
+//Custom Delegate Code
 extension ProductDetailsViewController:ProductDetailsDelegate
 {
     func review(product_id: String) {
         DispatchQueue.main.async {
-//            self.gettingData(productId:product_id)
-            print("this")
+            self.gettingData(productId:product_id)
          }
     }
 }
+

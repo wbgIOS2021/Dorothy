@@ -16,6 +16,8 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var loginScrollView: UIScrollView!
+    @IBOutlet weak var passwordEyeBtn: UIButton!
+    var passwordEyeBtnClick = true
     override func viewDidLoad() {
         super.viewDidLoad()
         textFieldDesign()
@@ -54,6 +56,20 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    @IBAction func eyeButtonAction(_ sender: Any) {
+        if(passwordEyeBtnClick == true) {
+            passwordTextField.isSecureTextEntry = false
+            passwordEyeBtn.setBackgroundImage(UIImage(named: "eye"), for: UIControl.State.normal)
+
+                } else {
+                    passwordTextField.isSecureTextEntry = true
+                    passwordEyeBtn.setBackgroundImage(UIImage(named: "eye_hide"), for: UIControl.State.normal)
+                }
+
+        passwordEyeBtnClick = !passwordEyeBtnClick
+    }
+
 }
 extension LoginViewController
 {

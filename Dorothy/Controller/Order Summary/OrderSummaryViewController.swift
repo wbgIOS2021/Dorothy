@@ -82,7 +82,7 @@ class OrderSummaryViewController: UIViewController {
     }
     @IBAction func orderReturnBtn(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ReturnOrderViewController") as! ReturnOrderViewController
-        vc.product_id = orderId  // for only testing
+        vc.order_id = orderId 
         navigationController?.pushViewController(vc, animated: true)
 
     }

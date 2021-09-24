@@ -19,6 +19,10 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var signupBtn: UIButton!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var passwordEyeBtn: UIButton!
+    @IBOutlet weak var confirmPasswordEyeBtn: UIButton!
+    var passwordEyeBtnClick = true
+    var confirmPasswordEyeBtnClick = true
     var mobile:String = ""
     
     override func viewDidLoad() {
@@ -50,7 +54,30 @@ class RegistrationViewController: UIViewController {
         textField.label.text = label_name
         textField.leadingView = UIImageView(image: UIImage(named: icon))
         textField.leadingViewMode = .always
-        
+    }
+    @IBAction func passwordEyeBtnAction(_ sender: Any) {
+        if(passwordEyeBtnClick == true) {
+            passwordField.isSecureTextEntry = false
+            passwordEyeBtn.setBackgroundImage(UIImage(named: "eye"), for: UIControl.State.normal)
+
+                } else {
+                    passwordField.isSecureTextEntry = true
+                    passwordEyeBtn.setBackgroundImage(UIImage(named: "eye_hide"), for: UIControl.State.normal)
+                }
+
+        passwordEyeBtnClick = !passwordEyeBtnClick
+    }
+    @IBAction func confirmPasswordEyeBtnAction(_ sender: Any) {
+        if(confirmPasswordEyeBtnClick == true) {
+            confirmPasswordField.isSecureTextEntry = false
+            confirmPasswordEyeBtn.setBackgroundImage(UIImage(named: "eye"), for: UIControl.State.normal)
+
+                } else {
+                    confirmPasswordField.isSecureTextEntry = true
+                    confirmPasswordEyeBtn.setBackgroundImage(UIImage(named: "eye_hide"), for: UIControl.State.normal)
+                }
+
+        confirmPasswordEyeBtnClick = !confirmPasswordEyeBtnClick
     }
 }
 

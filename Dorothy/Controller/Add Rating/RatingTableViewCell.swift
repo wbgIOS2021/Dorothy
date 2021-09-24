@@ -13,6 +13,7 @@ class RatingTableViewCell: UITableViewCell {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var ratingView: UIView!
     @IBOutlet weak var reviewText: UILabel!
+    @IBOutlet var added_date: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         rating.isUserInteractionEnabled = false
