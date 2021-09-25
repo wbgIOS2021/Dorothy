@@ -141,7 +141,7 @@ extension MyProfileViewController
                     self.userName.text! = firstName + " " + lastName
                     self.userEmail.text! = email
                     self.userMobile.text! = telephone
-                    self.user_pic.sd_setImage(with: URL(string: profileImage), placeholderImage: UIImage(named: "default_user"))
+                    self.user_pic.sd_setImage(with: URL(string: profileImage), placeholderImage: UIImage(named: "user1"))
 
                     saveStringOnLocal(key: "profile_pic", value: profileImage)
                     saveStringOnLocal(key: "name", value: firstName + " " + lastName)

@@ -33,7 +33,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         additionalSetup()
 
-        profileImage.sd_setImage(with: URL(string: user_list_Dic["profileImage"] as! String), placeholderImage: UIImage(named: "default_user"))
+        profileImage.sd_setImage(with: URL(string: user_list_Dic["profileImage"] as! String), placeholderImage: UIImage(named: "user1"))
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false

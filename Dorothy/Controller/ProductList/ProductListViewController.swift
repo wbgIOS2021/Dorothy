@@ -18,24 +18,34 @@ class ProductListViewController: UIViewController {
     var product_listArray: [[String:Any]] = []
 
     var category_id:String = ""
+    var product_id:String = ""
     var bolValue:[Bool] = []
     var selectedIndex = 0
     var categoryName:String = ""
+    var isComeFromProductDetailPage = false
     let user_id = (getStringValueFromLocal(key: "user_id") ?? "0")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         cellRegister()
         
-        for _ in 0..<category_listArray.count{
-            bolValue.append(false)
-        }
-        bolValue[selectedIndex] = true
+        
+       
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-        gettingData(category_id: category_id)
+        if isComeFromProductDetailPage == false{
+            for _ in 0..<category_listArray.count{
+                bolValue.append(false)
+            }
+            bolValue[selectedIndex] = true
+            gettingData(category_id: category_id)
+        }else{
+            gettingCategories()
+            
+        }
+        
         self.cartCount()
     }
     override func viewDidLayoutSubviews() {
@@ -81,7 +91,9 @@ extension ProductListViewController: UICollectionViewDataSource
         let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: "SmallCategoriesCollectionViewCell", for: indexPath) as! SmallCategoriesCollectionViewCell
         
         let cellData = category_listArray[indexPath.row]
-        cell.categoryImage.sd_setImage(with: URL(string: cellData["image"] as! String), placeholderImage: UIImage(named: "no-image"))
+        let string = cellData["image"] as! String
+        let urlNew:String = string.replacingOccurrences(of: " ", with: "%20")
+        cell.categoryImage.sd_setImage(with: URL(string: urlNew), placeholderImage: UIImage(named: "no-image"))
         cell.categoryName!.text! = cellData["title"] as! String
        
         if bolValue[indexPath.row]
@@ -100,6 +112,7 @@ extension ProductListViewController: UICollectionViewDataSource
 extension ProductListViewController: UICollectionViewDelegate
 {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        isComeFromProductDetailPage = false
         title = "\(category_listArray[indexPath.row]["title"]!)"
         let category_ids = "\(category_listArray[indexPath.row]["id"]!)"
         gettingData(category_id: category_ids)
@@ -124,18 +137,18 @@ extension ProductListViewController: UICollectionViewDelegate
     }
     
     // For some animations
-    func collectionView(_ collectionView: UICollectionView,
-                                willDisplay cell: UICollectionViewCell,
-                                forItemAt indexPath: IndexPath) {
-       cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-          UIView.animate(withDuration: 0.8) {
-              cell.transform = CGAffineTransform.identity
-          }
-       cell.alpha = 0
-       UIView.animate(withDuration: 0.8) {
-           cell.alpha = 1
-       }
-   }
+//    func collectionView(_ collectionView: UICollectionView,
+//                                willDisplay cell: UICollectionViewCell,
+//                                forItemAt indexPath: IndexPath) {
+//       cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+//          UIView.animate(withDuration: 0.8) {
+//              cell.transform = CGAffineTransform.identity
+//          }
+//       cell.alpha = 0
+//       UIView.animate(withDuration: 0.8) {
+//           cell.alpha = 1
+//       }
+//   }
 }
 
 //MARK:- Collection
@@ -329,4 +342,126 @@ extension ProductListViewController
     }
 }
  
+//MARK:- API Calling
+extension ProductListViewController
+{
+    func gettingRelatedProduct() -> Void {
+    
+    ProgressHud.show()
+    let success:successHandler = {  response in
+
+        let json = response as! [String : Any]
+        self.product_listArray.removeAll()
+        ProgressHud.hide()
+        if json["responseCode"] as! Int == 1
+        {
+            let responseData = json["responseData"] as? [[String : Any]]
+            self.categoryName = json["categoryName"]  as! String
+            _ = json["cartItemTotal"]  as! String
+            _ = json["minPrice"]  as! String
+            _ = json["maxPrice"]  as! String
+            
+            for data in responseData!
+                {
+                    
+                    let productId = data["productId"] as! String
+                    let thumb = data["thumb"] as! String
+                    let name = data["name"] as! String
+                    let description = data["description"] as! String
+                    let price = data["price"] as! String
+                    let special = data["special"] as! String
+                    let specialInNumber = data["specialInNumber"] as! String
+                    
+                    let tax = data["tax"] as! String
+                    let rating = data["rating"] as! String
+                    let minimum = data["minimum"] as! String
+                    let stockStatusId = data["stockStatusId"] as! String
+                    
+                    let stockStatus = data["stockStatus"] as! String
+                    let manufacturerId = data["manufacturerId"] as! String
+                    let optionCount = data["optionCount"] as! String
+                    let isWishlist = data["isWishlist"] as! String
+                    
+                    let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"specialInNumber":specialInNumber,"tax":tax,"rating":rating,"minimum":minimum,"stockStatusId":stockStatusId,"stockStatus":stockStatus,"manufacturerId":manufacturerId,"optionCount":optionCount,"isWishlist":isWishlist]
+
+                    self.product_listArray.append(dic)
+                }
+            DispatchQueue.main.async
+            {
+                ProgressHud.hide()
+                self.categoryNameLabel.text! = self.categoryName
+                self.itemsTableView.reloadData()
+            }
+                
+        }else{
+            ProgressHud.hide()
+        }
+    }
+        let failure:failureHandler = { [weak self] error, errorMessage in
+            ProgressHud.hide()
+            DispatchQueue.main.async {
+               showAlertWith(title: "Error", message: errorMessage, view: self!)
+            }
+        }
+        
+        //Calling API
+        let parameters:EIDictonary = ["category_id":category_id,"product_id":product_id,"customer_id": user_id,"currency_code":"USD"]
+        
+        SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.get_similar_product, successCall: success, failureCall: failure)
+    }
+}
+ 
+
+//MARK:- API Calling
+extension ProductListViewController
+{
+    func gettingCategories() -> Void {
+        ProgressHud.show()
+
+        let success:successHandler = {  [self] response in
+            let json = response as! [String : Any]
+            let responseData = json["responseData"] as? [[String : Any]]
+                
+            category_listArray.removeAll()
+            for data in responseData!
+                {
+                    
+                    let id = data["id"] as! String
+                    let title = data["title"] as! String
+                    let image = data["image"] as! String
+                    let description = data["description"] as! String
+                    let subCategory = data["subCategory"] as! [[String:Any]]
+                    
+                    let dic:[String : Any] = ["id":id,"title":title,"image":image,"description":description,"subCategory":subCategory]
+
+                    self.category_listArray.append(dic)
+                }
+                
+                //Reloading Table Views And Collection View
+                DispatchQueue.main.async
+                { [self] in
+                    for _ in 0..<category_listArray.count{
+                        bolValue.append(false)
+                    }
+                    bolValue[selectedIndex] = false
+                    ProgressHud.hide()
+                    gettingRelatedProduct()
+                    self.categoryCollectionView.reloadData()
+                }
+        }
+        
+        let failure:failureHandler = { [weak self] error, errorMessage in
+            ProgressHud.hide()
+            DispatchQueue.main.async {
+               showAlertWith(title: "Error", message: errorMessage, view: self!)
+            }
+        }
+        
+        //Calling API
+        let parameters:EIDictonary = [:]
+        SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "GET", methodType: RequestedUrlType.category_list, successCall: success, failureCall: failure)
+    }
+}
+ 
+
 

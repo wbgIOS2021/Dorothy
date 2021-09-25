@@ -30,7 +30,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fX-e4-7sB" customClass="ViewDesign" customModule="Dorothy" customModuleProvider="target">
                         <rect key="frame" x="10" y="10" width="438" height="126"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_icon1" translatesAutoresizingMaskIntoConstraints="NO" id="vMH-Jk-2Xd">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="vMH-Jk-2Xd">
                                 <rect key="frame" x="169" y="13" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vMH-Jk-2Xd" secondAttribute="height" multiplier="1:1" id="5yw-De-hJ5"/>
@@ -190,7 +190,7 @@
     </objects>
     <resources>
         <image name="add_cart_icon" width="39" height="28"/>
-        <image name="food_icon1" width="117" height="117"/>
+        <image name="no-image" width="1000" height="1000"/>
         <namedColor name="fontColor2">
             <color red="0.19607843137254902" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

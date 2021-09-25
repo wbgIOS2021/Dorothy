@@ -63,11 +63,10 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     var productReviews_Array: [[String:Any]] = []
     var productRelated_Array: [[String:Any]] = []
     var productOptions_Array: [[String:Any]] = []
-    var productId:String = "50"
+    var productId:String = ""
     var qty = 1
     var i : Int = 0
     var isStockAvailable = 0
-
     let user_id = (getStringValueFromLocal(key: "user_id") ?? "0")
   
     override func viewDidLoad() {
@@ -85,16 +84,13 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
         leftArrowBtn.isEnabled = false
         productDetailsScrollView.delegate = self
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
         gettingData(productId:productId)
         self.cartCount()
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y < 0 {
-                  scrollView.contentOffset.y = 0
-              }
-      }
+    
     
     func addSomeShadow()
     {
@@ -146,18 +142,24 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     }
     
     @IBAction func addReviewBtn(_ sender: Any) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let popupVC = storyboard.instantiateViewController(withIdentifier: "AddRatingViewController") as! AddRatingViewController
-        popupVC.productId = productId
-        popupVC.modalPresentationStyle = .overCurrentContext
-        popupVC.pdDelegate = self
-        present(popupVC, animated: true, completion: nil)
+        let isLogin = getStringValueFromLocal(key: "user_id")
+        if isLogin != nil{
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let popupVC = storyboard.instantiateViewController(withIdentifier: "AddRatingViewController") as! AddRatingViewController
+            popupVC.productId = productId
+            popupVC.modalPresentationStyle = .overCurrentContext
+            popupVC.pdDelegate = self
+            
+            present(popupVC, animated: true, completion: nil)
+        }else
+        {
+            goToLogin(title: "Login Required", message: "Please login to add review")
+        }
     }
     
     @IBAction func productShareBtn(_ sender: Any) {
         //Set the default sharing message.
-
-        share(message: "Dorothy", link: "link_here")
+        share(message: "Dorothy", link: productDetails_Array["shareLink"] as! String)
         }
     
     func share(message: String, link: String) {
@@ -208,7 +210,11 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     
 
     @IBAction func similarProductSeeAllBtn(_ sender: Any) {
-
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ProductListViewController") as! ProductListViewController
+        vc.category_id = productRelated_Array[0]["categoryId"] as! String
+        vc.isComeFromProductDetailPage = true
+        vc.product_id = productId
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func leftArrowBtn(_ sender: Any) {

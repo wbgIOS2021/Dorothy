@@ -20,7 +20,9 @@ enum RequestedUrlType: String {
     
     case product_details = "product_details"
     case all_review = "get_product_based_review"
-    
+    case addReview = "add_review"
+    case get_similar_product = "get_similar_product"
+        
     case user_login = "main_login"
     case user_register = "register"
     case sendOTP = "send_otp"
@@ -144,10 +146,15 @@ func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:Request
         
         case RequestedUrlType.HomePage.rawValue:
             urlString = ServiceCall.kServerURL + "appapi/product/homepage";
+            
         case RequestedUrlType.product_details.rawValue:
             urlString = ServiceCall.kServerURL + "appapi/product/product_details";
         case RequestedUrlType.all_review.rawValue:
             urlString = ServiceCall.kServerURL + "appapi/product/get_all_product_reviews";
+        case RequestedUrlType.addReview.rawValue:
+            urlString = ServiceCall.kServerURL + "appapi/product/add_rating";
+        case RequestedUrlType.get_similar_product.rawValue:
+            urlString = ServiceCall.kServerURL + "appapi/product/get_all_similar_products";
             
         case RequestedUrlType.user_login.rawValue:
             urlString = ServiceCall.kServerURL + "appapi/home/main_login";

@@ -61,7 +61,7 @@
                                 <color key="tintColor" red="0.92525881529999998" green="0.2185122967" blue="0.19781026239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="empty_heart"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_icon1" translatesAutoresizingMaskIntoConstraints="NO" id="PYv-Ma-ZzP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="PYv-Ma-ZzP">
                                 <rect key="frame" x="35.5" y="25" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="XKZ-uT-lKX"/>
@@ -168,7 +168,7 @@
     <resources>
         <image name="add_cart_icon" width="39" height="28"/>
         <image name="empty_heart" width="14" height="13"/>
-        <image name="food_icon1" width="117" height="117"/>
+        <image name="no-image" width="1000" height="1000"/>
         <namedColor name="fontColor2">
             <color red="0.19607843137254902" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

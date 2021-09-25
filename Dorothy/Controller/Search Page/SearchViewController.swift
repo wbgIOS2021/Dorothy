@@ -74,6 +74,13 @@ extension SearchViewController: UITableViewDataSource
             cell.productPrice!.text! = "\(cellData["price"] as! String)"
             cell.specialPrice!.text! = "\(cellData["special"] as! String)"
         }
+        if cellData["stock_status_id"] as! String == "7"{
+            cell.outOfStockView.isHidden = true
+            cell.addToCartBtn.isHidden = false
+        }else{
+            cell.outOfStockView.isHidden = false
+            cell.addToCartBtn.isHidden = true
+        }
         cell.likeBtn.isHidden = true
         cell.addToCartBtn.tag = indexPath.row
         cell.addToCartBtn.addTarget(self, action: #selector(self.productsAddToCart), for: .touchUpInside)

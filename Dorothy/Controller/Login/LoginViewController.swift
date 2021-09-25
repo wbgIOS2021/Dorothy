@@ -45,11 +45,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         loginView.layer.cornerRadius = 60
         loginView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
-            scrollView.contentOffset.y = scrollView.contentSize.height - scrollView.bounds.height
-        }
-    }
+    
     
     @IBAction func forgotPasswordBtn(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController

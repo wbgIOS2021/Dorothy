@@ -26,23 +26,23 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMP-rt-fjW">
                         <rect key="frame" x="0.0" y="0.0" width="538" height="64"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_icon1" translatesAutoresizingMaskIntoConstraints="NO" id="mfX-tP-gNi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="mfX-tP-gNi">
                                 <rect key="frame" x="20" y="5" width="60" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="n3f-T8-RoH"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="M7q-g7-f09">
-                                <rect key="frame" x="100" y="10.5" width="418" height="43"/>
+                                <rect key="frame" x="100" y="12.5" width="418" height="39.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genuine African Nigerian Suya" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmq-Se-84K">
-                                        <rect key="frame" x="0.0" y="0.0" width="228" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="204.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Plate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWA-IG-mdN">
-                                        <rect key="frame" x="0.0" y="26" width="418" height="17"/>
+                                        <rect key="frame" x="0.0" y="22.5" width="418" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="XRF-Jv-XF5"/>
                                         </constraints>
@@ -53,7 +53,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 162.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbS-tl-ih7">
-                                <rect key="frame" x="459.5" y="36.5" width="58.5" height="21"/>
+                                <rect key="frame" x="459.5" y="35" width="58.5" height="17.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="food_icon1" width="117" height="117"/>
+        <image name="no-image" width="1000" height="1000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

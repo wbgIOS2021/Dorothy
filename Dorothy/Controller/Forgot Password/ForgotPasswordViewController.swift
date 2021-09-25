@@ -38,11 +38,7 @@ class ForgotPasswordViewController: UIViewController, UIScrollViewDelegate {
         navigationController?.navigationBar.isHidden = true
 
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
-            scrollView.contentOffset.y = scrollView.contentSize.height - scrollView.bounds.height
-        }
-    }
+
     @IBAction func backBtn(_ sender: UIButton) {
        backBtn()
     }

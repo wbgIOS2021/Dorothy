@@ -37,11 +37,7 @@ class SendOtpViewController: UIViewController, UIScrollViewDelegate {
         navigationController?.navigationBar.isHidden = true
 
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.bounds.height {
-            scrollView.contentOffset.y = scrollView.contentSize.height - scrollView.bounds.height
-        }
-    }
+    
     @IBAction func countryCodeBtnAction(_ sender: UIButton) {
         country_code = sender.titleLabel!.text!
     }
