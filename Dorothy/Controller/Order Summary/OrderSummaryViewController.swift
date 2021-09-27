@@ -103,7 +103,10 @@ extension OrderSummaryViewController: UITableViewDataSource
         let st = cellData["productImage"] as! String
         let urlString = st.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         cell.productImage.sd_setImage(with: URL(string: urlString!), placeholderImage: UIImage(named: "bbq"))
-        cell.productQty.text! = "quantity - \(cellData["quantity"] as! String)"
+        
+        let weight = Float(cellData["weight"] as! String)!
+        cell.productQty.text! = "Quantity - \(cellData["quantity"] as! String) x " + " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
+    
         cell.productName.text! = cellData["name"] as! String
         cell.productPrice.text! = cellData["total"] as! String
         
@@ -114,10 +117,6 @@ extension OrderSummaryViewController: UITableViewDataSource
 //MARK:- Table View Data Source
 extension OrderSummaryViewController: UITableViewDelegate
 {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-        navigationController?.pushViewController(vC, animated: true)
-    }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     cell.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
        UIView.animate(withDuration: 0.8) {
@@ -152,12 +151,12 @@ extension OrderSummaryViewController
             
             let taxAmount = responseData["taxAmount"] as! String
             let subTotal = responseData["subTotal"] as! String
-            let shippingTotal = responseData["shippingTotal"] as! String
-            let couponTotal = responseData["couponTotal"] as! String
+            let deliveryCharge = responseData["deliveryCharge"] as! String
+            let discountAmount = responseData["discountAmount"] as! String
             let finalTotal = responseData["finalTotal"] as! String
             
             
-            let dic:[String : Any] = ["orderNo":orderNo,"orderDate":orderDate,"paymentMethod":paymentMethod,"shippingMethod":shippingMethod,"statusName":statusName,"taxAmount":taxAmount,"subTotal":subTotal,"shippingTotal":shippingTotal,"couponTotal":couponTotal,"finalTotal":finalTotal]
+            let dic:[String : Any] = ["orderNo":orderNo,"orderDate":orderDate,"paymentMethod":paymentMethod,"shippingMethod":shippingMethod,"statusName":statusName,"taxAmount":taxAmount,"subTotal":subTotal,"deliveryCharge":deliveryCharge,"discountAmount":discountAmount,"finalTotal":finalTotal]
             
             self.orderDetails_Array = dic
             
@@ -172,6 +171,9 @@ extension OrderSummaryViewController
                 let productImage = data["productImage"] as! String
                 
                 let quantity = data["quantity"] as! String
+                let weight = data["weight"] as! String
+                let weight_type = data["weight_type"] as! String
+                
                 let price = data["price"] as! String
                 let total = data["total"] as! String
                 
@@ -189,7 +191,7 @@ extension OrderSummaryViewController
                     let dic = ["name":name,"value":value,"type":type]
                     prdOptionArray.append(dic)
                 }
-                let dic:[String : Any] = ["productOrderId":productOrderId,"productId":productId,"name":name,"details":details,"model":model,"productImage":productImage,"quantity":quantity,"price":price,"total":total,"isReview":isReview,"rating":rating,"prdOption":prdOptionArray]
+                let dic:[String : Any] = ["productOrderId":productOrderId,"productId":productId,"name":name,"details":details,"model":model,"productImage":productImage,"quantity":quantity,"weight":weight,"weight_type":weight_type,"price":price,"total":total,"isReview":isReview,"rating":rating,"prdOption":prdOptionArray]
                 self.product_listArray.append(dic)
             }
             
@@ -304,11 +306,11 @@ extension OrderSummaryViewController
         
         orderMethod.text! = orderDetails_Array["paymentMethod"] as! String
         
-        itemTotal.text! = "-------"
+        itemTotal.text! = "\(product_listArray.count) Items"
         
-        discountOnOriginalPrice.text! = orderDetails_Array["couponTotal"] as! String
+        discountOnOriginalPrice.text! = orderDetails_Array["discountAmount"] as! String
         totalTax.text! = orderDetails_Array["taxAmount"] as! String
-        deliveryCost.text! = orderDetails_Array["shippingTotal"] as! String
+        deliveryCost.text! = orderDetails_Array["deliveryCharge"] as! String
         finalAmount.text! = orderDetails_Array["finalTotal"] as! String
         orderTotal.text! = orderDetails_Array["finalTotal"] as! String
         totalMRP.text! = orderDetails_Array["subTotal"] as! String

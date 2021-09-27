@@ -92,6 +92,7 @@
 		20EA505726E72C8C006D1969 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA505626E72C8C006D1969 /* ProductDetailsViewController.swift */; };
 		20EA505D26E72CAB006D1969 /* RatingReviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20EA505B26E72CAA006D1969 /* RatingReviewCollectionViewCell.xib */; };
 		20EA505E26E72CAB006D1969 /* RatingReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA505C26E72CAB006D1969 /* RatingReviewCollectionViewCell.swift */; };
+		20F9575E27019F9100ADDC8F /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F9575D27019F9100ADDC8F /* SearchPageViewController.swift */; };
 		20FD8B8F00DBE9562129F08D /* Pods_Dorothy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FA92D3757D7F7CBE575EC6 /* Pods_Dorothy.framework */; };
 		310F2154F093F4EA6CCB3BDD /* Pods_DorothyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EC942F42D5D09EEB4EE886 /* Pods_DorothyTests.framework */; };
 		D4494BD5D7C39E85D0274969 /* Pods_Dorothy_DorothyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743394A2EE05AA51B5F4E9FB /* Pods_Dorothy_DorothyUITests.framework */; };
@@ -210,6 +211,7 @@
 		20EA505626E72C8C006D1969 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		20EA505B26E72CAA006D1969 /* RatingReviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingReviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		20EA505C26E72CAB006D1969 /* RatingReviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		20F9575D27019F9100ADDC8F /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		30FA92D3757D7F7CBE575EC6 /* Pods_Dorothy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dorothy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		514FE25E830E2A22815FCE82 /* Pods-DorothyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DorothyTests.debug.xcconfig"; path = "Target Support Files/Pods-DorothyTests/Pods-DorothyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		57D7D7A0E603C94DF51CCBE6 /* Pods-Dorothy-DorothyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dorothy-DorothyUITests.release.xcconfig"; path = "Target Support Files/Pods-Dorothy-DorothyUITests/Pods-Dorothy-DorothyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				200A672B26E763A500136341 /* SearchViewController.swift */,
+				20F9575D27019F9100ADDC8F /* SearchPageViewController.swift */,
 			);
 			path = "Search Page";
 			sourceTree = "<group>";
@@ -958,6 +961,7 @@
 				2044BAA426F3220400E0DDCD /* ChangePasswordViewController.swift in Sources */,
 				2095719126F30C2C0039EC9F /* ForgotPasswordViewController.swift in Sources */,
 				20EA505126E725B6006D1969 /* WishlistTableViewController.swift in Sources */,
+				20F9575E27019F9100ADDC8F /* SearchPageViewController.swift in Sources */,
 				201ADE3126E39329009B63B7 /* LoginViewController.swift in Sources */,
 				20864BDF26DD0728008BC813 /* IBDesignable.swift in Sources */,
 				201ADE0926E35988009B63B7 /* AddAddressViewController.swift in Sources */,

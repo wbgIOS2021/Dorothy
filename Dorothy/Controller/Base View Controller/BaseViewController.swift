@@ -49,7 +49,7 @@ extension UIViewController
     //Search Page Calling
     func searchBtn()
     {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SearchPageViewController") as! SearchPageViewController
         navigationController?.pushViewController(vc, animated: true)
     }
     // Internet Reachability

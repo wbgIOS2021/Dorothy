@@ -36,6 +36,7 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     @IBOutlet weak var productDesc: UILabel!
     @IBOutlet weak var productSpecialPrice: UILabel!
     @IBOutlet weak var ProductRating: UILabel!
+    @IBOutlet weak var productWeight: UILabel!
 
     // Button
     @IBOutlet weak var addReviewView: UIButton!
@@ -420,6 +421,7 @@ extension ProductDetailsViewController
             let manufacturer = responseData["manufacturer"] as! String
             let model = responseData["model"] as! String
             let stockInfo = responseData["stockInfo"] as! String
+            let stockStatusId = responseData["stockStatusId"] as! String
             let weight = responseData["weight"] as! String
             let weightName = responseData["weightName"] as! String
       
@@ -430,7 +432,7 @@ extension ProductDetailsViewController
             let reviwCount = responseData["reviwCount"] as! String
 
             
-            let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"shareLink":shareLink,"categoryId":categoryId,"description":description,"mainPrice":mainPrice,"price":price,"special":special,"tax":tax,"productSaleOff":productSaleOff,"rating":rating,"minimum":minimum,"manufacturer":manufacturer,"model":model,"stockInfo":stockInfo,"weight":weight,"weightName":weightName,"isWishlist":isWishlist,"isPurchase":isPurchase,"hasReview":hasReview,"cartCount":cartCount,"reviwCount":reviwCount]
+            let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"shareLink":shareLink,"categoryId":categoryId,"description":description,"mainPrice":mainPrice,"price":price,"special":special,"tax":tax,"productSaleOff":productSaleOff,"rating":rating,"minimum":minimum,"manufacturer":manufacturer,"model":model,"stockInfo":stockInfo,"stockStatusId":stockStatusId,"weight":weight,"weightName":weightName,"isWishlist":isWishlist,"isPurchase":isPurchase,"hasReview":hasReview,"cartCount":cartCount,"reviwCount":reviwCount]
             
             self.productDetails_Array = dic
             print(self.productDetails_Array)
@@ -550,13 +552,16 @@ extension ProductDetailsViewController
         }
         self.qty = Int(productDetails_Array["minimum"] as! String)!
         
-        if productDetails_Array["stockInfo"] as! String == "text_instock"{
+        if productDetails_Array["stockStatusId"] as! String == "7"{
             self.isStockAvailable = 0
             self.addToCartBtn.setTitle("ADD TO CART", for: .normal)
         }else{
             self.isStockAvailable = 1
             self.addToCartBtn.setTitle("Out Of Stock", for: .normal)
         }
+        
+        let weight = Float(productDetails_Array["weight"] as! String)!
+        productWeight.text! = "\(weight.clean)" + " \(productDetails_Array["weightName"] as! String)"
     }
     
 }

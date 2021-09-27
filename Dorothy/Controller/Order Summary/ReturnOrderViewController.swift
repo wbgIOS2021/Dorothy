@@ -211,7 +211,7 @@ extension ReturnOrderViewController
             }
             
             //Calling API
-        let parameters:EIDictonary = ["order_product_id":order_id,"return_reason":reason_id,"is_opened":is_opened,"other_description":returnDescription.text!]
+        let parameters:EIDictonary = ["order_id":order_id,"return_reason":reason_id,"is_opened":is_opened,"other_description":returnDescription.text!]
             
             SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.return_order, successCall: success, failureCall: failure)
            
