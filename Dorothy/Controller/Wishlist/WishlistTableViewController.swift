@@ -92,7 +92,6 @@ extension WishlistTableViewController
             cell.price!.text! = "$ \(cellData["price"] as! String)"
             cell.specialPrice!.text! = "$ \(cellData["special"] as! String)"
         }
-        cell.addProductButton.isHidden = true
         cell.qtyView.isHidden = true
         return cell
     }

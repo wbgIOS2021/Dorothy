@@ -43,6 +43,7 @@ class SideMenuViewController: UIViewController, UIScrollViewDelegate {
         user_pic = getStringValueFromLocal(key: "profile_pic") ?? "user1"
         profileImage.sd_setImage(with: URL(string: user_pic), placeholderImage: UIImage(named: "user1"))
         nameLabel!.text! = " \(getStringValueFromLocal(key: "name") ?? " ")"
+        
     }
     
 }

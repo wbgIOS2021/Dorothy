@@ -25,6 +25,7 @@ class OrderSummaryViewController: UIViewController {
     @IBOutlet weak var orderTotal: UILabel!
     @IBOutlet weak var totalMRP: UILabel!
     @IBOutlet weak var bottomReturnView: UIView!
+    @IBOutlet weak var bottomReturnBtnViewHeight: NSLayoutConstraint!
     @IBOutlet weak var cartBtn: UIBarButtonItem!
     @IBOutlet weak var orderDetailsView: UIView!
     
@@ -43,7 +44,8 @@ class OrderSummaryViewController: UIViewController {
         cellregister()
         bottomReturnView.layer.cornerRadius = 30
         bottomReturnView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
+        bottomReturnView.isHidden = true
+        bottomReturnBtnViewHeight.constant = 0
         orderIdLabel.text = "Order ID: " + orderId
     }
     
@@ -147,8 +149,8 @@ extension OrderSummaryViewController
             let orderDate = responseData["orderDate"] as! String
             let paymentMethod = responseData["paymentMethod"] as! String
             let shippingMethod = responseData["shippingMethod"] as! String
+            let statusId = responseData["statusId"] as! String
             let statusName = responseData["statusName"] as! String
-            
             let taxAmount = responseData["taxAmount"] as! String
             let subTotal = responseData["subTotal"] as! String
             let deliveryCharge = responseData["deliveryCharge"] as! String
@@ -156,7 +158,7 @@ extension OrderSummaryViewController
             let finalTotal = responseData["finalTotal"] as! String
             
             
-            let dic:[String : Any] = ["orderNo":orderNo,"orderDate":orderDate,"paymentMethod":paymentMethod,"shippingMethod":shippingMethod,"statusName":statusName,"taxAmount":taxAmount,"subTotal":subTotal,"deliveryCharge":deliveryCharge,"discountAmount":discountAmount,"finalTotal":finalTotal]
+            let dic:[String : Any] = ["orderNo":orderNo,"orderDate":orderDate,"paymentMethod":paymentMethod,"shippingMethod":shippingMethod,"statusId":statusId,"statusName":statusName,"taxAmount":taxAmount,"subTotal":subTotal,"deliveryCharge":deliveryCharge,"discountAmount":discountAmount,"finalTotal":finalTotal]
             
             self.orderDetails_Array = dic
             
@@ -297,7 +299,7 @@ extension OrderSummaryViewController
 
         let date: NSDate? = dateFormatterGet.date(from: orderDetails_Array["orderDate"] as! String) as NSDate?
         orderDateLabel.text! = "\(dateFormatterPrint.string(from: date! as Date))"
-        orderStatus.text! = orderDetails_Array["statusName"] as! String
+        
         
         packagingCharge.text! = "$ 0.0"
         
@@ -314,5 +316,31 @@ extension OrderSummaryViewController
         finalAmount.text! = orderDetails_Array["finalTotal"] as! String
         orderTotal.text! = orderDetails_Array["finalTotal"] as! String
         totalMRP.text! = orderDetails_Array["subTotal"] as! String
+        
+        orderStatus.text! = orderDetails_Array["statusName"] as! String
+        if orderDetails_Array["statusId"] as! String == "1"{
+            orderStatus.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        }else if orderDetails_Array["statusId"] as! String == "2"{
+            orderStatus.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        }
+        else if orderDetails_Array["statusId"] as! String == "3"{
+            orderStatus.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+            orderStatus.text! = "On the way"
+        }
+        else if orderDetails_Array["statusId"] as! String == "5"{
+            orderStatus.textColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+            orderStatus.text! = "Delivered"
+            bottomReturnView.isHidden = false
+            bottomReturnBtnViewHeight.constant = 60
+        }
+        else if orderDetails_Array["statusId"] as! String == "7"{
+            orderStatus.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        }
+        else if orderDetails_Array["statusId"] as! String == "11"{
+            orderStatus.textColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
+        }
+        else{
+            orderStatus.textColor = #colorLiteral(red: 0.422540761, green: 0.422540761, blue: 0.422540761, alpha: 1)
+        }
     }
 }

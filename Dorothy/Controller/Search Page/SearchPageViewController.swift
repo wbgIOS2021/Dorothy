@@ -102,7 +102,8 @@ extension SearchPageViewController: UITableViewDataSource
         cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
 
         cell.productName!.text! = cellData["name"] as! String
-        cell.productweight.text! = cellData["description"] as! String
+        let weight = Float(cellData["weight"] as! String)!
+        cell.productweight.text! = " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
         if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
             cell.specialPrice!.text! = "\(cellData["price"] as! String)"
             cell.productPrice.isHidden = true
@@ -207,12 +208,14 @@ extension SearchPageViewController
                     let tax = data["tax"] as! String
                     let rating = data["rating"] as! String
                     let minimum = data["minimum"] as! String
+                    let weight = data["weight"] as! String
+                    let weight_type = data["weight_type"] as! String
                     let stock_status_id = data["stock_status_id"] as! String
                     let stock_status = data["stock_status"] as! String
                     let option_count = data["option_count"] as! Int
                     let is_wishlist = data["is_wishlist"] as! String
                         
-                    let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"tax":tax,"rating":rating,"minimum":minimum,"stock_status_id":stock_status_id,"stock_status":stock_status,"option_count":option_count,"isWishlist":is_wishlist]
+                    let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"tax":tax,"rating":rating,"minimum":minimum,"weight":weight,"weight_type":weight_type,"stock_status_id":stock_status_id,"stock_status":stock_status,"option_count":option_count,"isWishlist":is_wishlist]
 
                     self.product_listArray.append(dic)
                 }

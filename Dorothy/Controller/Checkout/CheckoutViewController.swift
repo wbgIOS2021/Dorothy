@@ -67,17 +67,7 @@ class CheckoutViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
         gettingData()
-        
-        if isComeFromMyAddress == true{
-            addressName.text! = billing_name
-            billingAddress.text! = billing_address
-        }else{
-            gettingAddress()
-        }
     }
-
-
-
     
     @IBAction func onlinePaymentButtonAction(_ sender: Any) {
             paymentMethod = 1
@@ -94,7 +84,13 @@ class CheckoutViewController: UIViewController {
     }
     
     @IBAction func addOrChangeAddress(_ sender: Any) {
-        self.goToMyAddressPage()
+        if self.address_not_found != 1{
+            self.goToMyAddressPage()
+        }else{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddAddressViewController") as! AddAddressViewController
+            self.isComeFromMyAddress = false
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     @IBAction func proceedBtn(_ sender: Any) {
         if self.address_not_found != 1{
@@ -106,7 +102,9 @@ class CheckoutViewController: UIViewController {
             }
         }else{
             showAlertWithCancel(title: "Address required", message: "Address Not Found", view: self, btn_title: "Add Address", actionHandler: {
-                self.goToMyAddressPage()
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddAddressViewController") as! AddAddressViewController
+                self.isComeFromMyAddress = false
+                self.navigationController?.pushViewController(vc, animated: true)
             })
         }
     }
@@ -114,6 +112,8 @@ class CheckoutViewController: UIViewController {
     func goToMyAddressPage(){
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyAddressTableViewController") as! MyAddressTableViewController
         vc.isComeFromCheckout = true
+        billing_name = ""
+        billing_address = ""
         self.navigationController?.pushViewController(vc, animated: true)
 
     }
@@ -225,7 +225,7 @@ extension CheckoutViewController
             
                 //Reloading Table Views And Collection View
                 DispatchQueue.main.async
-                {
+                {[self] in
                     ProgressHud.hide()
                     self.originalPrice.text! = "$ \(self.responseExtraData_dic["orginal_cost_total"] as! String)"
                     
@@ -238,7 +238,14 @@ extension CheckoutViewController
                     let total = (Float(self.responseExtraData_dic["cart_total"] as! String)! + Float(self.responseExtraData_dic["tax_total"] as! String)! + Float(shippingCost["cost"] as! String)!) - Float(self.responseExtraData_dic["coupon_total"] as! String)!
                     self.finalAmount.text! = "$ \(total)"
                     
-                    print("===================cart id",self.cartIds)
+                    
+                    if isComeFromMyAddress == true{
+                        addressName.text! = billing_name
+                        billingAddress.text! = billing_address
+                    }else{
+                        self.gettingAddressAPI()
+                        print("kkkk")
+                    }
                 }
         }else{
             ProgressHud.hide()
@@ -253,7 +260,7 @@ extension CheckoutViewController
         }
         
         //Calling API
-        let parameters:EIDictonary = ["currency_code": "USD","customer_id": user_id,"coupon_code":getStringValueFromLocal(key: "coupon") ?? ""]
+        let parameters:EIDictonary = ["currency_code": "USD","customer_id": user_id,"coupon_code":""]
         
         SERVICE_CALL.sendRequest(parameters: parameters, httpMethod: "POST", methodType: RequestedUrlType.checkout, successCall: success, failureCall: failure)
     }
@@ -263,7 +270,7 @@ extension CheckoutViewController
 //MARK:- API Calling
 extension CheckoutViewController
 {
-    func gettingAddress() -> Void {
+    func gettingAddressAPI() -> Void {
         ProgressHud.show()
 
         let success:successHandler = {  response in
@@ -298,9 +305,9 @@ extension CheckoutViewController
                         self.address_data.append(dic)
                 }
                     
-                DispatchQueue.main.async
-                {[self] in
-                   
+                DispatchQueue.main.async {[self] in
+                    self.userAddressView.isHidden = false
+                    self.address_not_found = 0
                     for address in address_data
                     {
                         let default_address = address["defaultAddress"] as! Int
@@ -321,20 +328,33 @@ extension CheckoutViewController
                             let default_addresses = address1 + ", " + address2 + ", " + strAddress  + ", " + city + ", " + zone + " - " + postcode + ", " + phone
                             self.addressName.text! = address_full_name
                             self.billingAddress.text! = default_addresses
+                            break
+                        }else{
+                            self.addressId = address["addressId"] as! String
+                            let firstname = address["firstname"] as! String
+                            let lastname = address["lastname"] as! String
+                            let address1 = address["address1"] as! String
+                            let address2 = address["address2"] as! String
+                    
+                            let postcode = address["postcode"] as! String
+                            let city = address["city"] as! String
+                            let zone = address["zone"] as! String
+                            let phone = address["phone"] as! String
+                            let strAddress = address["strAddress"] as! String
+                            let address_full_name = firstname + " " + lastname
+                            let default_addresses = address1 + ", " + address2 + ", " + strAddress  + ", " + city + ", " + zone + " - " + postcode + ", " + phone
                            
+                            self.addressName.text! = address_full_name
+                            self.billingAddress.text! = default_addresses
                         }
                     }
                 }
             }else{
-
+                print("Comming Soon......ADARSH.......................lj...")
                 self.userAddressView.isHidden = true
-                //self.bottomView.isHidden = true
-                //self.bottomViewHeight.constant = 0
                 self.address_not_found = 1
                 self.addAddressBtn.setTitle("Add Address", for: .normal)
-//                showAlertWithCancel(title: "Address required", message: "Address Not Found!!!", view: self, btn_title: "Add Address", actionHandler: {
-//                    self.goToMyAddressPage()
-//                })
+
             }
                 
         }
@@ -366,7 +386,9 @@ extension CheckoutViewController
                 self.showToast(message: json["responseText"] as! String, seconds: 1.5)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.navigationController?.popToRootViewController(animated: true)
+                    //self.navigationController?.popToRootViewController(animated: true)
+                    self.homePage()
+                    
                 }
             }else{
                 self.showToast(message: json["responseText"] as! String, seconds: 1.5)

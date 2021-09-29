@@ -35,7 +35,7 @@ class SendOtpViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-
+        
     }
     
     @IBAction func countryCodeBtnAction(_ sender: UIButton) {
@@ -54,10 +54,12 @@ class SendOtpViewController: UIViewController, UIScrollViewDelegate {
             sendOTPAPi()
         }
         }
-    @IBAction func backBtn(_ sender: UIButton) {
-       backBtn()
-    }
+
     
+    @IBAction func loginBtn(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 //MARK:- API Calling
@@ -82,7 +84,7 @@ extension SendOtpViewController
                 self.navigationController?.pushViewController(vC, animated: true)
                 
                 DispatchQueue.main.async {
-                    self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+                    self.showToast(message: json["responseText"] as! String, seconds: 1.0)
                 }
             }
  

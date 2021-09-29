@@ -11,7 +11,6 @@
 		200A671826E731DC00136341 /* ShowReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200A671526E731DC00136341 /* ShowReviewTableViewController.swift */; };
 		200A671926E731DC00136341 /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200A671626E731DC00136341 /* RatingTableViewCell.swift */; };
 		200A671A26E731DC00136341 /* AddRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200A671726E731DC00136341 /* AddRatingViewController.swift */; };
-		200A672C26E763A500136341 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200A672B26E763A500136341 /* SearchViewController.swift */; };
 		2014DA8D26E876C600E54886 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014DA8C26E876C600E54886 /* CategoriesTableViewController.swift */; };
 		2014DA9326E8780B00E54886 /* AllCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2014DA9126E8780B00E54886 /* AllCategoryTableViewCell.xib */; };
 		2014DA9426E8780B00E54886 /* AllCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2014DA9226E8780B00E54886 /* AllCategoryTableViewCell.swift */; };
@@ -26,6 +25,9 @@
 		201AF19226E5FEF000FAB7E4 /* VerifyOtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */; };
 		201AF19826E619EB00FAB7E4 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF19726E619EB00FAB7E4 /* CheckoutViewController.swift */; };
 		201AF39526EF5EE9005E23CE /* SendOtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201AF39426EF5EE9005E23CE /* SendOtpViewController.swift */; };
+		2032F89F2704654800AA6597 /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032F89E2704654800AA6597 /* NoInternetViewController.swift */; };
+		2032F91D27047AA100AA6597 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032F91C27047AA100AA6597 /* ConnectionManager.swift */; };
+		2032F92227048AC400AA6597 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2032F92127048AC400AA6597 /* Reachability.swift */; };
 		2044BAA426F3220400E0DDCD /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2044BAA326F3220400E0DDCD /* ChangePasswordViewController.swift */; };
 		20568E4A26E1F87B0027C272 /* MyProfileMenuListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E4726E1F87A0027C272 /* MyProfileMenuListTableViewCell.swift */; };
 		20568E4C26E1F87B0027C272 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20568E4926E1F87A0027C272 /* MyProfileViewController.swift */; };
@@ -83,7 +85,6 @@
 		20864BD026DD0708008BC813 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BCF26DD0708008BC813 /* Services.swift */; };
 		20864BDB26DD0728008BC813 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BD526DD0728008BC813 /* constant.swift */; };
 		20864BDD26DD0728008BC813 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BD726DD0728008BC813 /* UserDefault.swift */; };
-		20864BDE26DD0728008BC813 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BD826DD0728008BC813 /* Reachability.swift */; };
 		20864BDF26DD0728008BC813 /* IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BD926DD0728008BC813 /* IBDesignable.swift */; };
 		20864BE026DD0728008BC813 /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20864BDA26DD0728008BC813 /* AlertMessages.swift */; };
 		2095719126F30C2C0039EC9F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2095719026F30C2C0039EC9F /* ForgotPasswordViewController.swift */; };
@@ -122,7 +123,6 @@
 		200A671526E731DC00136341 /* ShowReviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowReviewTableViewController.swift; sourceTree = "<group>"; };
 		200A671626E731DC00136341 /* RatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
 		200A671726E731DC00136341 /* AddRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRatingViewController.swift; sourceTree = "<group>"; };
-		200A672B26E763A500136341 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2014DA8C26E876C600E54886 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		2014DA9126E8780B00E54886 /* AllCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		2014DA9226E8780B00E54886 /* AllCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +137,9 @@
 		201AF19126E5FEEF00FAB7E4 /* VerifyOtpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOtpViewController.swift; sourceTree = "<group>"; };
 		201AF19726E619EB00FAB7E4 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		201AF39426EF5EE9005E23CE /* SendOtpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendOtpViewController.swift; sourceTree = "<group>"; };
+		2032F89E2704654800AA6597 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
+		2032F91C27047AA100AA6597 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		2032F92127048AC400AA6597 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2044BAA326F3220400E0DDCD /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		20568E4726E1F87A0027C272 /* MyProfileMenuListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileMenuListTableViewCell.swift; sourceTree = "<group>"; };
 		20568E4926E1F87A0027C272 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
@@ -202,7 +205,6 @@
 		20864BCF26DD0708008BC813 /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		20864BD526DD0728008BC813 /* constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		20864BD726DD0728008BC813 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
-		20864BD826DD0728008BC813 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		20864BD926DD0728008BC813 /* IBDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBDesignable.swift; sourceTree = "<group>"; };
 		20864BDA26DD0728008BC813 /* AlertMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
 		2095719026F30C2C0039EC9F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -262,7 +264,6 @@
 		200A672A26E763A500136341 /* Search Page */ = {
 			isa = PBXGroup;
 			children = (
-				200A672B26E763A500136341 /* SearchViewController.swift */,
 				20F9575D27019F9100ADDC8F /* SearchPageViewController.swift */,
 			);
 			path = "Search Page";
@@ -328,6 +329,14 @@
 				201ADE1626E383EB009B63B7 /* RegistrationViewController.swift */,
 			);
 			path = "Sign UP";
+			sourceTree = "<group>";
+		};
+		2032F89D2704652A00AA6597 /* No Internet */ = {
+			isa = PBXGroup;
+			children = (
+				2032F89E2704654800AA6597 /* NoInternetViewController.swift */,
+			);
+			path = "No Internet";
 			sourceTree = "<group>";
 		};
 		2044BA9F26F321E500E0DDCD /* Change Password */ = {
@@ -525,6 +534,7 @@
 		20864BBA26DD0658008BC813 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2032F89D2704652A00AA6597 /* No Internet */,
 				2044BA9F26F321E500E0DDCD /* Change Password */,
 				2095718F26F30C0F0039EC9F /* Forgot Password */,
 				201AF39326EF5EB7005E23CE /* Sign UP */,
@@ -590,9 +600,10 @@
 				20864BD526DD0728008BC813 /* constant.swift */,
 				20864BD726DD0728008BC813 /* UserDefault.swift */,
 				20568E6D26E204A20027C272 /* OwnTableView.swift */,
-				20864BD826DD0728008BC813 /* Reachability.swift */,
+				2032F92127048AC400AA6597 /* Reachability.swift */,
 				20864BD926DD0728008BC813 /* IBDesignable.swift */,
 				20864BDA26DD0728008BC813 /* AlertMessages.swift */,
+				2032F91C27047AA100AA6597 /* ConnectionManager.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -919,6 +930,7 @@
 				20568E5D26E204250027C272 /* MyOrderTableViewController.swift in Sources */,
 				20568E6E26E204A20027C272 /* OwnTableView.swift in Sources */,
 				20568E7426E205050027C272 /* MyOrderTableViewCell.swift in Sources */,
+				2032F92227048AC400AA6597 /* Reachability.swift in Sources */,
 				20EA505726E72C8C006D1969 /* ProductDetailsViewController.swift in Sources */,
 				201ADE1926E383EB009B63B7 /* RegistrationViewController.swift in Sources */,
 				20568E4A26E1F87B0027C272 /* MyProfileMenuListTableViewCell.swift in Sources */,
@@ -929,8 +941,8 @@
 				2014DAA626E881BC00E54886 /* SmallCategoriesCollectionViewCell.swift in Sources */,
 				20864BE026DD0728008BC813 /* AlertMessages.swift in Sources */,
 				20864BDD26DD0728008BC813 /* UserDefault.swift in Sources */,
+				2032F91D27047AA100AA6597 /* ConnectionManager.swift in Sources */,
 				20864BD026DD0708008BC813 /* Services.swift in Sources */,
-				200A672C26E763A500136341 /* SearchViewController.swift in Sources */,
 				208011B126E0B0AE00FFAB9C /* SideMneuTableViewCell.swift in Sources */,
 				20568E4C26E1F87B0027C272 /* MyProfileViewController.swift in Sources */,
 				20864BDB26DD0728008BC813 /* constant.swift in Sources */,
@@ -952,7 +964,6 @@
 				208011C426E0FBC800FFAB9C /* CartViewController.swift in Sources */,
 				2071DDD526FC8D8500AB82F4 /* ReturnOrderViewController.swift in Sources */,
 				208011B226E0B0AE00FFAB9C /* SideMenuViewController.swift in Sources */,
-				20864BDE26DD0728008BC813 /* Reachability.swift in Sources */,
 				2014DA9426E8780B00E54886 /* AllCategoryTableViewCell.swift in Sources */,
 				2080116926E0A63800FFAB9C /* HomeViewController.swift in Sources */,
 				200A671826E731DC00136341 /* ShowReviewTableViewController.swift in Sources */,
@@ -961,6 +972,7 @@
 				2044BAA426F3220400E0DDCD /* ChangePasswordViewController.swift in Sources */,
 				2095719126F30C2C0039EC9F /* ForgotPasswordViewController.swift in Sources */,
 				20EA505126E725B6006D1969 /* WishlistTableViewController.swift in Sources */,
+				2032F89F2704654800AA6597 /* NoInternetViewController.swift in Sources */,
 				20F9575E27019F9100ADDC8F /* SearchPageViewController.swift in Sources */,
 				201ADE3126E39329009B63B7 /* LoginViewController.swift in Sources */,
 				20864BDF26DD0728008BC813 /* IBDesignable.swift in Sources */,

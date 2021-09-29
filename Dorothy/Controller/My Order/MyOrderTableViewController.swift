@@ -179,12 +179,13 @@ extension MyOrderTableViewController
                         
                             let name = item["name"] as! String
                             let model_name = item["model_name"] as! String
+                            let quantity = item["quantity"] as! String
                             let weight = item["weight"] as! String
                             let weight_type = item["weight_type"] as! String
                             let reviewCount = item["reviewCount"] as! String
                             let image = item["image"] as! String
                         
-                        let dict:[String : Any] = ["name":name,"model_name":model_name,"weight":weight,"weight_type":weight_type,"reviewCount":reviewCount,"image":image]
+                        let dict:[String : Any] = ["name":name,"model_name":model_name,"quantity":quantity,"weight":weight,"weight_type":weight_type,"reviewCount":reviewCount,"image":image]
                             items_list.append(dict)
                         }
                 

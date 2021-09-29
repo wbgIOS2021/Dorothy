@@ -36,7 +36,7 @@ class ForgotPasswordViewController: UIViewController, UIScrollViewDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-
+        
     }
 
     @IBAction func backBtn(_ sender: UIButton) {

@@ -36,6 +36,7 @@ class VerifyOtpViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        
     }
     @IBAction func resendCodeBtnAction(_ sender: Any) {
         if isLoggedUser == 1{
@@ -130,7 +131,8 @@ class VerifyOtpViewController: UIViewController {
         let endLetters = mobileNumer.suffix(2)
 
         let newString = intLetters + "******" + endLetters
-        mobileNumberLabel.text! = String(newString)+"--------->>>>\(otp)"
+        mobileNumberLabel.text! = String(newString)
+        self.showToast(message: "Your OTP is \(otp)", seconds: 2.5)
     }
     
 }
@@ -158,7 +160,7 @@ extension VerifyOtpViewController
             vc.mobile = self.mobile
             self.navigationController?.pushViewController(vc, animated: true)
             DispatchQueue.main.async {
-                self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+                self.showToast(message: json["responseText"] as! String, seconds: 1.5)
             }
 
         }else{
@@ -234,7 +236,7 @@ extension VerifyOtpViewController
         if json["responseCode"] as! Int == 1
         {
             //let responseData = json["responseData"] as! [String: Any]
-            self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            self.showToast(message: json["responseText"] as! String, seconds: 1.0)
             self.otp = json["responseData"] as! String
             DispatchQueue.main.async
             {
@@ -275,7 +277,7 @@ extension VerifyOtpViewController
         let json = response as! [String : Any]
         if json["responseCode"] as! Int == 1
         {
-            self.showToast(message: json["responseText"] as! String, seconds: 2.0)
+            self.showToast(message: json["responseText"] as! String, seconds: 1.0)
             self.otp = json["responseData"] as! String
             DispatchQueue.main.async
             {

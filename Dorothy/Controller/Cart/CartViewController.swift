@@ -103,51 +103,34 @@ extension CartViewController: UITableViewDataSource
 
         cell.price.isHidden = true
         cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
-        cell.productModal.text! = cellData["model"] as! String
+        let weight = Float(cellData["weight"] as! String)!
+        cell.productModal.text! = " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
         cell.productQuantity.text! = cellData["quantity"] as! String
         cell.increaseButton.tag = indexPath.row
         cell.increaseButton.addTarget(self, action: #selector(self.cartIncrease), for: .touchUpInside)
         cell.decreaseButton.tag = indexPath.row
         cell.decreaseButton.addTarget(self, action: #selector(self.cartDecrease), for: .touchUpInside)
-        if cellData["quantity"] as! String == "1"{
-            cell.qtyView.isHidden = true
-            cell.addProductButton.isHidden = false
-        }else{
-            cell.qtyView.isHidden = false
-            cell.addProductButton.isHidden = true
-        }
         
-        cell.addProductButton.tag = indexPath.row
-        cell.addProductButton.addTarget(self, action: #selector(self.addProduct), for: .touchUpInside)
         return cell
     }
     
     @objc func cartIncrease(_ sender:UIButton)
     {
-
         var qty =  Int(cart_listArray[sender.tag]["quantity"] as! String)!
-        if qty < 10
-        {
-            qty += 1
-            self.updateCartAction(cartId:self.cart_listArray[sender.tag]["cartId"] as! String,quantity:qty)
-        }
-        
+        qty += 1
+        self.updateCartAction(cartId:self.cart_listArray[sender.tag]["cartId"] as! String,quantity:qty)
     }
     @objc func cartDecrease(_ sender:UIButton)
     {
         var qty =  Int(cart_listArray[sender.tag]["quantity"] as! String)!
-        if qty >= 2
+        let minQty =  Int(cart_listArray[sender.tag]["minimum"] as! String)!
+        if qty > minQty
         {
             qty -= 1
             updateCartAction(cartId:cart_listArray[sender.tag]["cartId"] as! String,quantity:qty)
         }
     }
-    @objc func addProduct(_ sender:UIButton)
-    {
-        let cell = self.cartTableView.cellForRow(at: NSIndexPath(row: sender.tag, section: 0) as IndexPath) as! CartTableViewCell
-        cell.addProductButton.isHidden = true
-        cell.qtyView.isHidden = false
-    }
+    
 }
 
 
@@ -188,8 +171,9 @@ extension CartViewController: UITableViewDelegate
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
-        navigationController?.pushViewController(vC, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
+        vc.productId = cart_listArray[indexPath.row]["productId"] as! String
+        navigationController?.pushViewController(vc, animated: true)
 
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -229,7 +213,10 @@ extension CartViewController
                     let name = data["name"] as! String
                     let model = data["model"] as! String
                 
+                    let weight = data["weight"] as! String
+                    let weight_type = data["weight_type"] as! String
                     let quantity = data["quantity"] as! String
+                    let minimum = data["minimum"] as! String
                     let orginalPrice = data["orginalPrice"] as! String
                     let price = data["price"] as! String
                     let total = data["total"] as! String
@@ -246,7 +233,7 @@ extension CartViewController
                         option_listArray.append(dic)
                     }
                     
-                let dic:[String : Any] = ["cartId":cartId,"productId":productId,"thumb":thumb,"name":name,"model":model,"quantity":quantity,"orginalPrice":orginalPrice,"price":price,"total":total,"prdTotal":prdTotal,"option":option_listArray]
+                let dic:[String : Any] = ["cartId":cartId,"productId":productId,"thumb":thumb,"name":name,"model":model,"quantity":quantity,"minimum":minimum,"weight":weight,"weight_type":weight_type,"orginalPrice":orginalPrice,"price":price,"total":total,"prdTotal":prdTotal,"option":option_listArray]
 
                     self.cart_listArray.append(dic)
                 }
@@ -278,7 +265,14 @@ extension CartViewController
                     let total = Float(self.responseExtraData_dic["orginal_cost_total"] as! String)
                     let cartTotal = Float(self.responseExtraData_dic["cart_total"] as! String)
                     self.totalPayLabel.text! = "$ \(cartTotal!)"
-                    self.totalSaveLabel.text! = "$ \(Float(total!) - Float(cartTotal!))"
+                    let totalSave  = Float(total!) - Float(cartTotal!)
+                    if totalSave > 0
+                    {
+                        self.totalSaveLabel.text! = "Save : $ \(totalSave)"
+                    }else{
+                        self.totalSaveLabel.isHidden = true
+                    }
+                    
                     self.cartTableView.reloadData()
                     
                 }

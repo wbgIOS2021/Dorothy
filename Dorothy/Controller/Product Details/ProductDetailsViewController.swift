@@ -14,8 +14,6 @@ protocol ProductDetailsDelegate {
 
 class ProductDetailsViewController: UIViewController, UIPopoverPresentationControllerDelegate, UIScrollViewDelegate {
     
-    
-    
     // Collection View
     @IBOutlet weak var ratingAndReviewCollectionView: UICollectionView!
     @IBOutlet weak var similarProductCollectionView: UICollectionView!
@@ -65,8 +63,9 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     var productRelated_Array: [[String:Any]] = []
     var productOptions_Array: [[String:Any]] = []
     var productId:String = ""
-    var qty = 1
-    var i : Int = 0
+    var qty = 0
+    var minQty = 0
+    var i : Int = 1
     var isStockAvailable = 0
     let user_id = (getStringValueFromLocal(key: "user_id") ?? "0")
   
@@ -78,7 +77,6 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
         similarProductCollectionView.delegate = self
         ratingAndReviewCollectionView.dataSource = self
         ratingAndReviewCollectionView.delegate = self
-        quantityLabel.text! = "\(qty)"
         
         beTheFirstReview.isHidden = true
         ratingView.isUserInteractionEnabled = false
@@ -89,7 +87,6 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
         gettingData(productId:productId)
-        self.cartCount()
     }
     
     
@@ -121,19 +118,19 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
         similarProductCollectionView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCollectionViewCell")
         ratingAndReviewCollectionView.register(UINib(nibName: "RatingReviewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RatingReviewCollectionViewCell")
     }
+    
     @IBAction func decreaseBtn(_ sender: Any) {
-        if qty >= 2
+        if qty > minQty
         {
             qty -= 1
             quantityLabel.text! = "\(qty)"
         }
     }
+    
     @IBAction func increaseBtn(_ sender: Any) {
-        if qty < 10
-        {
-            qty += 1
-            quantityLabel.text! = "\(qty)"
-        }
+        qty += 1
+        quantityLabel.text! = "\(qty)"
+        
     }
     
     @IBAction func reviewViewAllBtnAction(_ sender: Any) {
@@ -219,42 +216,35 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     }
     
     @IBAction func leftArrowBtn(_ sender: Any) {
-        if i == 0{
-            leftArrowBtn.isEnabled = false
-            productImage.sd_setImage(with: URL(string: (productDetails_Array["thumb"] as! String)), placeholderImage: UIImage(named: "no-image"))
-        }else{
-            leftArrowBtn.isEnabled = true
-            if(i > 0)
+        if(i >= 0)
             {
                 i=i-1;
+                leftArrowBtn.isEnabled = true
                 let cellData = imageGallery_Array[i]
                 productImage.sd_setImage(with: URL(string: (cellData["thumb_image"] as! String)), placeholderImage: UIImage(named: "no-image"))
                 rightArrowBtn.isEnabled = true
-            }
+                if i == 0{
+                    leftArrowBtn.isEnabled = false
+                    i = 0
+                }
         }
-        
     }
     
     
-    
-    
-    
     @IBAction func rightArrowBtn(_ sender: Any) {
-        
-        if i == imageGallery_Array.count{
-            rightArrowBtn.isEnabled = false
-            i=i-1;
-        }else{
-            rightArrowBtn.isEnabled = true
-            if (i < (imageGallery_Array.count))
+        if (i < (imageGallery_Array.count))
             {
+                leftArrowBtn.isEnabled = true
+                rightArrowBtn.isEnabled = true
                 let cellData = imageGallery_Array[i]
                 productImage.sd_setImage(with: URL(string: (cellData["thumb_image"] as! String)), placeholderImage: UIImage(named: "no-image"))
                 i=i+1;
-                leftArrowBtn.isEnabled = true
-                
+                if i == imageGallery_Array.count
+                    {
+                        rightArrowBtn.isEnabled = false
+                        //i=i-1;
+                    }
             }
-        }
     }
     
 }
@@ -278,7 +268,12 @@ extension ProductDetailsViewController: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == ratingAndReviewCollectionView
         {
-            return productReviews_Array.count
+            if productReviews_Array.count > 4{
+                return 5
+            }
+            else{
+                return productReviews_Array.count
+            }
         }
         return productRelated_Array.count
         
@@ -302,7 +297,8 @@ extension ProductDetailsViewController: UICollectionViewDataSource
         cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
         
         cell.productName!.text! = cellData["name"] as! String
-        cell.productWeight!.text! = "\(cellData["description"] as! String)"
+        let weight = Float(cellData["weight"] as! String)!
+        cell.productWeight.text! = " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
         if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
             cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
             cell.productPrice.isHidden = true
@@ -435,7 +431,8 @@ extension ProductDetailsViewController
             let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"shareLink":shareLink,"categoryId":categoryId,"description":description,"mainPrice":mainPrice,"price":price,"special":special,"tax":tax,"productSaleOff":productSaleOff,"rating":rating,"minimum":minimum,"manufacturer":manufacturer,"model":model,"stockInfo":stockInfo,"stockStatusId":stockStatusId,"weight":weight,"weightName":weightName,"isWishlist":isWishlist,"isPurchase":isPurchase,"hasReview":hasReview,"cartCount":cartCount,"reviwCount":reviwCount]
             
             self.productDetails_Array = dic
-            print(self.productDetails_Array)
+            self.imageGallery_Array.append(["thumb_image":thumb])
+
             
             _ = responseData["productOptions"] as! [[String:Any]] //
             
@@ -475,6 +472,8 @@ extension ProductDetailsViewController
                 let tax = data["tax"] as! String
                 let rating = data["rating"] as! String
                 let minimum = data["minimum"] as! String
+                let weight = data["weight"] as! String
+                let weight_type = data["weight_type"] as! String
                 let stockStatusId = data["stockStatusId"] as! String
                 let stockStatus = data["stockStatus"] as! String
                 let optionCount = data["optionCount"] as! String
@@ -482,7 +481,7 @@ extension ProductDetailsViewController
                 let categoryId = data["categoryId"] as! String
                 let  categoryName = data["categoryName"] as! String
                 
-                let dic = ["productId":productId,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"tax":tax,"rating":rating,"minimum":minimum,"stockStatusId":stockStatusId,"stockStatus":stockStatus,"optionCount":optionCount,"isWishlist":isWishlist,"categoryId":categoryId,"categoryName":categoryName]
+                let dic = ["productId":productId,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"tax":tax,"rating":rating,"minimum":minimum,"weight":weight,"weight_type":weight_type,"stockStatusId":stockStatusId,"stockStatus":stockStatus,"optionCount":optionCount,"isWishlist":isWishlist,"categoryId":categoryId,"categoryName":categoryName]
                 self.productRelated_Array.append(dic)
             }
             
@@ -490,11 +489,14 @@ extension ProductDetailsViewController
             //Reloading Table Views And Collection View
             DispatchQueue.main.async
                 {
-                    
+                    self.cartCount() // cartCount
                     ProgressHud.hide()
                     self.applyAPI()
                     if self.productReviews_Array.isEmpty{
                         self.beTheFirstReview.isHidden = false
+                        self.reviewViewAllButton.isHidden = true
+                    }
+                    if self.productReviews_Array.count < 5{
                         self.reviewViewAllButton.isHidden = true
                     }
                     if self.productRelated_Array.isEmpty{
@@ -503,6 +505,7 @@ extension ProductDetailsViewController
                     
                     self.ratingAndReviewCollectionView.reloadData()
                     self.similarProductCollectionView.reloadData()
+                print("IMAGE GALLERY VALUE",self.imageGallery_Array)
                 }
         }else{
             print("Comming Soon................................")
@@ -551,6 +554,8 @@ extension ProductDetailsViewController
             wishlistBtn.setBackgroundImage(UIImage(named: "empty_heart"), for: .normal)
         }
         self.qty = Int(productDetails_Array["minimum"] as! String)!
+        self.minQty = Int(productDetails_Array["minimum"] as! String)!
+        quantityLabel.text! = "\(qty)"
         
         if productDetails_Array["stockStatusId"] as! String == "7"{
             self.isStockAvailable = 0

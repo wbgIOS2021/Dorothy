@@ -85,7 +85,7 @@ extension MyOrderTableViewCell: UITableViewDataSource, UITableViewDelegate
         
         cell.productName.text! = cellData["name"] as! String
         let weight = Float(cellData["weight"] as! String)!
-        cell.productQty.text! = "\(weight.clean)" + " \(cellData["weight_type"] as! String)"
+        cell.productQty.text! = "Quantity - \(cellData["quantity"] as! String) x " + " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

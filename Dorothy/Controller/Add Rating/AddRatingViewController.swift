@@ -23,6 +23,7 @@ class AddRatingViewController: UIViewController,UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ratingView.dropShadow()
         reviewTF.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         reviewTF.layer.borderWidth = 0.5

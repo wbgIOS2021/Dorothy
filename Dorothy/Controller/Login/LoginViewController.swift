@@ -28,6 +28,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
  
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        
     }
     
     func textFieldDesign()

@@ -105,6 +105,7 @@ class ServiceCall: NSObject
     
 func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:RequestedUrlType,successCall:@escaping successHandler,failureCall:@escaping failureHandler) -> Void
 {
+    //ConnectionManager.sharedInstance.observeReachability()
     let serverURL = self.getRequestedURL(url: methodType.rawValue,dictParam: parameters)
     let headers: HTTPHeaders = [
         "Content-Type": "application/json;charset=UTF-8"
@@ -137,6 +138,7 @@ func sendRequest(parameters:[String : Any],httpMethod:String ,methodType:Request
                         failureCall(nil, error.localizedDescription)
                       }
     }
+    
 }
     func getRequestedURL(url:String, dictParam: EIDictonary) -> String{
         var urlString = "";

@@ -46,7 +46,6 @@ class AddAddressViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
         self.gettingStates()
-        self.cartCount()
     }
     
     
@@ -124,6 +123,9 @@ extension AddAddressViewController
         }
     }
     @IBAction func saveBtn(_ sender: Any) {
+        let mobile = validateNumber(mobileTF!.text!)
+        let pincode = validateNumber(pincodeTF!.text!)
+        
         if firstNameTF.text! == ""
         {
             showAlertWith(title: "Error", message: "First name is required", view: self)
@@ -136,7 +138,11 @@ extension AddAddressViewController
             showAlertWith(title: "Error", message: "Phone Number is required", view: self)
 
         }
+        else if mobileTF.text!.count != 10 || mobile == false
+        {
+            showAlertWith(title: "Error", message: "Invalid Phone Number", view: self)
 
+        }
         else if streetAddressTF.text! == ""
         {
             showAlertWith(title: "Error", message: "Street Address  is required", view: self)
@@ -151,7 +157,11 @@ extension AddAddressViewController
 
         }else if pincodeTF.text! == ""
         {
-            showAlertWith(title: "Error", message: "pincode is required", view: self)
+            showAlertWith(title: "Error", message: "Pincode is required", view: self)
+
+        }else if pincodeTF.text!.count < 3 || pincode == false
+        {
+            showAlertWith(title: "Error", message: "Invalid Pincode", view: self)
 
         }else if userdata.isEmpty{
             addAddress()
@@ -164,6 +174,7 @@ extension AddAddressViewController
  
     
     @IBAction func stateSelectBtn(_ sender: Any) {
+        view.endEditing(true)
         pickerView.reloadAllComponents()
         pickerView.isHidden = false
 
@@ -216,6 +227,7 @@ extension AddAddressViewController
                     }
                 DispatchQueue.main.async
                 {
+                    self.cartCount()
                     self.pickerView.reloadAllComponents()
                     self.stateTF.text! = self.state_data[0]["name"] as! String
                     self.state_id = self.state_data[0]["id"] as! String

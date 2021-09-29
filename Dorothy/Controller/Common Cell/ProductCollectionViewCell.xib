@@ -68,8 +68,8 @@
                                     <constraint firstAttribute="height" constant="100" id="jRA-hg-bAP"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peak Milk Peak Milk Peak Milk" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YL2-jm-Odb">
-                                <rect key="frame" x="5" y="135" width="161" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egusi Soup with Goat Meat and Pounded Yam" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YL2-jm-Odb">
+                                <rect key="frame" x="10" y="135" width="151" height="35"/>
                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -103,11 +103,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight 900g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTS-ID-NDo">
-                                <rect key="frame" x="57.5" y="170" width="56" height="14"/>
+                                <rect key="frame" x="52" y="170" width="67.5" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="BiN-2l-6H9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                 <color key="textColor" name="fontColor2"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -132,8 +132,8 @@
                             <constraint firstItem="G6F-dR-ktx" firstAttribute="leading" secondItem="7jU-wb-8uu" secondAttribute="leading" constant="10" id="pvl-P9-UqT"/>
                             <constraint firstItem="0iw-xH-ai4" firstAttribute="centerY" secondItem="G6F-dR-ktx" secondAttribute="centerY" id="rpe-DV-U1I"/>
                             <constraint firstItem="QTS-ID-NDo" firstAttribute="top" secondItem="YL2-jm-Odb" secondAttribute="bottom" id="uOI-tY-khg"/>
-                            <constraint firstItem="YL2-jm-Odb" firstAttribute="leading" secondItem="7jU-wb-8uu" secondAttribute="leading" constant="5" id="vSq-li-U8j"/>
-                            <constraint firstAttribute="trailing" secondItem="YL2-jm-Odb" secondAttribute="trailing" constant="5" id="xUx-BM-kun"/>
+                            <constraint firstItem="YL2-jm-Odb" firstAttribute="leading" secondItem="7jU-wb-8uu" secondAttribute="leading" constant="10" id="vSq-li-U8j"/>
+                            <constraint firstAttribute="trailing" secondItem="YL2-jm-Odb" secondAttribute="trailing" constant="10" id="xUx-BM-kun"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="shodow">

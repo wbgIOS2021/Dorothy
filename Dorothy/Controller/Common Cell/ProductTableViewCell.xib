@@ -61,7 +61,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="AJQ-nF-bj5">
-                                <rect key="frame" x="8" y="48" width="171.5" height="30"/>
+                                <rect key="frame" x="8" y="47" width="171.5" height="32.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="African Suya" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txn-eX-Fxe">
                                         <rect key="frame" x="0.0" y="0.0" width="171.5" height="17.5"/>
@@ -70,8 +70,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy ." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FN7-Y1-gtT">
-                                        <rect key="frame" x="0.0" y="19.5" width="171.5" height="10.5"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="9"/>
+                                        <rect key="frame" x="0.0" y="18.5" width="171.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
                                         <color key="textColor" name="fontColor2"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -131,7 +131,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AJQ-nF-bj5" secondAttribute="bottom" constant="10" id="1yR-tx-pbY"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AJQ-nF-bj5" secondAttribute="bottom" constant="5" id="1yR-tx-pbY"/>
                             <constraint firstItem="AJQ-nF-bj5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lbk-wd-aIn" secondAttribute="bottom" constant="5" id="672-D6-TTz"/>
                             <constraint firstItem="lbk-wd-aIn" firstAttribute="top" secondItem="dUT-wn-ztv" secondAttribute="top" id="7Lh-nR-iyX"/>
                             <constraint firstAttribute="trailing" secondItem="VK1-87-C69" secondAttribute="trailing" id="8hm-FD-xnj"/>

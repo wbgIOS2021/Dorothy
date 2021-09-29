@@ -28,13 +28,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beverage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ha8-uV-7Mu">
-                                <rect key="frame" x="21" y="74" width="78.5" height="20"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <rect key="frame" x="25.5" y="74" width="69.5" height="17.5"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
                                 <color key="textColor" name="fontColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cfp-cU-m0X">
-                                <rect key="frame" x="45" y="109" width="30" height="30"/>
+                                <rect key="frame" x="45" y="106.5" width="30" height="30"/>
                                 <color key="backgroundColor" name="themeColor2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="QvC-w6-yH3"/>

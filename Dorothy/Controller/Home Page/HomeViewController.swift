@@ -54,9 +54,10 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     var soups_listArray: [[String:Any]] = []
     var grains_listArray: [[String:Any]] = []
     var beverages_listArray: [[String:Any]] = []
+    var drinks_listArray: [[String:Any]] = []
     var spices_listArray: [[String:Any]] = []
     var suya_listArray: [[String:Any]] = []
-    var popular_listArray: [[String:Any]] = []
+    var picked_items_listArray: [[String:Any]] = []
     
     var timer = Timer()
     var counter = 0
@@ -71,7 +72,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         sideMenu()
         iCarouselView.type = .linear
         iCarouselView.isPagingEnabled = true
-        homeBadgeBtn(qty:"0")
+        //homeBadgeBtn(qty:"0")
         homeScrollView.delegate = self
         //scrollViewDidScroll(scrollView: homeScrollView)
         for _ in 0..<8{
@@ -99,7 +100,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        gettingData()
+            gettingData()
         
         //Status Bar
         let topInset: CGFloat = UIApplication.shared.keyWindow?.safeAreaInsets.top ?? UIApplication.shared.statusBarFrame.size.height
@@ -212,7 +213,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     
     
     @IBAction func beveragesSeeAllBtn(_ sender: Any) {
-        jumpToProductListpage(title:"Beverages",category_id:"62",index:2)
+        jumpToProductListpage(title:"Drinks",category_id:"68",index:9)
     }
     
     @IBAction func soupsSeeAllBtn(_ sender: Any) {
@@ -232,7 +233,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func popularSeeAllBtn(_ sender: Any) {
-        jumpToProductListpage(title:"Suya",category_id:"59",index:5)
+        jumpToProductListpage(title:"Picked for you",category_id:"65",index:6)
     }
     
     
@@ -250,7 +251,7 @@ extension HomeViewController: UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == beveragesCollectionView{
-            return beverages_listArray.count
+            return drinks_listArray.count //value has been changed
         }
         
         if collectionView == soupsCollectionView{
@@ -267,10 +268,11 @@ extension HomeViewController: UICollectionViewDataSource
         {
             let cell = beveragesCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
             
-            let cellData = beverages_listArray[indexPath.row]
+            let cellData = drinks_listArray[indexPath.row]
             cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
             cell.productName!.text! = cellData["name"] as! String
-            cell.productWeight!.text! = "\(cellData["weight"] as! String)"+" \(cellData["weight_type"] as! String)"
+            let weight = Float(cellData["weight"] as! String)!
+            cell.productWeight.text! = " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
             if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
                 cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
                 cell.productPrice.isHidden = true
@@ -304,7 +306,8 @@ extension HomeViewController: UICollectionViewDataSource
             let cellData = soups_listArray[indexPath.row]
             cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
             cell.productName!.text! = cellData["name"] as! String
-            cell.productWeight!.text! = "\(cellData["weight"] as! String)"+" \(cellData["weight_type"] as! String)"
+            let weight = Float(cellData["weight"] as! String)!
+            cell.productWeight.text! = " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
             if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
                 cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
                 cell.productPrice.isHidden = true
@@ -337,7 +340,8 @@ extension HomeViewController: UICollectionViewDataSource
             let cellData = grains_listArray[indexPath.row]
             cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
             cell.productName!.text! = cellData["name"] as! String
-            cell.productWeight!.text! = "\(cellData["weight"] as! String)"+" \(cellData["weight_type"] as! String)"
+            let weight = Float(cellData["weight"] as! String)!
+            cell.productWeight.text! = " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
             if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
                 cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
                 cell.productPrice.isHidden = true
@@ -385,7 +389,7 @@ extension HomeViewController: UICollectionViewDataSource
     //Add to cart Action in Collection view
     @objc func beveragesAddToCart(_ sender:UIButton)
     {
-        let product =  beverages_listArray[sender.tag]
+        let product =  drinks_listArray[sender.tag]
         addCart1(product:product)
     }
     @objc func soupsAddToCart(_ sender:UIButton)
@@ -418,7 +422,7 @@ extension HomeViewController: UICollectionViewDataSource
     //Add or remove Wishlist in Collection view
     @objc func beveragesWishlistCheck(_ sender:UIButton)
     {
-        let bevervage =  beverages_listArray[sender.tag]
+        let bevervage =  drinks_listArray[sender.tag]
         let success:successHandler = {  response in
             let json = response as! [String : Any]
             let cell = self.beveragesCollectionView.cellForItem(at: NSIndexPath(row: sender.tag, section: 0) as IndexPath) as! ProductCollectionViewCell
@@ -503,7 +507,7 @@ extension HomeViewController: UICollectionViewDelegate
             let vc = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as! ProductDetailsViewController
             
             if collectionView == beveragesCollectionView{
-                vc.productId = beverages_listArray[indexPath.row]["product_id"] as! String
+                vc.productId = drinks_listArray[indexPath.row]["product_id"] as! String
             }
             if collectionView == soupsCollectionView{
                 vc.productId = soups_listArray[indexPath.row]["product_id"] as! String
@@ -545,7 +549,7 @@ extension HomeViewController: UITableViewDataSource
             return spices_listArray.count
         }
         if tableView == popularTableView{
-            return popular_listArray.count
+            return picked_items_listArray.count
         }
         return suya_listArray.count
         
@@ -558,7 +562,8 @@ extension HomeViewController: UITableViewDataSource
             let cellData = spices_listArray[indexPath.row]
             cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
             cell.productName!.text! = cellData["name"] as! String
-            cell.productweight!.text! = "\(cellData["weight"] as! String)"+" \(cellData["weight_type"] as! String)"
+            let weight = Float(cellData["weight"] as! String)!
+            cell.productweight.text! = " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
             if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
                 cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
                 cell.productPrice.isHidden = true
@@ -587,10 +592,11 @@ extension HomeViewController: UITableViewDataSource
         if tableView == popularTableView{
             let cell = popularTableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as! ProductTableViewCell
             
-            let cellData = popular_listArray[indexPath.row]
+            let cellData = picked_items_listArray[indexPath.row]
             cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
             cell.productName!.text! = cellData["name"] as! String
-            cell.productweight!.text! = "\(cellData["weight"] as! String)"+" \(cellData["weight_type"] as! String)"
+            let weight = Float(cellData["weight"] as! String)!
+            cell.productweight.text! = " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
             if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
                 cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
                 cell.productPrice.isHidden = true
@@ -621,7 +627,8 @@ extension HomeViewController: UITableViewDataSource
         let cellData = suya_listArray[indexPath.row]
         cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
         cell.productName!.text! = cellData["name"] as! String
-        cell.productweight!.text! = "\(cellData["weight"] as! String)"+" \(cellData["weight_type"] as! String)"
+        let weight = Float(cellData["weight"] as! String)!
+        cell.productweight.text! = " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
         if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
             cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
             cell.productPrice.isHidden = true
@@ -656,7 +663,7 @@ extension HomeViewController: UITableViewDataSource
     }
     @objc func popularAddToCart(_ sender:UIButton)
     {
-        let product =  popular_listArray[sender.tag]
+        let product =  picked_items_listArray[sender.tag]
         addCart1(product:product)
         
     }
@@ -685,7 +692,7 @@ extension HomeViewController: UITableViewDataSource
     }
     @objc func popularWishlistCheck(_ sender:UIButton)
     {
-        let popular =  popular_listArray[sender.tag]
+        let popular =  picked_items_listArray[sender.tag]
         let success:successHandler = {  response in
             let json = response as! [String : Any]
             let cell = self.popularTableView.cellForRow(at: NSIndexPath(row: sender.tag, section: 0) as IndexPath) as! ProductTableViewCell
@@ -727,7 +734,7 @@ extension HomeViewController: UITableViewDelegate
             vc.productId = spices_listArray[indexPath.row]["product_id"] as! String
         }
         if tableView == popularTableView{
-            vc.productId = popular_listArray[indexPath.row]["product_id"] as! String
+            vc.productId = picked_items_listArray[indexPath.row]["product_id"] as! String
         }
         if tableView == spicySuyaTableView{
             vc.productId = suya_listArray[indexPath.row]["product_id"] as! String
@@ -885,7 +892,7 @@ extension HomeViewController
             grains_listArray.removeAll()
             spices_listArray.removeAll()
             suya_listArray.removeAll()
-            popular_listArray.removeAll()
+            picked_items_listArray.removeAll()
             
             
             for data in category_blocks!
@@ -941,9 +948,14 @@ extension HomeViewController
                     {
                         self.suya_listArray.append(dic)
                     }
-                    if category_name == "Popular"
+                    if category_name == "Picked for you"
                     {
-                        self.popular_listArray.append(dic)
+                        self.picked_items_listArray.append(dic)
+                    }
+                    if category_name == "Drinks"
+                    {
+                        self.drinks_listArray.append(dic)
+                        
                     }
                 }
             }
@@ -951,7 +963,7 @@ extension HomeViewController
             //Reloading Table Views And Collection View
             DispatchQueue.main.async
             {
-                
+                //self.drinks_listArray = self.picked_items_listArray
                 self.setBannerImage()
                 ProgressHud.hide()
                 if self.grains_listArray.isEmpty
@@ -959,6 +971,10 @@ extension HomeViewController
                     self.grainStackView.isHidden = true
                 }
                 if self.beverages_listArray.isEmpty
+                {
+                    self.beveragesStackView.isHidden = true
+                }
+                if self.drinks_listArray.isEmpty
                 {
                     self.beveragesStackView.isHidden = true
                 }
@@ -970,7 +986,7 @@ extension HomeViewController
                 {
                     self.spicesStackView.isHidden = true
                 }
-                if self.popular_listArray.isEmpty
+                if self.picked_items_listArray.isEmpty
                 {
                     self.popularStackView.isHidden = true
                 }
@@ -979,9 +995,9 @@ extension HomeViewController
                 }
                 
                 //Cart Icon Change
-                if self.cart_count != "0"{
-                    checkCartCount()
-                }
+                
+                self.homeBadgeBtn(qty: self.cart_count)
+                
                 
                 self.categoriesCollectionView.reloadData()
                 self.beveragesCollectionView.reloadData()
@@ -1022,10 +1038,8 @@ extension HomeViewController
         let json = response as! [String : Any]
         if json["responseCode"] as! Int == 1
         {
-            if json["responseData"] as! String == "0"
+            if json["responseData"] as! String != "0"
             {
-                self.homeBadgeBtn(qty: json["responseData"] as! String)
-            }else{
                 self.homeBadgeBtn(qty: json["responseData"] as! String)
             }
         }else{

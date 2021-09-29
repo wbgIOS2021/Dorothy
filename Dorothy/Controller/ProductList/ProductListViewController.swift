@@ -181,7 +181,8 @@ extension ProductListViewController: UITableViewDataSource
         let cellData = product_listArray[indexPath.row]
         cell.productImage.sd_setImage(with: URL(string: cellData["thumb"] as! String), placeholderImage: UIImage(named: "no-image"))
         cell.productName!.text! = cellData["name"] as! String
-        cell.productweight!.text! = "\(cellData["description"] as! String)"
+        let weight = Float(cellData["weight"] as! String)!
+        cell.productweight.text! = " \(weight.clean)" + " \(cellData["weight_type"] as! String)"
         if cellData["special"] as! String == "0.00" || cellData["special"] as! String == "0" || cellData["special"] as! String == cellData["price"] as! String{
             cell.specialPrice!.text! = "$ \(cellData["price"] as! String)"
             cell.productPrice.isHidden = true
@@ -290,6 +291,8 @@ extension ProductListViewController
                     let tax = data["tax"] as! String
                     let rating = data["rating"] as! String
                     let minimum = data["minimum"] as! String
+                    let weight = data["weight"] as! String
+                    let weight_type = data["weight_type"] as! String
                     let stockStatusId = data["stockStatusId"] as! String
                     
                     let stockStatus = data["stockStatus"] as! String
@@ -297,7 +300,7 @@ extension ProductListViewController
                     let optionCount = data["optionCount"] as! String
                     let isWishlist = data["isWishlist"] as! String
                     
-                    let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"specialInNumber":specialInNumber,"tax":tax,"rating":rating,"minimum":minimum,"stockStatusId":stockStatusId,"stockStatus":stockStatus,"manufacturerId":manufacturerId,"optionCount":optionCount,"isWishlist":isWishlist]
+                let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"specialInNumber":specialInNumber,"tax":tax,"rating":rating,"minimum":minimum,"weight":weight,"weight_type":weight_type,"stockStatusId":stockStatusId,"stockStatus":stockStatus,"manufacturerId":manufacturerId,"optionCount":optionCount,"isWishlist":isWishlist]
 
                     self.product_listArray.append(dic)
                 }
@@ -375,6 +378,8 @@ extension ProductListViewController
                     let tax = data["tax"] as! String
                     let rating = data["rating"] as! String
                     let minimum = data["minimum"] as! String
+                    let weight = data["weight"] as! String
+                    let weight_type = data["weight_type"] as! String
                     let stockStatusId = data["stockStatusId"] as! String
                     
                     let stockStatus = data["stockStatus"] as! String
@@ -382,7 +387,7 @@ extension ProductListViewController
                     let optionCount = data["optionCount"] as! String
                     let isWishlist = data["isWishlist"] as! String
                     
-                    let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"specialInNumber":specialInNumber,"tax":tax,"rating":rating,"minimum":minimum,"stockStatusId":stockStatusId,"stockStatus":stockStatus,"manufacturerId":manufacturerId,"optionCount":optionCount,"isWishlist":isWishlist]
+                let dic:[String : Any] = ["productId":productId,"thumb":thumb,"name":name,"description":description,"price":price,"special":special,"specialInNumber":specialInNumber,"tax":tax,"rating":rating,"minimum":minimum,"weight":weight,"weight_type":weight_type,"stockStatusId":stockStatusId,"stockStatus":stockStatus,"manufacturerId":manufacturerId,"optionCount":optionCount,"isWishlist":isWishlist]
 
                     self.product_listArray.append(dic)
                 }

@@ -27,7 +27,6 @@ class MyAddressTableViewController: UITableViewController {
         DispatchQueue.main.async
         {
             self.gettingAddress()
-            self.cartCount()
         }
     }
     
@@ -132,8 +131,11 @@ class MyAddressTableViewController: UITableViewController {
     // Delete Address
     @objc func deleteAddress(_ sender:UIButton)
     {
-        let address =  address_data[sender.tag]
-        deleteAddressAction(addressId:address["addressId"] as! String,index:sender.tag)
+        showAlertWithCancel(title: "Delete Address", message: "Do you want to continue?", view: self, btn_title: "YES", actionHandler: {[self] in
+            let address =  address_data[sender.tag]
+            deleteAddressAction(addressId:address["addressId"] as! String,index:sender.tag)
+        })
+        
        
     }
 }
@@ -197,6 +199,7 @@ extension MyAddressTableViewController
                 DispatchQueue.main.async
                 {[self] in
                     addressTableView.reloadData()
+                    self.cartCount()
                 }
             }else{
                 //self.showToast(message: json["responseText"] as! String, seconds: 1.0)
