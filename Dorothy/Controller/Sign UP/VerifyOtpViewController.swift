@@ -132,7 +132,7 @@ class VerifyOtpViewController: UIViewController {
 
         let newString = intLetters + "******" + endLetters
         mobileNumberLabel.text! = String(newString)
-        self.showToast(message: "Your OTP is \(otp)", seconds: 2.5)
+        self.showToast(message: "OTP :-  \(otp)", seconds: 2.0)
     }
     
 }
@@ -236,7 +236,7 @@ extension VerifyOtpViewController
         if json["responseCode"] as! Int == 1
         {
             //let responseData = json["responseData"] as! [String: Any]
-            self.showToast(message: json["responseText"] as! String, seconds: 1.0)
+            //self.showToast(message: json["responseText"] as! String, seconds: 1.0)
             self.otp = json["responseData"] as! String
             DispatchQueue.main.async
             {
@@ -277,7 +277,7 @@ extension VerifyOtpViewController
         let json = response as! [String : Any]
         if json["responseCode"] as! Int == 1
         {
-            self.showToast(message: json["responseText"] as! String, seconds: 1.0)
+            //self.showToast(message: json["responseText"] as! String, seconds: 1.0)
             self.otp = json["responseData"] as! String
             DispatchQueue.main.async
             {

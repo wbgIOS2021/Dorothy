@@ -81,10 +81,10 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDG-Ho-VBe">
-                                <rect key="frame" x="447" y="10" width="22" height="18"/>
+                                <rect key="frame" x="445" y="10" width="24" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="2Ci-LF-r3O"/>
-                                    <constraint firstAttribute="width" constant="22" id="emE-C6-Plq"/>
+                                    <constraint firstAttribute="height" constant="24" id="2Ci-LF-r3O"/>
+                                    <constraint firstAttribute="width" constant="24" id="emE-C6-Plq"/>
                                 </constraints>
                                 <color key="tintColor" red="0.095238111910000006" green="0.079290695489999993" blue="0.079122640189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="empty_heart"/>
@@ -179,7 +179,7 @@
     </objects>
     <resources>
         <image name="add_cart_icon" width="39" height="28"/>
-        <image name="empty_heart" width="14" height="13"/>
+        <image name="empty_heart" width="128" height="128"/>
         <image name="no-image" width="1000" height="1000"/>
         <namedColor name="fontColor2">
             <color red="0.19607843137254902" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>

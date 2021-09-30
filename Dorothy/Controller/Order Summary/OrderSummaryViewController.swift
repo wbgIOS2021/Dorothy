@@ -18,7 +18,6 @@ class OrderSummaryViewController: UIViewController {
     @IBOutlet weak var orderStatus: UILabel!
     @IBOutlet weak var itemTotal: UILabel!
     @IBOutlet weak var discountOnOriginalPrice: UILabel!
-    @IBOutlet weak var packagingCharge: UILabel!
     @IBOutlet weak var totalTax: UILabel!
     @IBOutlet weak var deliveryCost: UILabel!
     @IBOutlet weak var finalAmount: UILabel!
@@ -299,10 +298,6 @@ extension OrderSummaryViewController
 
         let date: NSDate? = dateFormatterGet.date(from: orderDetails_Array["orderDate"] as! String) as NSDate?
         orderDateLabel.text! = "\(dateFormatterPrint.string(from: date! as Date))"
-        
-        
-        packagingCharge.text! = "$ 0.0"
-        
         
         billingFullAddress.text! = "\(shippingAddress_Array["address1"] as! String)" + ", " + "\(shippingAddress_Array["address2"] as! String)" + ", " + "\(shippingAddress_Array["address"] as! String)" + "\(shippingAddress_Array["company"] as! String)" + ", " + "\(shippingAddress_Array["city"] as! String)" + "\(shippingAddress_Array["state"] as! String)" + " - " + "\(shippingAddress_Array["postCode"] as! String)" + " " + "\(shippingAddress_Array["phone"] as! String)"
         

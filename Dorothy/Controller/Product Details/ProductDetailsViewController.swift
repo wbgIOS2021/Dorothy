@@ -35,6 +35,7 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
     @IBOutlet weak var productSpecialPrice: UILabel!
     @IBOutlet weak var ProductRating: UILabel!
     @IBOutlet weak var productWeight: UILabel!
+    @IBOutlet weak var beTheFirstReviewLabel: UILabel!
 
     // Button
     @IBOutlet weak var addReviewView: UIButton!
@@ -79,6 +80,7 @@ class ProductDetailsViewController: UIViewController, UIPopoverPresentationContr
         ratingAndReviewCollectionView.delegate = self
         
         beTheFirstReview.isHidden = true
+        ratingView.settings.fillMode = .precise
         ratingView.isUserInteractionEnabled = false
         leftArrowBtn.isEnabled = false
         productDetailsScrollView.delegate = self
@@ -496,16 +498,18 @@ extension ProductDetailsViewController
                         self.beTheFirstReview.isHidden = false
                         self.reviewViewAllButton.isHidden = true
                     }
-                    if self.productReviews_Array.count < 5{
-                        self.reviewViewAllButton.isHidden = true
-                    }
+                    
                     if self.productRelated_Array.isEmpty{
                         self.relatedProductStackView.isHidden = true
                     }
                     
                     self.ratingAndReviewCollectionView.reloadData()
                     self.similarProductCollectionView.reloadData()
-                print("IMAGE GALLERY VALUE",self.imageGallery_Array)
+                
+                    if self.imageGallery_Array.count < 2{
+                        self.leftArrowBtn.isHidden = true
+                        self.rightArrowBtn.isHidden = true
+                    }
                 }
         }else{
             print("Comming Soon................................")
@@ -547,7 +551,7 @@ extension ProductDetailsViewController
         productDesc.text! = productDetails_Array["description"] as! String
         
         ratingView.rating = Double(productDetails_Array["rating"] as! String)!
-        ProductRating.text! = "(\(Double(productDetails_Array["rating"] as! String) ?? 0.0))"
+        ProductRating.text! = "(\(Double(productDetails_Array["rating"] as! String) ?? 0))"
         if productDetails_Array["isWishlist"] as! String == "1"{
             wishlistBtn.setBackgroundImage(UIImage(named: "fill_heart"), for: .normal)
         }else{
@@ -567,6 +571,12 @@ extension ProductDetailsViewController
         
         let weight = Float(productDetails_Array["weight"] as! String)!
         productWeight.text! = "\(weight.clean)" + " \(productDetails_Array["weightName"] as! String)"
+        
+        if productDetails_Array["isPurchase"] as! String == "0"
+        {
+            self.addReviewView.isHidden = true
+            self.beTheFirstReviewLabel.text! = "No review available!!!"
+        }
     }
     
 }

@@ -2002,7 +2002,7 @@
                                 <rect key="frame" x="0.0" y="44" width="428" height="788"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBf-fF-PuS" customClass="ViewDesign" customModule="Dorothy" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="20" width="388" height="384.66666666666669"/>
+                                        <rect key="frame" x="20" y="20" width="388" height="357"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hnr-qh-yGQ">
                                                 <rect key="frame" x="20" y="20.000000000000004" width="268" height="35.333333333333343"/>
@@ -2031,12 +2031,6 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Packaging Charge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AP7-lp-R9f">
-                                                <rect key="frame" x="19.999999999999993" y="76" width="123.33333333333331" height="17.666666666666671"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$332.30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePo-Ot-YQ5">
                                                 <rect key="frame" x="298" y="25" width="70" height="16.333333333333329"/>
                                                 <constraints>
@@ -2046,14 +2040,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 32.65" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4o-WN-lXH">
-                                                <rect key="frame" x="315.66666666666669" y="76" width="50.333333333333314" height="17.666666666666671"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3ya-MA-4yU">
-                                                <rect key="frame" x="0.0" y="113.66666666666666" width="388" height="40"/>
+                                                <rect key="frame" x="0.0" y="86" width="388" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="qMs-IH-0gY"/>
@@ -2064,7 +2052,7 @@
                                                 </connections>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duq-hx-6jg">
-                                                <rect key="frame" x="0.0" y="173.66666666666666" width="388" height="0.33333333333334281"/>
+                                                <rect key="frame" x="0.0" y="146" width="388" height="0.33333333333334281"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="0.5" id="bx4-2N-72c"/>
@@ -2074,7 +2062,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEl-YX-YRK">
-                                                <rect key="frame" x="0.0" y="184" width="388" height="180.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="156.33333333333337" width="388" height="180.66666666666663"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b03-sg-LAp">
                                                         <rect key="frame" x="20" y="14.999999999999993" width="348" height="111.33333333333331"/>
@@ -2100,7 +2088,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="njV-b5-YbX">
-                                                                <rect key="frame" x="0.0" y="35" width="348" height="15.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="34.999999999999972" width="348" height="15.333333333333336"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total MRP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDv-WL-i39">
                                                                         <rect key="frame" x="0.0" y="0.0" width="174" height="15.333333333333334"/>
@@ -2117,7 +2105,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JzZ-OI-eJs">
-                                                                <rect key="frame" x="0.0" y="55.333333333333314" width="348" height="15.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="55.333333333333343" width="348" height="15.333333333333329"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discount on MRP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vco-nJ-wKb">
                                                                         <rect key="frame" x="0.0" y="0.0" width="174" height="15.333333333333334"/>
@@ -2134,7 +2122,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nL9-kT-Hwu">
-                                                                <rect key="frame" x="0.0" y="75.666666666666686" width="348" height="15.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="75.666666666666657" width="348" height="15.333333333333329"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIb-Yi-u08">
                                                                         <rect key="frame" x="0.0" y="0.0" width="174" height="15.333333333333334"/>
@@ -2151,7 +2139,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="btN-BR-Rwz">
-                                                                <rect key="frame" x="0.0" y="96" width="348" height="15.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="95.999999999999972" width="348" height="15.333333333333329"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Charges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4k-na-5pl">
                                                                         <rect key="frame" x="0.0" y="0.0" width="174" height="15.333333333333334"/>
@@ -2182,7 +2170,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwT-jR-Kjo">
-                                                        <rect key="frame" x="0.0" y="142.33333333333331" width="388" height="0.66666666666665719"/>
+                                                        <rect key="frame" x="0.0" y="142.33333333333334" width="388" height="0.66666666666665719"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="0.5" id="uMK-Ir-dzK"/>
@@ -2192,7 +2180,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ufu-Iv-nA2">
-                                                        <rect key="frame" x="20" y="153" width="348" height="17.666666666666657"/>
+                                                        <rect key="frame" x="20" y="152.99999999999997" width="348" height="17.666666666666657"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grand Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfY-km-Vqo">
                                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="17.666666666666668"/>
@@ -2233,22 +2221,17 @@
                                             <constraint firstItem="eEl-YX-YRK" firstAttribute="trailing" secondItem="duq-hx-6jg" secondAttribute="trailing" id="76p-Jp-xYL"/>
                                             <constraint firstItem="eEl-YX-YRK" firstAttribute="leading" secondItem="duq-hx-6jg" secondAttribute="leading" id="8tu-LP-Dyg"/>
                                             <constraint firstItem="duq-hx-6jg" firstAttribute="leading" secondItem="3ya-MA-4yU" secondAttribute="leading" id="DCi-6d-M5k"/>
-                                            <constraint firstItem="Z4o-WN-lXH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AP7-lp-R9f" secondAttribute="trailing" constant="8" symbolic="YES" id="Dqh-qJ-HVC"/>
-                                            <constraint firstAttribute="trailing" secondItem="Z4o-WN-lXH" secondAttribute="trailing" constant="22" id="NMz-Ck-Bfr"/>
                                             <constraint firstItem="ePo-Ot-YQ5" firstAttribute="leading" secondItem="hnr-qh-yGQ" secondAttribute="trailing" constant="10" id="O0D-Mq-p8y"/>
                                             <constraint firstAttribute="trailing" secondItem="ePo-Ot-YQ5" secondAttribute="trailing" constant="20" id="WP3-UJ-atg"/>
-                                            <constraint firstItem="3ya-MA-4yU" firstAttribute="top" secondItem="AP7-lp-R9f" secondAttribute="bottom" constant="20" id="Yzh-qm-AgJ"/>
+                                            <constraint firstItem="3ya-MA-4yU" firstAttribute="top" secondItem="Ew5-ID-fSQ" secondAttribute="bottom" constant="20" id="YVH-Oc-OW8"/>
                                             <constraint firstItem="Ew5-ID-fSQ" firstAttribute="top" secondItem="hnr-qh-yGQ" secondAttribute="bottom" constant="10" id="bkl-uO-1Ei"/>
                                             <constraint firstItem="duq-hx-6jg" firstAttribute="top" secondItem="3ya-MA-4yU" secondAttribute="bottom" constant="20" id="bxa-uo-gv2"/>
                                             <constraint firstItem="3ya-MA-4yU" firstAttribute="leading" secondItem="Ew5-ID-fSQ" secondAttribute="leading" id="haX-YL-3mN"/>
-                                            <constraint firstItem="Z4o-WN-lXH" firstAttribute="centerY" secondItem="AP7-lp-R9f" secondAttribute="centerY" id="kJp-Tp-q5g"/>
                                             <constraint firstAttribute="bottom" secondItem="eEl-YX-YRK" secondAttribute="bottom" constant="20" symbolic="YES" id="qlS-D2-ebf"/>
                                             <constraint firstItem="3ya-MA-4yU" firstAttribute="trailing" secondItem="Ew5-ID-fSQ" secondAttribute="trailing" id="rgm-dS-gbo"/>
                                             <constraint firstItem="hnr-qh-yGQ" firstAttribute="top" secondItem="MBf-fF-PuS" secondAttribute="top" constant="20" id="s2L-l2-QlH"/>
                                             <constraint firstItem="Ew5-ID-fSQ" firstAttribute="leading" secondItem="MBf-fF-PuS" secondAttribute="leading" id="t9e-pN-gNi"/>
                                             <constraint firstItem="ePo-Ot-YQ5" firstAttribute="top" secondItem="MBf-fF-PuS" secondAttribute="top" constant="25" id="tb1-fs-IKy"/>
-                                            <constraint firstItem="AP7-lp-R9f" firstAttribute="top" secondItem="Ew5-ID-fSQ" secondAttribute="bottom" constant="10" id="tfc-EK-h2w"/>
-                                            <constraint firstItem="AP7-lp-R9f" firstAttribute="leading" secondItem="MBf-fF-PuS" secondAttribute="leading" constant="20" id="uE6-v9-ZEV"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="shodow">
@@ -2257,7 +2240,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yS1-wB-3zz" customClass="ViewDesign" customModule="Dorothy" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="424.66666666666674" width="388" height="237"/>
+                                        <rect key="frame" x="20" y="397" width="388" height="237"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lM-xh-39x">
                                                 <rect key="frame" x="20" y="20" width="348" height="17.666666666666671"/>
@@ -2276,7 +2259,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5N0-S0-oBc">
-                                                <rect key="frame" x="20" y="72.999999999999943" width="348" height="144"/>
+                                                <rect key="frame" x="20" y="73" width="348" height="144"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="6bo-A6-vsa">
                                                         <rect key="frame" x="0.0" y="0.0" width="348" height="33.333333333333336"/>
@@ -2305,7 +2288,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="August 02, 2021 at 7.11 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gym-dj-y1i">
-                                                                <rect key="frame" x="0.0" y="19.333333333333371" width="348" height="14"/>
+                                                                <rect key="frame" x="0.0" y="19.333333333333258" width="348" height="14"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                                 <color key="textColor" red="0.53534587720000004" green="0.54064633149999997" blue="0.54064633149999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -2313,7 +2296,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="5lS-1I-0dl">
-                                                        <rect key="frame" x="0.0" y="96.666666666666742" width="348" height="47.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="96.666666666666629" width="348" height="47.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deliver to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZa-Ml-eGa">
                                                                 <rect key="frame" x="0.0" y="0.0" width="348" height="16.333333333333332"/>
@@ -2322,7 +2305,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Samadrita Appartment, 2nd Floor, 10 No, Chiria More, P.O- Palta, Near, Masjid Bazar, West Bengal - 700125 8256430700" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PI-u5-xhF">
-                                                                <rect key="frame" x="0.0" y="19.333333333333258" width="348" height="28"/>
+                                                                <rect key="frame" x="0.0" y="19.333333333333371" width="348" height="28"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                                 <color key="textColor" red="0.53534587720000004" green="0.54064633149999997" blue="0.54064633149999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -2408,7 +2391,6 @@
                         <outlet property="orderMethod" destination="mIB-Vy-myz" id="3zt-D5-xnW"/>
                         <outlet property="orderStatus" destination="oSU-LA-VuM" id="xdq-j3-pJc"/>
                         <outlet property="orderTotal" destination="ePo-Ot-YQ5" id="WOI-aW-liN"/>
-                        <outlet property="packagingCharge" destination="Z4o-WN-lXH" id="NGq-4a-ci6"/>
                         <outlet property="productsTableView" destination="3ya-MA-4yU" id="meM-WE-qMM"/>
                         <outlet property="productsTableViewHeight" destination="qMs-IH-0gY" id="IS5-Aq-Im7"/>
                         <outlet property="totalMRP" destination="5vE-a1-czE" id="GTs-oV-dX1"/>
@@ -2900,7 +2882,7 @@
                                                             <constraint firstAttribute="height" constant="60" id="vwV-XZ-trh"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSi-FY-sH9">
                                                         <rect key="frame" x="0.0" y="720" width="388" height="30"/>
@@ -4311,23 +4293,23 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tr9-9N-pCJ">
-                                        <rect key="frame" x="0.0" y="303" width="428" height="392.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="303" width="428" height="372.33333333333326"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTq-aQ-G7r">
-                                                <rect key="frame" x="20" y="50" width="314" height="56"/>
+                                                <rect key="frame" x="20" y="50" width="298" height="56"/>
                                                 <string key="text">Authentic African 
 Nigerian Suya</string>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="jgo-pZ-dGz">
-                                                <rect key="frame" x="354" y="65" width="54" height="20"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="jgo-pZ-dGz">
+                                                <rect key="frame" x="338" y="65" width="70" height="26"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWo-Ou-JSc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="22" height="26"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="ESn-Aj-TJm"/>
+                                                            <constraint firstAttribute="width" constant="22" id="yGh-uq-B6G"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="share_icon"/>
                                                         <connections>
@@ -4335,10 +4317,10 @@ Nigerian Suya</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6LE-OK-mDe">
-                                                        <rect key="frame" x="32" y="0.0" width="22" height="20"/>
+                                                        <rect key="frame" x="40" y="0.0" width="30" height="26"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="aCl-tw-os0"/>
-                                                            <constraint firstAttribute="width" constant="22" id="n6x-4e-fyX"/>
+                                                            <constraint firstAttribute="height" constant="26" id="aCl-tw-os0"/>
+                                                            <constraint firstAttribute="width" constant="30" id="n6x-4e-fyX"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="empty_heart"/>
                                                         <connections>
@@ -4347,17 +4329,17 @@ Nigerian Suya</string>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="54" id="2Yx-f1-Xh0"/>
+                                                    <constraint firstAttribute="width" constant="70" id="Elg-5d-UuQ"/>
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Freashly made home Suya very hot and spicy " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSq-K3-SCA">
-                                                <rect key="frame" x="20" y="116" width="388" height="18.666666666666657"/>
+                                                <rect key="frame" x="20" y="111" width="388" height="18.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <color key="textColor" red="0.1960784314" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="18b-qi-lcd">
-                                                <rect key="frame" x="20" y="154.66666666666669" width="155" height="17"/>
+                                                <rect key="frame" x="20" y="139.66666666666669" width="155" height="17"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4JZ-a3-hgG">
                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="17"/>
@@ -4408,13 +4390,13 @@ Nigerian Suya</string>
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="$32.30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0Y-f1-adw">
-                                                <rect key="frame" x="20" y="211.66666666666663" width="70.666666666666671" height="27"/>
+                                                <rect key="frame" x="20" y="196.66666666666663" width="70.666666666666671" height="27"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tg2-19-E8r">
-                                                <rect key="frame" x="276" y="154.66666666666669" width="132" height="44"/>
+                                                <rect key="frame" x="276" y="139.66666666666669" width="132" height="44"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XTp-yp-q7m">
                                                         <rect key="frame" x="8" y="2" width="116" height="40"/>
@@ -4463,20 +4445,20 @@ Nigerian Suya</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGy-3B-RHx">
-                                                <rect key="frame" x="20.000000000000004" y="248.6666666666666" width="40.333333333333343" height="17.666666666666657"/>
+                                                <rect key="frame" x="20.000000000000004" y="233.66666666666663" width="40.333333333333343" height="17.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BG-2m-FVI">
-                                                <rect key="frame" x="20" y="281.33333333333337" width="388" height="91"/>
+                                                <rect key="frame" x="20" y="261.33333333333337" width="388" height="91"/>
                                                 <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                 <color key="textColor" red="0.4823529412" green="0.4823529412" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odg-b1-khg">
-                                                <rect key="frame" x="98.666666666666671" y="215" width="55.333333333333329" height="20.333333333333343"/>
+                                                <rect key="frame" x="98.666666666666671" y="200" width="55.333333333333329" height="20.333333333333343"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="$32.30">
                                                         <attributes>
@@ -4489,7 +4471,7 @@ Nigerian Suya</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight - 900 Gram " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D43-IA-Fnw">
-                                                <rect key="frame" x="20" y="181.66666666666663" width="122" height="20"/>
+                                                <rect key="frame" x="20" y="166.66666666666663" width="122" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
                                                 <color key="textColor" name="fontColor2"/>
                                                 <nil key="highlightedColor"/>
@@ -4505,14 +4487,14 @@ Nigerian Suya</string>
                                             <constraint firstAttribute="trailing" secondItem="jgo-pZ-dGz" secondAttribute="trailing" constant="20" id="4e3-CS-NNN"/>
                                             <constraint firstAttribute="bottom" secondItem="3BG-2m-FVI" secondAttribute="bottom" constant="20" id="AOn-tX-GnW"/>
                                             <constraint firstItem="Tg2-19-E8r" firstAttribute="top" secondItem="18b-qi-lcd" secondAttribute="top" id="B86-sM-4HD"/>
-                                            <constraint firstItem="qSq-K3-SCA" firstAttribute="top" secondItem="VTq-aQ-G7r" secondAttribute="bottom" constant="10" id="DlN-6L-3Fz"/>
+                                            <constraint firstItem="qSq-K3-SCA" firstAttribute="top" secondItem="VTq-aQ-G7r" secondAttribute="bottom" constant="5" id="DlN-6L-3Fz"/>
                                             <constraint firstItem="VTq-aQ-G7r" firstAttribute="leading" secondItem="tr9-9N-pCJ" secondAttribute="leading" constant="20" id="LP8-SJ-66v"/>
                                             <constraint firstAttribute="trailing" secondItem="Tg2-19-E8r" secondAttribute="trailing" constant="20" id="NXh-BC-HB1"/>
                                             <constraint firstItem="D43-IA-Fnw" firstAttribute="top" secondItem="38s-iQ-uBa" secondAttribute="bottom" constant="10" id="O5y-cz-v6X"/>
                                             <constraint firstItem="jgo-pZ-dGz" firstAttribute="leading" secondItem="VTq-aQ-G7r" secondAttribute="trailing" constant="20" id="S0R-ft-Pkd"/>
                                             <constraint firstItem="sGy-3B-RHx" firstAttribute="top" secondItem="C0Y-f1-adw" secondAttribute="bottom" constant="10" id="TON-Bm-UEk"/>
-                                            <constraint firstItem="18b-qi-lcd" firstAttribute="top" secondItem="qSq-K3-SCA" secondAttribute="bottom" constant="20" id="ToM-Aw-cgi"/>
-                                            <constraint firstItem="3BG-2m-FVI" firstAttribute="top" secondItem="sGy-3B-RHx" secondAttribute="bottom" constant="15" id="WCB-kx-PTl"/>
+                                            <constraint firstItem="18b-qi-lcd" firstAttribute="top" secondItem="qSq-K3-SCA" secondAttribute="bottom" constant="10" id="ToM-Aw-cgi"/>
+                                            <constraint firstItem="3BG-2m-FVI" firstAttribute="top" secondItem="sGy-3B-RHx" secondAttribute="bottom" constant="10" id="WCB-kx-PTl"/>
                                             <constraint firstItem="3BG-2m-FVI" firstAttribute="leading" secondItem="sGy-3B-RHx" secondAttribute="leading" id="cDH-dc-e0j"/>
                                             <constraint firstItem="18b-qi-lcd" firstAttribute="leading" secondItem="qSq-K3-SCA" secondAttribute="leading" id="eYk-tL-95M"/>
                                             <constraint firstItem="odg-b1-khg" firstAttribute="leading" secondItem="C0Y-f1-adw" secondAttribute="trailing" constant="8" symbolic="YES" id="eed-nR-ma8"/>
@@ -4525,7 +4507,7 @@ Nigerian Suya</string>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="J3y-EU-khJ">
-                                        <rect key="frame" x="0.0" y="715.33333333333348" width="428" height="629"/>
+                                        <rect key="frame" x="0.0" y="685.33333333333337" width="428" height="629.00000000000011"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxG-iK-hFT">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="240"/>
@@ -4575,8 +4557,8 @@ Nigerian Suya</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iwT-GK-KWD">
                                                                 <rect key="frame" x="0.0" y="71" width="428" height="109"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be the first review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QS0-E6-xVt">
-                                                                        <rect key="frame" x="142" y="44" width="144" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be the first to write review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QS0-E6-xVt">
+                                                                        <rect key="frame" x="109.66666666666669" y="44" width="209" height="21"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -4617,7 +4599,7 @@ Nigerian Suya</string>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qMQ-1d-Cdc">
-                                                <rect key="frame" x="0.0" y="279.99999999999989" width="428" height="349"/>
+                                                <rect key="frame" x="0.0" y="280" width="428" height="349"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTW-pq-NNr">
                                                         <rect key="frame" x="0.0" y="0.0" width="428" height="60"/>
@@ -4626,7 +4608,7 @@ Nigerian Suya</string>
                                                                 <rect key="frame" x="20" y="0.0" width="388" height="60"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="xTd-jD-1UX">
-                                                                        <rect key="frame" x="20" y="15" width="348" height="30"/>
+                                                                        <rect key="frame" x="20" y="14.999999999999886" width="348" height="30"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Similar Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxV-pl-EQO">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="30"/>
@@ -4674,7 +4656,7 @@ Nigerian Suya</string>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVI-2M-zBK">
-                                                        <rect key="frame" x="0.0" y="70" width="428" height="279"/>
+                                                        <rect key="frame" x="0.0" y="69.999999999999886" width="428" height="279"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cNx-Uy-sw4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="279"/>
@@ -4704,7 +4686,7 @@ Nigerian Suya</string>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7k-I4-eH2">
-                                        <rect key="frame" x="139" y="935.33333333333337" width="150" height="40"/>
+                                        <rect key="frame" x="139" y="905.33333333333337" width="150" height="40"/>
                                         <color key="backgroundColor" name="themeColor3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Nvj-f4-mze"/>
@@ -4750,7 +4732,7 @@ Nigerian Suya</string>
                                     <constraint firstItem="Miy-ei-k23" firstAttribute="trailing" secondItem="8Co-op-hiA" secondAttribute="trailing" constant="-20" id="7Pw-lG-JaG"/>
                                     <constraint firstItem="J3y-EU-khJ" firstAttribute="leading" secondItem="tr9-9N-pCJ" secondAttribute="leading" id="Al9-SX-9z5"/>
                                     <constraint firstItem="8Co-op-hiA" firstAttribute="width" secondItem="5Mr-M7-qIf" secondAttribute="width" id="DQ1-Kf-Cqc"/>
-                                    <constraint firstItem="J3y-EU-khJ" firstAttribute="top" secondItem="tr9-9N-pCJ" secondAttribute="bottom" constant="20" id="H4K-3A-4nO"/>
+                                    <constraint firstItem="J3y-EU-khJ" firstAttribute="top" secondItem="tr9-9N-pCJ" secondAttribute="bottom" constant="10" id="H4K-3A-4nO"/>
                                     <constraint firstItem="tr9-9N-pCJ" firstAttribute="trailing" secondItem="8Co-op-hiA" secondAttribute="trailing" id="LcX-P4-jI8"/>
                                     <constraint firstAttribute="trailing" secondItem="8Co-op-hiA" secondAttribute="trailing" id="REr-wZ-giY"/>
                                     <constraint firstItem="tr9-9N-pCJ" firstAttribute="top" secondItem="8Co-op-hiA" secondAttribute="bottom" constant="-90" id="Vgh-f2-uxP"/>
@@ -4826,6 +4808,7 @@ Nigerian Suya</string>
                         <outlet property="addToCartBtn" destination="yXB-BD-NP8" id="q8Z-BE-XcQ"/>
                         <outlet property="addToCartView" destination="tgm-Oa-yag" id="xKR-Al-8N7"/>
                         <outlet property="beTheFirstReview" destination="iwT-GK-KWD" id="E4x-Qd-a2c"/>
+                        <outlet property="beTheFirstReviewLabel" destination="QS0-E6-xVt" id="fhq-RO-S3v"/>
                         <outlet property="cartBtn" destination="eGZ-CA-6Cr" id="uhm-K4-6Pe"/>
                         <outlet property="leftArrowBtn" destination="623-FG-fdu" id="VIG-q3-Ohq"/>
                         <outlet property="productDesc" destination="3BG-2m-FVI" id="OYN-Fu-iLI"/>
@@ -4950,8 +4933,8 @@ Nigerian Suya</string>
                                             <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
                                                 <color key="value" name="themeColor2"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="fill_star"/>
                                             <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="empty_star"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="fill_star"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -5829,7 +5812,7 @@ We will sent a link on your email</string>
         <image name="chevron.compact.left" catalog="system" width="64" height="128"/>
         <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
         <image name="empty_cart" width="13" height="14"/>
-        <image name="empty_heart" width="14" height="13"/>
+        <image name="empty_heart" width="128" height="128"/>
         <image name="empty_red_ball" width="28" height="28"/>
         <image name="empty_star" width="24" height="24"/>
         <image name="eye_hide" width="24" height="24"/>

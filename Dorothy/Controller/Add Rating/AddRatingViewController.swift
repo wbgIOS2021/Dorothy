@@ -30,6 +30,8 @@ class AddRatingViewController: UIViewController,UITextViewDelegate {
         reviewTF.delegate = self
         reviewTF.text = "Write review here..."
         reviewTF.textColor = UIColor.lightGray
+        starRatingBtns.settings.fillMode = .precise
+
     }
     
     @IBAction func cancelBtn(_ sender: Any) {

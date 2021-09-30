@@ -74,12 +74,9 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         iCarouselView.isPagingEnabled = true
         //homeBadgeBtn(qty:"0")
         homeScrollView.delegate = self
-        //scrollViewDidScroll(scrollView: homeScrollView)
         for _ in 0..<8{
             self.bolValue.append(false)
         }
-        
-        
     }
     
     
@@ -762,7 +759,8 @@ extension HomeViewController: iCarouselDelegate, iCarouselDataSource
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         var imageView: UIImageView!
         if view == nil{
-            imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-30, height: 220))
+//            imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-30, height: 220))
+            imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: iCarouselView.frame.width, height: 220))
             imageView.contentMode = .scaleToFill
         }else{
             imageView = view as? UIImageView
@@ -780,7 +778,7 @@ extension HomeViewController: iCarouselDelegate, iCarouselDataSource
         case .wrap:
             return 1
         case .spacing:
-            return 2
+           return value * 1.1
         default:
             return value
         }

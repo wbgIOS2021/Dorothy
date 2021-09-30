@@ -17,8 +17,8 @@ class RatingReviewCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        rating.settings.fillMode = .precise
         rating.isUserInteractionEnabled = false
-
     }
 
 }

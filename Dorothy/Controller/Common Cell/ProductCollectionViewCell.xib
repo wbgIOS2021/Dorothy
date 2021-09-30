@@ -34,10 +34,10 @@
                         <rect key="frame" x="10" y="10" width="171" height="231"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yib-ak-iY0">
-                                <rect key="frame" x="2" y="0.0" width="84" height="20"/>
+                                <rect key="frame" x="2" y="0.0" width="85" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Out of Stock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvd-9r-miH">
-                                        <rect key="frame" x="0.0" y="0.0" width="84" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="20"/>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
                                         <color key="textColor" name="themeColor2"/>
                                         <nil key="highlightedColor"/>
@@ -53,10 +53,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xma-hr-7Wv">
-                                <rect key="frame" x="136" y="10" width="20" height="18"/>
+                                <rect key="frame" x="137" y="10" width="24" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="DKA-fh-4ta"/>
-                                    <constraint firstAttribute="width" constant="20" id="Vja-kj-bCN"/>
+                                    <constraint firstAttribute="height" constant="24" id="DKA-fh-4ta"/>
+                                    <constraint firstAttribute="width" constant="24" id="Vja-kj-bCN"/>
                                 </constraints>
                                 <color key="tintColor" red="0.92525881529999998" green="0.2185122967" blue="0.19781026239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" backgroundImage="empty_heart"/>
@@ -128,7 +128,7 @@
                             <constraint firstItem="Xma-hr-7Wv" firstAttribute="top" secondItem="7jU-wb-8uu" secondAttribute="top" constant="10" id="fzS-0n-Kvg"/>
                             <constraint firstItem="YL2-jm-Odb" firstAttribute="centerX" secondItem="PYv-Ma-ZzP" secondAttribute="centerX" id="g0T-Vd-vnQ"/>
                             <constraint firstAttribute="trailing" secondItem="zMT-1n-ycJ" secondAttribute="trailing" id="h2m-ss-C5I"/>
-                            <constraint firstAttribute="trailing" secondItem="Xma-hr-7Wv" secondAttribute="trailing" constant="15" id="kbn-o3-BSO"/>
+                            <constraint firstAttribute="trailing" secondItem="Xma-hr-7Wv" secondAttribute="trailing" constant="10" id="kbn-o3-BSO"/>
                             <constraint firstItem="G6F-dR-ktx" firstAttribute="leading" secondItem="7jU-wb-8uu" secondAttribute="leading" constant="10" id="pvl-P9-UqT"/>
                             <constraint firstItem="0iw-xH-ai4" firstAttribute="centerY" secondItem="G6F-dR-ktx" secondAttribute="centerY" id="rpe-DV-U1I"/>
                             <constraint firstItem="QTS-ID-NDo" firstAttribute="top" secondItem="YL2-jm-Odb" secondAttribute="bottom" id="uOI-tY-khg"/>
@@ -167,7 +167,7 @@
     </objects>
     <resources>
         <image name="add_cart_icon" width="39" height="28"/>
-        <image name="empty_heart" width="14" height="13"/>
+        <image name="empty_heart" width="128" height="128"/>
         <image name="no-image" width="1000" height="1000"/>
         <namedColor name="fontColor2">
             <color red="0.19607843137254902" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
